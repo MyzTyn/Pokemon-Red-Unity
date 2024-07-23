@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using PokemonEssentials.Interface;
+using PokemonEssentials.Interface.PokeBattle;
 using PokemonUnity;
 using PokemonUnity.Monster;
 using UnityEngine;
@@ -54,7 +55,7 @@ public class PokemonMenu : MonoBehaviour
     public Image stats2portrait;
     public CustomText movetext, exptext, explefttoLeveltext, nextLeveltext, monname2text, pokedexno2;
     public List<PartyAnim> partyanims;
-    Pokemon highlightedmon;
+    IPokemon highlightedmon;
     public float partyAnimTimer = 0;
     public int switchMenuOffset, switchMenuOffsetX;
     public string[] fieldMoveNames = new string[4];
@@ -225,7 +226,7 @@ public class PokemonMenu : MonoBehaviour
         monname2text.text = GameData.instance.party[selectedMon].Name;
 
         exptext.text = TruncateExpNumber(GameData.instance.party[selectedMon].Exp.ToString());
-        explefttoLeveltext.text = TruncateExpNumber((GameData.instance.party[selectedMon].Experience.NextLevel.ToString()));
+        explefttoLeveltext.text = TruncateExpNumber(((Pokemon)GameData.instance.party[selectedMon]).Experience.NextLevel.ToString());
         nextLeveltext.text = (GameData.instance.party[selectedMon].Level < 99
             ? "<Level>" + (GameData.instance.party[selectedMon].Level + 1).ToString()
             : 100.ToString());
@@ -381,7 +382,7 @@ public class PokemonMenu : MonoBehaviour
                     int numberOfFieldMoves = 0;
                     int selectedMenu = 0;
                     selectedMon = selectedOption;
-                    Pokemon selectedPokemon = GameData.instance.party[selectedMon];
+                    IPokemon selectedPokemon = GameData.instance.party[selectedMon];
 
                     for (int i = 0; i < 4; i++)
                     {
@@ -565,7 +566,7 @@ public class PokemonMenu : MonoBehaviour
                 }
 
                 selectingPokemon = false;
-                Pokemon pokemon = GameData.instance.party[selectedOption];
+                IPokemon pokemon = GameData.instance.party[selectedOption];
 
                 if (selectedOption != selectedMon)
                 {
@@ -597,7 +598,7 @@ public class PokemonMenu : MonoBehaviour
     IEnumerator Switch()
     {
         //Swap selected Pokemon.
-        Pokemon pokemon = GameData.instance.party[selectedOption];
+        IPokemon pokemon = GameData.instance.party[selectedOption];
         GameData.instance.party[selectedOption] = GameData.instance.party[selectedMon];
         GameData.instance.party[selectedMon] = pokemon;
         yield return null;

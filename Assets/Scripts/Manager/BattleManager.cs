@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using PokemonEssentials.Interface;
+using PokemonEssentials.Interface.PokeBattle;
 using PokemonUnity;
 using PokemonUnity.Monster;
 using UnityEngine.UI;
@@ -39,7 +40,7 @@ public class BattleManager : MonoBehaviour
 
     public int battleID;
 
-    public List<Pokemon> enemyMons = new List<Pokemon>();
+    public List<IPokemon> enemyMons = new List<IPokemon>();
     public GameObject playerstats, enemystatsObject;
     public Animator battleMainAnim, battleTransitionAnim;
     public GameObject playerpokeballs, enemyballs;
@@ -48,14 +49,14 @@ public class BattleManager : MonoBehaviour
     public GameObject playerMonObject, playerObject, trainerObject, enemyMonObject;
 
     //current loaded playermon stats
-    public Pokemon playermon;
+    public IPokemon playermon;
     public CustomText playerHpText, playerName, playermonLeveltext;
     public Image playerHPBar;
     public Image[] playerPartyBalls;
     //current loaded enemymon stats
 
-    public List<Pokemon> enemyParty = new List<Pokemon>();
-    public Pokemon enemymon;
+    public List<IPokemon> enemyParty = new List<IPokemon>();
+    public IPokemon enemymon;
     public CustomText enemymonLeveltext, enemymonname;
     public Image enemyHPBar;
 

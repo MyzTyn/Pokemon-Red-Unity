@@ -6,6 +6,7 @@ using System;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using PokemonEssentials.Interface.PokeBattle;
 using PokemonUnity;
 using PokemonUnity.Monster;
 
@@ -101,7 +102,7 @@ public class GameData : Singleton<GameData>
     public List<Moves> fieldMoves = new List<Moves>(new Moves[]
         { Moves.TELEPORT, Moves.FLY, Moves.CUT, Moves.SURF, Moves.DIG, Moves.STRENGTH, Moves.FLASH, Moves.SOFT_BOILED });
 
-    public List<Pokemon> party = new List<Pokemon>();
+    public List<IPokemon> party = new List<IPokemon>();
     [HideInInspector] public Sprite[] frontMonSprites, backMonSprites;
     public bool isPaused, inGame, atTitleScreen;
     public SaveData saveData;
@@ -125,7 +126,7 @@ public class GameData : Singleton<GameData>
     {
         party.Add(new Pokemon(pokemon, level, false));
         // ToDo: Fix the null reference
-        party.Last().SetNickname(pokemon.ToString());
+        ((Pokemon)party.Last()).SetNickname(pokemon.ToString());
     }
 
 

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using PokemonEssentials.Interface.PokeBattle;
 using PokemonUnity;
+using PokemonUnity.Attack;
 using PokemonUnity.Inventory;
 using PokemonUnity.Monster;
 using UnityEngine;
@@ -87,10 +89,10 @@ public class Player : Singleton<Player>
     void Start()
     {
         GameData.instance.AddPokemonToParty(Pokemons.MEW, 35);
-        // ToDo: Set those moves
-        // GameData.instance.party[0].SetMove(Moves.Cut, 0);
-        // GameData.instance.party[0].SetMove(Moves.Surf, 1);
-        // GameData.instance.party[0].SetMove(Moves.Softboiled, 2);
+        // Set the moves
+        GameData.instance.party[0].moves[0] = new Move(Moves.CUT);
+        GameData.instance.party[0].moves[1] = new Move(Moves.SURF);
+        GameData.instance.party[0].moves[2] = new Move(Moves.SOFT_BOILED);
         GameData.instance.trainerID = Random.Range(0, 65536);
         direction = Direction.Down;
         targetPos = transform.position;
@@ -720,7 +722,7 @@ public class Player : Singleton<Player>
         }
 
         battleManager.battleType = BattleType.Wild;
-        battleManager.enemyMons = new List<Pokemon>(new Pokemon[] { new Pokemon(pokemon.Item1, (byte)pokemon.Item2, true) });
+        battleManager.enemyMons = new List<IPokemon>(new Pokemon[] { new Pokemon(pokemon.Item1, (byte)pokemon.Item2, true) });
         battlemenu.SetActive(true);
         battleManager.battleoverlay.sprite = battleManager.blank;
         battleManager.Initialize();
