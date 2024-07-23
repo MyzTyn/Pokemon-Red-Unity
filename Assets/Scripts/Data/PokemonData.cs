@@ -265,9 +265,9 @@ public class PokemonData
         }),
     });
     
+    // ToDo: Remove TypeEffectiveness and Move shopItemsLists somewhere
     public static Dictionary<Types, Dictionary<Types, float>> TypeEffectiveness =
         new Dictionary<Types, Dictionary<Types, float>>();
-
     public static Dictionary<string, string[]> shopItemsLists = new Dictionary<string, string[]>();
 
     public static Moves[] TMHMMoves =

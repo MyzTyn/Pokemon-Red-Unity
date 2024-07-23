@@ -16,13 +16,12 @@ public class PokemonDataJSON : MonoBehaviour
     {
         // ToDo: Remove the PokemonDataJSON
         //this should also be a class list
-        PokemonData.TypeEffectiveness =
-            Serializer.JSONtoObject<Dictionary<Types, Dictionary<Types, float>>>("typeEffectiveness.json");
+        //PokemonData.TypeEffectiveness = Serializer.JSONtoObject<Dictionary<Types, Dictionary<Types, float>>>("typeEffectiveness.json");
         PokemonData.pokemonData = Serializer.JSONtoObject<List<PokemonDataEntry>>("pokemonData.json");
         //PokemonData.moves = Serializer.JSONtoObject<List<MoveData>>("moveData.json");
         //PokemonData.itemData = Serializer.JSONtoObject<List<ItemDataEntry>>("itemData.json");
         //also should be changed
-        PokemonData.shopItemsLists = Serializer.JSONtoObject<Dictionary<string, string[]>>("shopItemsData.json");
+        //PokemonData.shopItemsLists = Serializer.JSONtoObject<Dictionary<string, string[]>>("shopItemsData.json");
         
         // Load the PokemonUnity Framework
         try
