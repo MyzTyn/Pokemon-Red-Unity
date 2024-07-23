@@ -2,44 +2,8 @@
 using System.Collections.Generic;
 using System.Data.SQLite;
 using PokemonUnity;
-using PokemonUnity.Localization;
 using UnityEngine;
 using UnityEngine.Windows;
-using Object = UnityEngine.Object;
-
-public class CustomLogger : IDebugger
-{
-    public void Init(string logfilePath, string logBaseName)
-    {
-        
-    }
-
-    public void Log(string message, params object[] param)
-    {
-        Debug.Log(string.Format(message, param));
-    }
-
-    public void LogDebug(string message, params object[] param)
-    {
-        Debug.Log(string.Format(message, param));
-    }
-
-    public void LogWarning(string message, params object[] param)
-    {
-        Debug.LogWarning(string.Format(message, param));
-    }
-
-    public void LogError(string message, params object[] param)
-    {
-        Debug.LogError(string.Format(message, param));
-    }
-
-    public void Shutdown()
-    {
-    }
-
-    public event EventHandler<OnDebugEventArgs> OnLog;
-}
 
 public class PokemonDataJSON : MonoBehaviour
 {
