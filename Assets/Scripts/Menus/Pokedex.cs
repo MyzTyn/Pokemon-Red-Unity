@@ -23,7 +23,8 @@ public class Pokedex : MonoBehaviour
             int seennumber = 0;
             foreach (PokedexEntry entry in GameData.instance.pokedexlist)
             {
-                if (entry.seen) seennumber++;
+                if (entry.seen) 
+                    seennumber++;
             }
 
             return seennumber;
@@ -37,7 +38,8 @@ public class Pokedex : MonoBehaviour
             int caughtnumber = 0;
             foreach (PokedexEntry entry in GameData.instance.pokedexlist)
             {
-                if (entry.caught) caughtnumber++;
+                if (entry.caught) 
+                    caughtnumber++;
             }
 
             return caughtnumber;

@@ -126,9 +126,8 @@ public class GameData : Singleton<GameData>
     {
         party.Add(new Pokemon(pokemon, level, false));
         // ToDo: Fix the null reference
-        ((Pokemon)party.Last()).SetNickname(pokemon.ToString());
+        ((Pokemon)party.Last()).SetNickname(TempLocalizationXML.instance.GetStr(pokemon.ToString(TextScripts.Name)));
     }
-
 
     public void SetEvent(Events eventToSet, bool state)
     {

@@ -151,7 +151,8 @@ public class PokemonData
     
     public static string IndexToMon(int index)
     {
-        return ((Pokemons)index).ToString(TextScripts.Name);
+        // ToDo: Remove the TempLocalizationXML
+        return TempLocalizationXML.instance.GetStr(((Pokemons)index).ToString(TextScripts.Name));
     }
 
     public static List<PokemonDataEntry> pokemonData = new List<PokemonDataEntry>();
