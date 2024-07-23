@@ -115,10 +115,11 @@ public class PokemonDataEntry
 
 public class PokemonData
 {
-    public static MoveData GetMove(int moveToGet)
+    public static PokemonUnity.Attack.Data.MoveData GetMove(int moveToGet)
     {
         //Debug.Log("Requesting move " + "\"" + moveToGet + "\"");
-        if (moveToGet < moves.Count && moveToGet != (int)Moves.None) return moves[moveToGet - 1];
+        if (moveToGet < Kernal.MoveData.Count && moveToGet != (int)Moves.NONE) return Kernal.MoveData[(Moves)(moveToGet - 1)];
+        
         //If the index is out of range, throw an exception.
         throw new IndexOutOfRangeException("The move index is out of range.");
     }
@@ -143,11 +144,7 @@ public class PokemonData
     {
         return TMHMMoves[tmhmIndex];
     }
-
-    //Format: name, power, type, accuracy, max pp, effect
-    public static List<MoveData> moves = new List<MoveData>();
-
-
+    
     public static string IndexToMon(int index)
     {
         return pokemonData[index - 1].name;
@@ -294,60 +291,60 @@ public class PokemonData
 
     public static Moves[] TMHMMoves =
     {
-        Moves.MegaPunch,
-        Moves.RazorWind,
-        Moves.SwordsDance,
-        Moves.Whirlwind,
-        Moves.MegaKick,
-        Moves.Toxic,
-        Moves.HornDrill,
-        Moves.BodySlam,
-        Moves.TakeDown,
-        Moves.DoubleEdge,
-        Moves.Bubblebeam,
-        Moves.WaterGun,
-        Moves.IceBeam,
-        Moves.Blizzard,
-        Moves.HyperBeam,
-        Moves.PayDay,
-        Moves.Submission,
-        Moves.Counter,
-        Moves.SeismicToss,
-        Moves.Rage,
-        Moves.MegaDrain,
-        Moves.Solarbeam,
-        Moves.DragonRage,
-        Moves.Thunderbolt,
-        Moves.Thunder,
-        Moves.Earthquake,
-        Moves.Fissure,
-        Moves.Dig,
-        Moves.Psychic,
-        Moves.Teleport,
-        Moves.Mimic,
-        Moves.DoubleTeam,
-        Moves.Reflect,
-        Moves.Bide,
-        Moves.Metronome,
-        Moves.Selfdestruct,
-        Moves.EggBomb,
-        Moves.FireBlast,
-        Moves.Swift,
-        Moves.SkullBash,
-        Moves.Softboiled,
-        Moves.DreamEater,
-        Moves.SkyAttack,
-        Moves.Rest,
-        Moves.ThunderWave,
-        Moves.Psywave,
-        Moves.Explosion,
-        Moves.RockSlide,
-        Moves.TriAttack,
-        Moves.Substitute,
-        Moves.Cut,
-        Moves.Fly,
-        Moves.Surf,
-        Moves.Strength,
-        Moves.Flash
+        Moves.MEGA_PUNCH,
+        Moves.RAZOR_WIND,
+        Moves.SWORDS_DANCE,
+        Moves.WHIRLWIND,
+        Moves.MEGA_KICK,
+        Moves.TOXIC,
+        Moves.HORN_DRILL,
+        Moves.BODY_SLAM,
+        Moves.TAKE_DOWN,
+        Moves.DOUBLE_EDGE,
+        Moves.BUBBLE_BEAM,
+        Moves.WATER_GUN,
+        Moves.ICE_BEAM,
+        Moves.BLIZZARD,
+        Moves.HYPER_BEAM,
+        Moves.PAY_DAY,
+        Moves.SUBMISSION,
+        Moves.COUNTER,
+        Moves.SEISMIC_TOSS,
+        Moves.RAGE,
+        Moves.MEGA_DRAIN,
+        Moves.SOLAR_BEAM,
+        Moves.DRAGON_RAGE,
+        Moves.THUNDERBOLT,
+        Moves.THUNDER,
+        Moves.EARTHQUAKE,
+        Moves.FISSURE,
+        Moves.DIG,
+        Moves.PSYCHIC,
+        Moves.TELEPORT,
+        Moves.MIMIC,
+        Moves.DOUBLE_TEAM,
+        Moves.REFLECT,
+        Moves.BIDE,
+        Moves.METRONOME,
+        Moves.SELF_DESTRUCT,
+        Moves.EGG_BOMB,
+        Moves.FIRE_BLAST,
+        Moves.SWIFT,
+        Moves.SKULL_BASH,
+        Moves.SOFT_BOILED,
+        Moves.DREAM_EATER,
+        Moves.SKY_ATTACK,
+        Moves.REST,
+        Moves.THUNDER_WAVE,
+        Moves.PSYWAVE,
+        Moves.EXPLOSION,
+        Moves.ROCK_SLIDE,
+        Moves.TRI_ATTACK,
+        Moves.SUBSTITUTE,
+        Moves.CUT,
+        Moves.FLY,
+        Moves.SURF,
+        Moves.STRENGTH,
+        Moves.FLASH
     };
 }

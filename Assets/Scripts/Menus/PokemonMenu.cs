@@ -628,9 +628,10 @@ public class PokemonMenu : MonoBehaviour
 
     public bool hasFieldMove(Pokemon pokemon)
     {
-        foreach (Move move in pokemon.moves)
+        foreach (IMove move in pokemon.moves)
         {
-            if (GameData.instance.fieldMoves.Contains(move.name)) return true;
+            if (GameData.instance.fieldMoves.Contains(move.id)) 
+                return true;
         }
 
         return false;
@@ -638,7 +639,9 @@ public class PokemonMenu : MonoBehaviour
 
     public bool isFieldMove(IMove move)
     {
-        if (GameData.instance.fieldMoves.Contains(move.id.ToString())) return true;
+        if (GameData.instance.fieldMoves.Contains(move.id)) 
+            return true;
+        
         else return false;
     }
 

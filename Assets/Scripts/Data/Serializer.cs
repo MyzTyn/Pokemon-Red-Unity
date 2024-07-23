@@ -42,7 +42,7 @@ public class Serializer
     {
         var settings = new JsonSerializerSettings
         {
-            Converters = new List<JsonConverter> { new PokemonsEnumConverter(), new StringEnumConverter(), new TypesEnumConverter() }
+            Converters = new List<JsonConverter> { new PokemonsEnumConverter(), new MovesEnumConverter(), new StringEnumConverter(), new TypesEnumConverter() }
         };
         
         //save a json file to the StreamingAssets folder.
@@ -64,7 +64,7 @@ public class Serializer
         
         var settings = new JsonSerializerSettings
         {
-            Converters = new List<JsonConverter> { new PokemonsEnumConverter(), new TypesEnumConverter(), new StringEnumConverter() }
+            Converters = new List<JsonConverter> { new PokemonsEnumConverter(), new TypesEnumConverter(), new MovesEnumConverter(), new StringEnumConverter() }
         };
         return JsonConvert.DeserializeObject<T>(tmlearndata, settings);
     }

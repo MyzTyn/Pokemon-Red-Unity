@@ -98,8 +98,8 @@ public class SaveData
 //Class containing all the core data of the game.
 public class GameData : Singleton<GameData>
 {
-    public List<string> fieldMoves = new List<string>(new string[]
-        { "Teleport", "Fly", "Cut", "Surf", "Dig", "Strength", "Flash", "Softboiled" });
+    public List<Moves> fieldMoves = new List<Moves>(new Moves[]
+        { Moves.TELEPORT, Moves.FLY, Moves.CUT, Moves.SURF, Moves.DIG, Moves.STRENGTH, Moves.FLASH, Moves.SOFT_BOILED });
 
     public List<Pokemon> party = new List<Pokemon>();
     [HideInInspector] public Sprite[] frontMonSprites, backMonSprites;

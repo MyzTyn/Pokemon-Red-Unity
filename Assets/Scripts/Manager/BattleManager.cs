@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using PokemonEssentials.Interface;
+using PokemonUnity;
 using PokemonUnity.Monster;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
@@ -22,6 +24,7 @@ public enum BattleState
     End
 }
 
+// ToDo: Use PokemonUnity's Battle Manager
 public class BattleManager : MonoBehaviour
 {
     public class BattleStatus
@@ -487,86 +490,86 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
+    
     void UseMove(Moves move)
     {
-        MoveData moveData = PokemonData.GetMove((int)move);
-
-        switch (moveData.effect)
-        {
-            case MoveEffect.NoEffect: break;
-            case MoveEffect.TwoFiveEffect: break;
-            case MoveEffect.PayDayEffect: break;
-            case MoveEffect.BurnSideEffect1: break;
-            case MoveEffect.FreezeSideEffect: break;
-            case MoveEffect.ParalyzeSideEffect1: break;
-            case MoveEffect.OhkoEffect: break;
-            case MoveEffect.ChargeEffect: break;
-            case MoveEffect.AttackUp2Effect: break;
-            case MoveEffect.SwitchTeleportEffect: break;
-            case MoveEffect.FlyEffect: break;
-            case MoveEffect.TrappingEffect: break;
-            case MoveEffect.FlinchSideEffect2: break;
-            case MoveEffect.DoubleAttackEffect: break;
-            case MoveEffect.JumpKickEffect: break;
-            case MoveEffect.AccuracyDown1Effect: break;
-            case MoveEffect.ParalyzeSideEffect2: break;
-            case MoveEffect.RecoilEffect: break;
-            case MoveEffect.ThrashEffect: break;
-            case MoveEffect.DefenseDown1Effect: break;
-            case MoveEffect.PoisonSideEffect1: break;
-            case MoveEffect.TwinNeedleEffect: break;
-            case MoveEffect.FlinchSideEffect1: break;
-            case MoveEffect.AttackDown1Effect: break;
-            case MoveEffect.SleepEffect: break;
-            case MoveEffect.ConfusionEffect: break;
-            case MoveEffect.SpecialDamageEffect: break;
-            case MoveEffect.DisableEffect: break;
-            case MoveEffect.DefenseDownSideEffect: break;
-            case MoveEffect.MistEffect: break;
-            case MoveEffect.ConfusionSideEffect: break;
-            case MoveEffect.SpeedDownSideEffect: break;
-            case MoveEffect.AttackDownSideEffect: break;
-            case MoveEffect.HyperBeamEffect: break;
-            case MoveEffect.DrainHpEffect: break;
-            case MoveEffect.LeechSeedEffect: break;
-            case MoveEffect.SpecialUp1Effect: break;
-            case MoveEffect.PoisonEffect: break;
-            case MoveEffect.ParalyzeEffect: break;
-            case MoveEffect.SpeedDown1Effect: break;
-            case MoveEffect.SpecialDownSideEffect: break;
-            case MoveEffect.AttackUp1Effect: break;
-            case MoveEffect.SpeedUp2Effect: break;
-            case MoveEffect.RageEffect: break;
-            case MoveEffect.MimicEffect: break;
-            case MoveEffect.DefenseDown2Effect: break;
-            case MoveEffect.EvasionUp1Effect: break;
-            case MoveEffect.HealEffect: break;
-            case MoveEffect.DefenseUp1Effect: break;
-            case MoveEffect.DefenseUp2Effect: break;
-            case MoveEffect.LightScreenEffect: break;
-            case MoveEffect.HazeEffect: break;
-            case MoveEffect.ReflectEffect: break;
-            case MoveEffect.FocusEffect: break;
-            case MoveEffect.BideEffect: break;
-            case MoveEffect.MetronomeEffect: break;
-            case MoveEffect.MirrorMoveEffect: break;
-            case MoveEffect.ExplodeEffect: break;
-            case MoveEffect.PoisonSideEffect2: break;
-            case MoveEffect.BurnSideEffect2: break;
-            case MoveEffect.SwiftEffect: break;
-            case MoveEffect.SpecialUp2Effect: break;
-            case MoveEffect.DreamEaterEffect: break;
-            case MoveEffect.TransformEffect: break;
-            case MoveEffect.SplashEffect: break;
-            case MoveEffect.ConversionEffect: break;
-            case MoveEffect.SuperFangEffect: break;
-            case MoveEffect.SubstituteEffect: break;
-        }
+        // MoveData moveData = PokemonData.GetMove((int)move);
+        //
+        // switch (moveData.effect)
+        // {
+        //     case MoveEffect.NoEffect: break;
+        //     case MoveEffect.TwoFiveEffect: break;
+        //     case MoveEffect.PayDayEffect: break;
+        //     case MoveEffect.BurnSideEffect1: break;
+        //     case MoveEffect.FreezeSideEffect: break;
+        //     case MoveEffect.ParalyzeSideEffect1: break;
+        //     case MoveEffect.OhkoEffect: break;
+        //     case MoveEffect.ChargeEffect: break;
+        //     case MoveEffect.AttackUp2Effect: break;
+        //     case MoveEffect.SwitchTeleportEffect: break;
+        //     case MoveEffect.FlyEffect: break;
+        //     case MoveEffect.TrappingEffect: break;
+        //     case MoveEffect.FlinchSideEffect2: break;
+        //     case MoveEffect.DoubleAttackEffect: break;
+        //     case MoveEffect.JumpKickEffect: break;
+        //     case MoveEffect.AccuracyDown1Effect: break;
+        //     case MoveEffect.ParalyzeSideEffect2: break;
+        //     case MoveEffect.RecoilEffect: break;
+        //     case MoveEffect.ThrashEffect: break;
+        //     case MoveEffect.DefenseDown1Effect: break;
+        //     case MoveEffect.PoisonSideEffect1: break;
+        //     case MoveEffect.TwinNeedleEffect: break;
+        //     case MoveEffect.FlinchSideEffect1: break;
+        //     case MoveEffect.AttackDown1Effect: break;
+        //     case MoveEffect.SleepEffect: break;
+        //     case MoveEffect.ConfusionEffect: break;
+        //     case MoveEffect.SpecialDamageEffect: break;
+        //     case MoveEffect.DisableEffect: break;
+        //     case MoveEffect.DefenseDownSideEffect: break;
+        //     case MoveEffect.MistEffect: break;
+        //     case MoveEffect.ConfusionSideEffect: break;
+        //     case MoveEffect.SpeedDownSideEffect: break;
+        //     case MoveEffect.AttackDownSideEffect: break;
+        //     case MoveEffect.HyperBeamEffect: break;
+        //     case MoveEffect.DrainHpEffect: break;
+        //     case MoveEffect.LeechSeedEffect: break;
+        //     case MoveEffect.SpecialUp1Effect: break;
+        //     case MoveEffect.PoisonEffect: break;
+        //     case MoveEffect.ParalyzeEffect: break;
+        //     case MoveEffect.SpeedDown1Effect: break;
+        //     case MoveEffect.SpecialDownSideEffect: break;
+        //     case MoveEffect.AttackUp1Effect: break;
+        //     case MoveEffect.SpeedUp2Effect: break;
+        //     case MoveEffect.RageEffect: break;
+        //     case MoveEffect.MimicEffect: break;
+        //     case MoveEffect.DefenseDown2Effect: break;
+        //     case MoveEffect.EvasionUp1Effect: break;
+        //     case MoveEffect.HealEffect: break;
+        //     case MoveEffect.DefenseUp1Effect: break;
+        //     case MoveEffect.DefenseUp2Effect: break;
+        //     case MoveEffect.LightScreenEffect: break;
+        //     case MoveEffect.HazeEffect: break;
+        //     case MoveEffect.ReflectEffect: break;
+        //     case MoveEffect.FocusEffect: break;
+        //     case MoveEffect.BideEffect: break;
+        //     case MoveEffect.MetronomeEffect: break;
+        //     case MoveEffect.MirrorMoveEffect: break;
+        //     case MoveEffect.ExplodeEffect: break;
+        //     case MoveEffect.PoisonSideEffect2: break;
+        //     case MoveEffect.BurnSideEffect2: break;
+        //     case MoveEffect.SwiftEffect: break;
+        //     case MoveEffect.SpecialUp2Effect: break;
+        //     case MoveEffect.DreamEaterEffect: break;
+        //     case MoveEffect.TransformEffect: break;
+        //     case MoveEffect.SplashEffect: break;
+        //     case MoveEffect.ConversionEffect: break;
+        //     case MoveEffect.SuperFangEffect: break;
+        //     case MoveEffect.SubstituteEffect: break;
+        // }
     }
 
     // ToDo: Don't need this
-    float moveEffectiveness(Move move, Pokemon target)
+    float moveEffectiveness(IMove move, Pokemon target)
     {
         // float result = PokemonData.TypeEffectiveness[move.type][target.Type1];
         // if (target.Type2 != Types.None) result *= PokemonData.TypeEffectiveness[move.type][target.Type1];
