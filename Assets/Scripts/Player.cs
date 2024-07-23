@@ -136,7 +136,7 @@ public class Player : Singleton<Player>
 
 
         if (Dialogue.instance.finishedText && !isDisabled && !menuActive && !startMenuActive && !inBattle &&
-            !manuallyWalking && !GameData.instance.atTitleScreen)
+            !manuallyWalking && !GameState.instance.atTitleScreen)
         {
             if (InputManager.Released(Button.Left) || InputManager.Released(Button.Right) ||
                 InputManager.Released(Button.Up) || InputManager.Released(Button.Down))
@@ -272,7 +272,7 @@ public class Player : Singleton<Player>
                                     int rand = Random.Range(0, 256);
                                     EncounterData table = (currentTile.hasGrass
                                         ? currentAreaTable
-                                        : PokemonData.encounters[55]);
+                                        : DataLoader.instance.encounters[55]);
                                     if (rand < currentAreaTable.encounterChance)
                                     {
                                         rand = Random.Range(0, 256);
@@ -457,7 +457,7 @@ public class Player : Singleton<Player>
 
     void FixedUpdate()
     {
-        if (GameData.instance.atTitleScreen) return;
+        if (GameState.instance.atTitleScreen) return;
         StartCoroutine(MovementUpdate());
         movingHitbox.transform.position = targetPos;
     }
@@ -466,7 +466,7 @@ public class Player : Singleton<Player>
     // Update is called once per frame
     void Update()
     {
-        if (GameData.instance.atTitleScreen) return;
+        if (GameState.instance.atTitleScreen) return;
         //StartCoroutine(MovementUpdate());
         //movingHitbox.transform.position = targetPos;
 
@@ -876,7 +876,7 @@ public class Player : Singleton<Player>
     {
         if (col.gameObject.tag == "MapCollider")
         {
-            if (GameData.instance.atTitleScreen) return;
+            if (GameState.instance.atTitleScreen) return;
             MapCollider mapCollider = col.gameObject.GetComponent<MapCollider>();
             currentArea = mapCollider.mapArea;
             int mapArea = (int)mapCollider.mapArea;
@@ -891,15 +891,15 @@ public class Player : Singleton<Player>
                 forcePlayerBikeDownwards =
                     true; //if the player is on Route 17 (Cycling Road), force the player to move downwards
             else forcePlayerBikeDownwards = false;
-            if (GameData.instance.WaterEncounterMaps.Contains(currentArea)) areaHasWaterEncounters = true;
+            if (GameState.instance.WaterEncounterMaps.Contains(currentArea)) areaHasWaterEncounters = true;
             else areaHasWaterEncounters = false;
-            if (GameData.instance.MapGrassEncounterTableIndices[mapArea] != -1)
-                currentAreaTable = PokemonData.encounters[GameData.instance.MapGrassEncounterTableIndices[mapArea]];
+            if (GameState.instance.MapGrassEncounterTableIndices[mapArea] != -1)
+                currentAreaTable = DataLoader.instance.encounters[GameState.instance.MapGrassEncounterTableIndices[mapArea]];
             else currentAreaTable = null;
             if (currentArea == Map.House) return; //if the current area is a house, don't change the music
             Music song = SoundManager.MapSongs[mapArea];
             if (SoundManager.instance.currentSong != (int)song && walkSurfBikeState == MovementState.Walk &&
-                !inBattle && !GameData.instance.isPlayingCredits)
+                !inBattle && !GameState.instance.isPlayingCredits)
             {
                 if (SoundManager.instance.isFadingSong)
                 {

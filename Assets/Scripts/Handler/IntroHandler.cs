@@ -26,7 +26,7 @@ public class IntroHandler : MonoBehaviour
 
     public void InitVersion()
     {
-        switch (GameData.instance.version)
+        switch (DataLoader.instance.versionManager.version)
         {
             case Version.Red:
                 anim.runtimeAnimatorController = redController;
@@ -39,7 +39,7 @@ public class IntroHandler : MonoBehaviour
 
     public void Init()
     {
-        GameData.instance.atTitleScreen = true;
+        GameState.instance.atTitleScreen = true;
         InputManager.Disable(Button.Start);
         Player.instance.isDisabled = true;
         Title.instance.animationsFinished = false;

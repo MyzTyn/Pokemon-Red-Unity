@@ -19169,7 +19169,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 967277704}
-  - component: {fileID: 967277705}
+  - component: {fileID: 967277710}
+  - component: {fileID: 967277709}
   - component: {fileID: 967277706}
   - component: {fileID: 967277708}
   - component: {fileID: 967277707}
@@ -19196,35 +19197,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &967277705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 967277703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30855e1b9d0e64ad3b0d6af7e1bb8fa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameScenes:
-  - {fileID: 2093882058}
-  - {fileID: 0}
-  mainRender: {fileID: 8400000, guid: bae434d9fa5653f4e82ec48d77ed3618, type: 2}
-  postRender: {fileID: 0}
-  templateRenderTexture: {fileID: 0}
-  ms: 0
-  slots: {fileID: 716639417}
-  pokemonMenu: {fileID: 2134000012}
-  options: {fileID: 767987609}
-  title: {fileID: 2101651166}
-  introHandler: {fileID: 1058242710}
-  oakIntroCutsceneHandler: {fileID: 875652107}
-  pokedex: {fileID: 43978414}
-  fontAtlas: {fileID: 11400000, guid: 6430ed7b9c95c0046a5e6a93065ae9cb, type: 2}
-  pc: {fileID: 945194428}
-  startInGame: 1
 --- !u!114 &967277706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19277,6 +19249,49 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f8bf9314581ec4106884268abda547e5, type: 3}
   sgbCanvas: {fileID: 117468065}
   renderCamera: {fileID: 412417085}
+--- !u!114 &967277709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967277703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83e5bf9043f48739c68c632b7c064a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startIntroScene: 0
+  isPaused: 0
+  inGame: 0
+  atTitleScreen: 0
+  textChoice: 0
+  animationChoice: 0
+  battleChoice: 0
+  isPlayingCredits: 0
+  fieldMoves: 64000000130000000f000000390000005b000000460000009400000087000000
+  MapGrassEncounterTableIndices: ffffffffffffffff10000000ffffffffffffffffffffffffffffffff2300000024000000330000003400000035000000ffffffffffffffffffffffffffffffffffffffff110000003600000000000000ffffffff1200000003000000040000000500000013000000ffffffff250000002600000014000000ffffffff15000000ffffffffffffffff1a00000018000000190000000e0000000f0000000d000000ffffffffffffffffffffffff08000000090000000a0000000b0000000c0000001700000016000000ffffffffffffffffffffffff1f0000002000000021000000ffffffff2a000000270000002800000029000000ffffffff1e0000001d0000001c0000001b000000ffffffffffffffffffffffff2b0000002c0000002d0000002e0000002f000000ffffffffffffffff0100000002000000030000000400000022000000300000003100000032000000ffffffffffffffffffffffffffffffffffffffffffffffff
+  WaterEncounterMaps: 440000004a00000050000000080000004100000045000000460000004700000048000000490000005100000053000000
+--- !u!114 &967277710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967277703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 480f72989486498f8ebc497a8d177773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots: {fileID: 716639417}
+  pokemonMenu: {fileID: 2134000012}
+  options: {fileID: 767987609}
+  title: {fileID: 2101651166}
+  introHandler: {fileID: 1058242710}
+  oakIntroCutsceneHandler: {fileID: 875652107}
+  pokedex: {fileID: 43978414}
+  pc: {fileID: 945194428}
 --- !u!1 &969743531
 GameObject:
   m_ObjectHideFlags: 0
@@ -37338,7 +37353,7 @@ PrefabInstance:
     - target: {fileID: 2436992635845147195, guid: 6a4a4af90262eb944890f9d034c81d79,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[14].second.m_AnimationSpeed
-      value: 2.3809
+      value: 2.3809001
       objectReference: {fileID: 0}
     - target: {fileID: 2436992635845147195, guid: 6a4a4af90262eb944890f9d034c81d79,
         type: 3}
@@ -38306,9 +38321,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1830541366}
-  - component: {fileID: 1830541367}
-  - component: {fileID: 1830541368}
   - component: {fileID: 1830541369}
+  - component: {fileID: 1830541370}
   m_Layer: 0
   m_Name: PokemonDataManager
   m_TagString: Untagged
@@ -38331,61 +38345,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1830541367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830541364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31d2e0db4b0da4ab4a7bb1a68f102641, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  versionManager: {fileID: 967277708}
---- !u!114 &1830541368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830541364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e59b87bc6c9474446944eb7c92ebfeea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fieldMoves: 0000000000000000000000000000000000000000000000000000000000000000
-  frontMonSprites: []
-  backMonSprites: []
-  isPaused: 0
-  inGame: 0
-  atTitleScreen: 0
-  saveData:
-    dummy: 0
-    chosenStarter: 0
-    eventsArray: 
-  hasBadge: 0000000000000000
-  money: 0
-  coins: 0
-  trainerID: 0
-  textChoice: 0
-  animationChoice: 0
-  battleChoice: 0
-  playerName: 
-  rivalName: 
-  hours: 0
-  minutes: 0
-  seconds: 0
-  chosenStarter: 0
-  hasMetBill: 0
-  isPlayingCredits: 0
-  version: 0
-  fontAtlas: {fileID: 0}
-  eventsArray: 
-  MapGrassEncounterTableIndices: ffffffffffffffff10000000ffffffffffffffffffffffffffffffff2300000024000000330000003400000035000000ffffffffffffffffffffffffffffffffffffffff110000003600000000000000ffffffff1200000003000000040000000500000013000000ffffffff250000002600000014000000ffffffff15000000ffffffffffffffff1a000000180000000e0000000f0000000d000000ffffffff16000000ffffffffffffffff08000000090000000a0000000b0000000c000000ffffffffffffffffffffffff1f0000002000000021000000ffffffff2a000000270000002800000029000000ffffffff1e0000001d0000001c0000001b000000ffffffffffffffffffffffff2b0000002c0000002d0000002e0000002f000000ffffffffffffffff0100000002000000030000000400000022000000300000003100000032000000ffffffffffffffffffffffffffffffff
-  WaterEncounterMaps: 440000004a00000050000000080000004100000045000000460000004700000048000000490000005100000053000000
 --- !u!114 &1830541369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38401,6 +38360,30 @@ MonoBehaviour:
   items: []
   pcItems: []
   keyItems: 2b0000000600000029000000280000002e00000042000000480000003d0000004a0000004400000047000000430000001e0000004900000046000000080000003c0000002a000000450000004b00000005000000
+--- !u!114 &1830541370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830541364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7607e47667294dedaaa72a7bfc2c8674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainRender: {fileID: 8400000, guid: bae434d9fa5653f4e82ec48d77ed3618, type: 2}
+  postRender: {fileID: 0}
+  templateRenderTexture: {fileID: 0}
+  versionManager: {fileID: 967277708}
+  frontMonSprites: []
+  backMonSprites: []
+  rivalName: 
+  coins: 0
+  hours: 0
+  minutes: 0
+  seconds: 0
+  fontAtlas: {fileID: 11400000, guid: 6430ed7b9c95c0046a5e6a93065ae9cb, type: 2}
 --- !u!1 &1831406977
 GameObject:
   m_ObjectHideFlags: 0
@@ -47521,7 +47504,7 @@ PrefabInstance:
     - target: {fileID: 5599873086172882299, guid: dc0c3f652d4dcf24ba1f503ba39a026d,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[43].second.m_AnimationSpeed
-      value: 2.3809
+      value: 2.3809001
       objectReference: {fileID: 0}
     - target: {fileID: 5599873086172882299, guid: dc0c3f652d4dcf24ba1f503ba39a026d,
         type: 3}

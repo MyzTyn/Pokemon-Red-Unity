@@ -100,7 +100,7 @@ public class Slots : MonoBehaviour
     public void Init()
     {
         instance = this;
-        if (GameData.instance.version == Version.Red)
+        if (DataLoader.instance.versionManager.version == Version.Red)
         {
             row1 = redRows[0];
             row2 = redRows[1];
@@ -133,7 +133,7 @@ public class Slots : MonoBehaviour
         {
             int amount = 3 - Dialogue.instance.selectedOption;
 
-            if (GameData.instance.coins < amount)
+            if (DataLoader.instance.coins < amount)
             {
                 yield return Dialogue.instance.text("Not enough&lcoins!");
                 StartCoroutine(DecideBet());
@@ -179,7 +179,7 @@ public class Slots : MonoBehaviour
 
             Debug.Log("Betting " + amount + " coin(s)");
             betamount = amount;
-            GameData.instance.coins -= amount;
+            DataLoader.instance.coins -= amount;
             UpdateCredit();
             rolledone = false;
             rolledtwo = false;
@@ -198,15 +198,15 @@ public class Slots : MonoBehaviour
 
     void UpdateCredit()
     {
-        if (GameData.instance.coins > 9999)
+        if (DataLoader.instance.coins > 9999)
         {
-            GameData.instance.coins = 9999;
+            DataLoader.instance.coins = 9999;
         }
 
         credittext.text =
-            (GameData.instance.coins > 999 ? "" :
-                GameData.instance.coins > 99 ? "0" :
-                GameData.instance.coins > 9 ? "00" : "000") + GameData.instance.coins.ToString();
+            (DataLoader.instance.coins > 999 ? "" :
+                DataLoader.instance.coins > 99 ? "0" :
+                DataLoader.instance.coins > 9 ? "00" : "000") + DataLoader.instance.coins.ToString();
     }
 
     void UpdatePayout()
@@ -483,7 +483,7 @@ public class Slots : MonoBehaviour
             {
                 payout--;
                 SoundManager.instance.sfx.PlayOneShot(payoutSound);
-                GameData.instance.coins++;
+                DataLoader.instance.coins++;
                 UpdateCredit();
                 UpdatePayout();
                 yield return new WaitForSeconds(timeToWait);
@@ -493,7 +493,7 @@ public class Slots : MonoBehaviour
         }
         else
         {
-            if (GameData.instance.coins > 0)
+            if (DataLoader.instance.coins > 0)
             {
                 yield return Dialogue.instance.text("Not this time!");
             }

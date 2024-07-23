@@ -431,12 +431,12 @@ public class BattleManager : MonoBehaviour
 
     public void DetermineFrontSprite()
     {
-        frontportrait.overrideSprite = GameData.instance.frontMonSprites[(int)enemymon.Species - 1];
+        frontportrait.overrideSprite = DataLoader.instance.frontMonSprites[(int)enemymon.Species - 1];
     }
 
     public void DetermineBackSprite()
     {
-        backportrait.overrideSprite = GameData.instance.backMonSprites[(int)playermon.Species - 1];
+        backportrait.overrideSprite = DataLoader.instance.backMonSprites[(int)playermon.Species - 1];
     }
 
     void UpdateStatsUI()
@@ -454,7 +454,11 @@ public class BattleManager : MonoBehaviour
         {
             if (PokemonUnity.Game.GameData.Trainer.party.Count() >= i + 1)
             {
-                if (PokemonUnity.Game.GameData.Trainer.party[i].Status == PokemonUnity.Status.NONE)
+                if (!PokemonUnity.Game.GameData.Trainer.party[i].IsNotNullOrNone())
+                {
+                    playerPartyBalls[i].sprite = partyBallSprites[2];
+                }
+                else if (PokemonUnity.Game.GameData.Trainer.party[i].Status == PokemonUnity.Status.NONE)
                 {
                     playerPartyBalls[i].sprite = partyBallSprites[0];
                 }
@@ -466,10 +470,6 @@ public class BattleManager : MonoBehaviour
                 {
                     playerPartyBalls[i].sprite = partyBallSprites[1];
                 }
-            }
-            else
-            {
-                playerPartyBalls[i].sprite = partyBallSprites[2];
             }
             
             if (enemyParty.Count >= i + 1)

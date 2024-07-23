@@ -109,7 +109,8 @@ public class InputManager : MonoBehaviour
 
     public static bool Pressed(Button button)
     {
-        if (GameData.instance.isPaused) return false;
+        if (GameState.instance.isPaused) 
+            return false;
 
         int index = (int)button;
         if (buttonDisabled[index]) return false;
@@ -125,7 +126,8 @@ public class InputManager : MonoBehaviour
 
     public static bool Held(Button button)
     {
-        if (GameData.instance.isPaused) return false;
+        if (GameState.instance.isPaused) 
+            return false;
 
         int index = (int)button;
         if (buttonDisabled[index]) return false;
@@ -141,11 +143,14 @@ public class InputManager : MonoBehaviour
 
     public static bool Released(Button button)
     {
-        if (GameData.instance.isPaused) return false;
+        if (GameState.instance.isPaused) 
+            return false;
 
         int index = (int)button;
-        if (buttonDisabled[index]) return false;
-        if (button == Button.Start && dialogueCheck) return false;
+        if (buttonDisabled[index]) 
+            return false;
+        if (button == Button.Start && dialogueCheck) 
+            return false;
         if ((Input.GetKeyUp(InputManager.inputs[index]) || Input.GetKeyUp(InputManager.controllerInputs[index])) ||
             (index < 4 && releasedJoystickDirections[index]))
         {

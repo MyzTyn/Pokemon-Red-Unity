@@ -157,7 +157,7 @@ public class PokemonMenu : MonoBehaviour
     public void UpdateStats1()
     {
         cursor.SetActive(false);
-        stats1portrait.sprite = GameData.instance.frontMonSprites[(int)PokemonUnity.Game.GameData.Trainer.party[selectedMon].Species - 1];
+        stats1portrait.sprite = DataLoader.instance.frontMonSprites[(int)PokemonUnity.Game.GameData.Trainer.party[selectedMon].Species - 1];
         int Species = (int)PokemonUnity.Game.GameData.Trainer.party[selectedMon].Species;
         pokedexNO.text = (Species > 99 ? "" : Species > 9 ? "0" : "00") + Species.ToString();
         attacktext.text = PokemonUnity.Game.GameData.Trainer.party[selectedMon].ATK.ToString();
@@ -230,7 +230,7 @@ public class PokemonMenu : MonoBehaviour
         }
 
         movetext.text = movestr;
-        stats2portrait.sprite = GameData.instance.frontMonSprites[(int)PokemonUnity.Game.GameData.Trainer.party[selectedMon].Species - 1];
+        stats2portrait.sprite = DataLoader.instance.frontMonSprites[(int)PokemonUnity.Game.GameData.Trainer.party[selectedMon].Species - 1];
         monname2text.text = PokemonUnity.Game.GameData.Trainer.party[selectedMon].Name;
 
         exptext.text = TruncateExpNumber(PokemonUnity.Game.GameData.Trainer.party[selectedMon].Exp.ToString());
@@ -330,12 +330,12 @@ public class PokemonMenu : MonoBehaviour
                 if (PokemonUnity.Game.GameData.Trainer.party.ToList().IndexOf(pokemon) != selectedOption)
                 {
                     slottransform.GetChild(0).GetComponent<Image>().sprite =
-                        partyanims[PokemonData.pokemonData[(int)pokemon.Species - 1].partySprite].anim[0];
+                        partyanims[DataLoader.instance.pokemonData[(int)pokemon.Species - 1].partySprite].anim[0];
                 }
                 else
                 {
                     slottransform.GetChild(0).GetComponent<Image>().sprite =
-                        partyanims[PokemonData.pokemonData[(int)pokemon.Species - 1].partySprite]
+                        partyanims[DataLoader.instance.pokemonData[(int)pokemon.Species - 1].partySprite]
                             .anim[Mathf.FloorToInt(2f * partyAnimTimer / animLoopTime)];
                 }
             }
@@ -641,21 +641,12 @@ public class PokemonMenu : MonoBehaviour
 
     public bool hasFieldMove(Pokemon pokemon)
     {
-        foreach (IMove move in pokemon.moves)
-        {
-            if (GameData.instance.fieldMoves.Contains(move.id)) 
-                return true;
-        }
-
-        return false;
+        return pokemon.moves.Any(move => GameState.instance.fieldMoves.Contains(move.id));
     }
 
     public bool isFieldMove(IMove move)
     {
-        if (GameData.instance.fieldMoves.Contains(move.id)) 
-            return true;
-        
-        else return false;
+        return GameState.instance.fieldMoves.Contains(move.id);
     }
 
     public void CloseMenu()

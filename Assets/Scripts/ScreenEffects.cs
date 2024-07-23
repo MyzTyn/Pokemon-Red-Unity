@@ -25,11 +25,11 @@ public class ScreenEffects : MonoBehaviour
 
     void Start()
     {
-        texture = GameDataManager.instance.mainRender;
-        outputScreen = GameDataManager.instance.postRender;
+        texture = DataLoader.instance.mainRender;
+        outputScreen = DataLoader.instance.postRender;
         for (int i = 0; i < passTex.Length; i++) //create duplicates for pass textures
         {
-            passTex[i] = new RenderTexture(GameDataManager.instance.templateRenderTexture);
+            passTex[i] = new RenderTexture(DataLoader.instance.templateRenderTexture);
         }
 
         sgbScreen.texture = outputScreen;

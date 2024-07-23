@@ -24,7 +24,7 @@ public class CreditsHandler : MonoBehaviour
         TextAsset creditsTextAsset = (TextAsset)Resources.Load("Text/creditsText");
         creditsText = JsonConvert.DeserializeObject<string[,]>(creditsTextAsset.text);
         Player.instance.isDisabled = true;
-        GameData.instance.isPlayingCredits = true;
+        GameState.instance.isPlayingCredits = true;
         SoundManager.instance.PlaySongNoLoop(Music.Ending);
         CreditIndex = -1;
         MonIndex = 1;

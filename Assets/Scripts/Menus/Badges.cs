@@ -16,7 +16,7 @@ public class Badges : MonoBehaviour
     {
         nameText.text = PokemonUnity.Game.GameData.Trainer.name;
         moneyText.text = PokemonUnity.Game.GameData.Trainer.Money.ToString();
-        timeText.text = GameData.instance.hours.SpaceFormat(3) + " " + GameData.instance.minutes.ZeroFormat("0x");
+        timeText.text = DataLoader.instance.hours.SpaceFormat(3) + " " + DataLoader.instance.minutes.ZeroFormat("0x");
 
         for (int i = 0; i < 8; i++)
         {

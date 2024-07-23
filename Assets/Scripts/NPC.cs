@@ -72,7 +72,7 @@ public class NPC : MonoBehaviour
     {
         CheckCollision();
         if (!Dialogue.instance.finishedText || Player.instance.menuActive || Player.instance.inBattle ||
-            GameData.instance.isPaused) return;
+            GameState.instance.isPaused) return;
         if (isMoving) return;
         if (pokemonObject.isDisabled) return;
 

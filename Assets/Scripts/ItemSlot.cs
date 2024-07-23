@@ -38,7 +38,7 @@ public class ItemSlot : MonoBehaviour
         switch (mode)
         {
             case SlotMode.Item:
-                slotNameText.text = PokemonData.GetItemName(item);
+                slotNameText.text = item.ToString(TextScripts.Name);
                 break;
             case SlotMode.Empty:
                 slotNameText.text = "";

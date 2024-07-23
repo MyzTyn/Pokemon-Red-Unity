@@ -8,7 +8,7 @@ public class SlotsObject : MonoBehaviour, InteractableObject
     {
         if (Player.instance.direction == Direction.Left || Player.instance.direction == Direction.Right)
         {
-            if (GameData.instance.coins > 0)
+            if (DataLoader.instance.coins > 0)
             {
                 Dialogue.instance.keepTextOnScreen = true;
                 yield return Dialogue.instance.text("A slot machine!&lWant to play?");
@@ -18,7 +18,7 @@ public class SlotsObject : MonoBehaviour, InteractableObject
                     Dialogue.instance.Deactivate();
                     yield return StartCoroutine(Player.instance.DisplayEmotiveBubble(1));
                     Player.instance.isDisabled = true;
-                    GameDataManager.instance.slots.gameObject.SetActive(true);
+                    GameManager.instance.slots.gameObject.SetActive(true);
                     InputManager.Disable(Button.Start);
                     StartCoroutine(Slots.instance.Initialize());
                 }

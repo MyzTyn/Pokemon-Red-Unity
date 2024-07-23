@@ -9,7 +9,7 @@ public class PCObject : MonoBehaviour, InteractableObject
         Dialogue.instance.Deactivate();
         yield return Dialogue.instance.text(PokemonUnity.Game.GameData.Trainer.name + " turned on&lthe PC!");
         Player.instance.menuActive = true;
-        PC pc = GameDataManager.instance.pc;
+        PC pc = GameManager.instance.pc;
         pc.gameObject.SetActive(true);
         StartCoroutine(pc.Initialize());
         InputManager.Disable(Button.Start);

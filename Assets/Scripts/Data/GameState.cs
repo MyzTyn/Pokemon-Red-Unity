@@ -1,98 +1,34 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
-using System;
 using PokemonUnity;
+using UnityEngine;
 
-public static class IntExtensions
+// ToDo: Is this class good?
+/// <summary>
+/// Hold the Game States such as Events, UI, etc
+/// </summary>
+public class GameState : Singleton<GameState>
 {
-    /*
-    The first two should either be improved or just removed and have number formatting
-    for different things be done directly (just use string.Format or ToString instead directly
-    rather than use these functions)
-    */
-    public static string ZeroFormat(this int input, string zeroformat)
-    {
-        switch (zeroformat)
-        {
-            case "0x":
-                return (input > 9 ? "" : "0") + input;
-            case "00x":
-                return (input > 99 ? "" : input > 9 ? "0" : "00") + input;
-            case "000x":
-                return (input > 999 ? "" : input > 99 ? "0" : input > 9 ? "00" : "000") + input;
-        }
+    /// <summary>
+    /// If true then the game will boot to Oak Intro Scene
+    /// </summary>
+    public bool startIntroScene;
 
-        throw new UnityException("Incorrect format");
-    }
-
-
-    public static string SpaceFormat(this int input, int format)
-    {
-        switch (format)
-        {
-            case 2:
-                return (input < 10 ? " " : "") + input;
-            case 3:
-                return (input < 10 ? "  " : input < 100 ? " " : "") + input;
-        }
-
-        throw new UnityException("Incorrect format");
-    }
-
-    public static int UnderflowUInt24(this int input)
-    {
-        //underflow function for the exp bug
-        if (input < 0)
-        {
-            input += (int)Mathf.Pow(2, 24);
-        }
-        else if (input >= Mathf.Pow(2, 24)) input %= (int)Mathf.Pow(2, 24);
-
-        return input;
-    }
-}
-
-//Class containing all the core data of the game.
-public class GameData : Singleton<GameData>
-{
+    public bool isPaused, inGame, atTitleScreen;
+    
+    public int textChoice, animationChoice, battleChoice;
+    
+    public bool isPlayingCredits;
+    
+    
+    // ToDo: Where should I put those below:
+    
+    /// <summary>
+    /// The Field Moves on the map
+    /// </summary>
     public List<Moves> fieldMoves = new List<Moves>(new Moves[]
     {
         Moves.TELEPORT, Moves.FLY, Moves.CUT, Moves.SURF, Moves.DIG, Moves.STRENGTH, Moves.FLASH, Moves.SOFT_BOILED
     });
-
-    [HideInInspector] public Sprite[] frontMonSprites, backMonSprites;
-    public bool isPaused, inGame, atTitleScreen;
-    public int coins;
-    public int textChoice, animationChoice, battleChoice;
-    public string rivalName;
-    public int hours, minutes, seconds;
-    public bool hasMetBill; //should Bill's PC use his name?
-    public bool isPlayingCredits;
-    public Version version;
-    public FontAtlas fontAtlas;
-    public bool[] eventsArray;
-
-    public void SetEvent(Events eventToSet, bool state)
-    {
-        eventsArray[(int)eventToSet] = state;
-    }
-
-    public bool CheckEvent(Events eventToCheck)
-    {
-        return eventsArray[(int)eventToCheck];
-    }
-
-
-    public void Init()
-    {
-        frontMonSprites = Resources.LoadAll<Sprite>("frontmon");
-        backMonSprites = Resources.LoadAll<Sprite>("backmon");
-        //Set the events bool array to have an entry for each event according to the enum
-        eventsArray = new bool[Enum.GetNames(typeof(Events)).Length];
-
-        //The default name in the original if no name was given is NINTEN, and SONY for the rival
-        if (rivalName == "") rivalName = "GARY";
-    }
 
     //encounter table indices for all maps
     [HideInInspector] public int[] MapGrassEncounterTableIndices =

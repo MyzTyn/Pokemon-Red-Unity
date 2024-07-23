@@ -19,7 +19,7 @@ public class ViewBio : MonoBehaviour
     {
         SoundManager.instance.SetMusicLow();
         Pokemons pokemon = (Pokemons)whatBio;
-        pokemonName = PokemonData.IndexToMon(whatBio);
+        pokemonName = TempLocalizationXML.instance.GetStr(((Pokemons)whatBio).ToString(TextScripts.Name));
 
         bool hasSeen = PokemonUnity.Game.GameData.Trainer.hasSeen(pokemon);
         bool hasCaught = PokemonUnity.Game.GameData.Trainer.hasOwned(pokemon);
@@ -87,6 +87,6 @@ public class ViewBio : MonoBehaviour
         dexNoText.text = (pokemonID > 99 ? "" : pokemonID > 9 ? "0" : "00") + pokemonID;
         descriptionText.text = entryData.ID.ToString(TextScripts.Description);
         
-        pokemonSprite.sprite = GameData.instance.frontMonSprites[pokemonID - 1];
+        pokemonSprite.sprite = DataLoader.instance.frontMonSprites[pokemonID - 1];
     }
 }

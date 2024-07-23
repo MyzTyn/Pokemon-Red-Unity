@@ -101,7 +101,7 @@ public class NameSelection : MonoBehaviour
 
                 if (OakIntroCutsceneHandler.instance.givingGaryAName)
                 {
-                    GameData.instance.rivalName = futureName;
+                    DataLoader.instance.rivalName = futureName;
                     OakIntroCutsceneHandler.instance.tutanim.SetTrigger("transition");
                     Dialogue.instance.enabled = true;
                     OakIntroCutsceneHandler.instance.givingGaryAName = false;
@@ -130,7 +130,7 @@ public class NameSelection : MonoBehaviour
 
                     if (OakIntroCutsceneHandler.instance.givingGaryAName)
                     {
-                        GameData.instance.rivalName = futureName;
+                        DataLoader.instance.rivalName = futureName;
                         OakIntroCutsceneHandler.instance.tutanim.SetTrigger("transition");
                         Dialogue.instance.enabled = true;
                         OakIntroCutsceneHandler.instance.givingGaryAName = false;

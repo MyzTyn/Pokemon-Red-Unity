@@ -66,7 +66,7 @@ public class Dialogue : Singleton<Dialogue>
         indicator.SetActive(false);
 
         strComplete = strComplete.Replace("<player>", PokemonUnity.Game.GameData.Trainer.name)
-            .Replace("<rival>", GameData.instance.rivalName).Replace("#MON", "POKéMON").Replace("&l", "\n\n")
+            .Replace("<rival>", DataLoader.instance.rivalName).Replace("#MON", "POKéMON").Replace("&l", "\n\n")
             .Replace("&c", "").Replace("&p", "");
         int i = 0;
         if (currentDialogueType != DialogueType.Done) str = "";
@@ -136,7 +136,7 @@ public class Dialogue : Singleton<Dialogue>
         }
 
         buycoinstext[0].text = PokemonUnity.Game.GameData.Trainer.Money.ToString();
-        buycoinstext[1].text = GameData.instance.coins.ToString();
+        buycoinstext[1].text = DataLoader.instance.coins.ToString();
         if (!finishedThePrompt)
         {
             if (InputManager.Pressed(Button.A))
@@ -201,17 +201,17 @@ public class Dialogue : Singleton<Dialogue>
             }
         }
 
-        if (GameData.instance.textChoice == 2)
+        if (GameState.instance.textChoice == 2)
         {
             scrollequation = 3 * 0.016f;
         }
 
-        if (GameData.instance.textChoice == 1)
+        if (GameState.instance.textChoice == 1)
         {
             scrollequation = 2f * 0.016f;
         }
 
-        if (GameData.instance.textChoice == 0)
+        if (GameState.instance.textChoice == 0)
         {
             scrollequation = 1f * 0.016f;
         }

@@ -51,11 +51,12 @@ public class Pokedex : MonoBehaviour
             bool hasSeen = PokemonUnity.Game.GameData.Trainer.hasSeen(pokemon);
             bool hasCaught = PokemonUnity.Game.GameData.Trainer.hasOwned(pokemon);
 
+            string name = TempLocalizationXML.instance.GetStr(((Pokemons)slotNo).ToString(TextScripts.Name));
+            
             entries[i].transform.GetChild(0).GetComponent<CustomText>().text = slotNo.ZeroFormat("00x") + "\n" +
                                                                                (!hasSeen
                                                                                    ? "   ----------"
-                                                                                   : "   " + PokemonData.IndexToMon(
-                                                                                       slotNo));
+                                                                                   : "   " + name);
             entries[i].transform.GetChild(1).gameObject.SetActive(hasCaught);
         }
     }

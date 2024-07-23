@@ -28,7 +28,7 @@ public class OakIntroCutsceneHandler : MonoBehaviour
     // Use this for initialization
     public void InitVersion()
     {
-        switch (GameData.instance.version)
+        switch (DataLoader.instance.versionManager.version)
         {
             case Version.Red:
                 playerNameMenuImage.sprite = redPlayerMenu;
@@ -43,7 +43,7 @@ public class OakIntroCutsceneHandler : MonoBehaviour
 
     public void Init()
     {
-        GameData.instance.atTitleScreen = true;
+        GameState.instance.atTitleScreen = true;
         tutanim.SetTrigger("reset");
         cursor.SetActive(false);
         MathE.Clamp(ref selectedOption, 0, 3);
@@ -147,19 +147,19 @@ public class OakIntroCutsceneHandler : MonoBehaviour
                 else
                 {
                     currentmenu = null;
-                    switch (GameData.instance.version)
+                    switch (DataLoader.instance.versionManager.version)
                     {
                         case Version.Blue:
                             switch (selectedOption)
                             {
                                 case 1:
-                                    GameData.instance.rivalName = "RED";
+                                    DataLoader.instance.rivalName = "RED";
                                     break;
                                 case 2:
-                                    GameData.instance.rivalName = "ASH";
+                                    DataLoader.instance.rivalName = "ASH";
                                     break;
                                 case 3:
-                                    GameData.instance.rivalName = "JACK";
+                                    DataLoader.instance.rivalName = "JACK";
                                     break;
                             }
 
@@ -168,13 +168,13 @@ public class OakIntroCutsceneHandler : MonoBehaviour
                             switch (selectedOption)
                             {
                                 case 1:
-                                    GameData.instance.rivalName = "BLUE";
+                                    DataLoader.instance.rivalName = "BLUE";
                                     break;
                                 case 2:
-                                    GameData.instance.rivalName = "GARY";
+                                    DataLoader.instance.rivalName = "GARY";
                                     break;
                                 case 3:
-                                    GameData.instance.rivalName = "JOHN";
+                                    DataLoader.instance.rivalName = "JOHN";
                                     break;
                             }
 
@@ -248,7 +248,7 @@ public class OakIntroCutsceneHandler : MonoBehaviour
     public IEnumerator SixthOakDialogue()
     {
         yield return Dialogue.instance.text("That's right! I&lremember now! His&c\nname is " +
-                                            GameData.instance.rivalName + "!");
+                                            DataLoader.instance.rivalName + "!");
         tutanim.SetTrigger("transition");
     }
 
@@ -270,7 +270,7 @@ public class OakIntroCutsceneHandler : MonoBehaviour
         Dialogue.instance.deactivated = false;
         Player.instance.isDisabled = false;
         InputManager.Enable(Button.Start);
-        GameData.instance.atTitleScreen = false;
+        GameState.instance.atTitleScreen = false;
         Player.instance.FadeToCurrentAreaSong();
         this.gameObject.SetActive(false);
     }

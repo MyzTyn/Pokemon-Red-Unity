@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PokemonUnity;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -248,14 +249,14 @@ public class Bag : MonoBehaviour
                     if (!Inventory.instance.items[currentBagPosition].isKeyItem)
                     {
                         yield return Dialogue.instance.text("Is it OK to toss&l" +
-                                                            PokemonData.GetItemName(Inventory.instance
-                                                                .items[currentBagPosition].item) + "?");
+                                                            Inventory.instance
+                                                                .items[currentBagPosition].item.ToString(TextScripts.Name) + "?");
                         yield return StartCoroutine(Dialogue.instance.prompt());
                         if (Dialogue.instance.selectedOption == 0)
                         {
                             yield return Dialogue.instance.text("Threw away&l" +
-                                                                PokemonData.GetItemName(Inventory.instance
-                                                                    .items[currentBagPosition].item) + ".");
+                                                                Inventory.instance
+                                                                    .items[currentBagPosition].item.ToString(TextScripts.Name) + ".");
                             StartCoroutine(TossItem());
                         }
                         else

@@ -45,7 +45,7 @@ public class Title : MonoBehaviour
 
     public void InitVersion()
     {
-        switch (GameData.instance.version)
+        switch (DataLoader.instance.versionManager.version)
         {
             case Version.Red:
                 titleVersionImage.sprite = redVersionText;
@@ -61,14 +61,14 @@ public class Title : MonoBehaviour
 
     public void Init()
     {
-        GameData.instance.atTitleScreen = true;
+        GameState.instance.atTitleScreen = true;
         titleanim.Play("titleAnim");
     }
 
 
     public void ChangePokemon()
     {
-        switch (GameData.instance.version)
+        switch (DataLoader.instance.versionManager.version)
         {
             case Version.Red:
                 pokemonImage.sprite = redMons[ChosenPokemon];
