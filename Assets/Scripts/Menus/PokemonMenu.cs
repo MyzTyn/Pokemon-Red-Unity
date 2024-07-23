@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using PokemonEssentials.Interface;
 using PokemonEssentials.Interface.PokeBattle;
 using PokemonUnity;
@@ -14,6 +15,7 @@ public class
     public List<Sprite> anim;
 }
 
+// ToDo: Redesign this class to avoid using IsNotNullOrNone()
 public class PokemonMenu : MonoBehaviour
 {
     public GameObject mainwindow, switchstats, stats1, stats2;
@@ -70,7 +72,7 @@ public class PokemonMenu : MonoBehaviour
     public void Initialize()
     {
         switchMenuOffset = 0;
-        if (GameData.instance.party.Count == 0)
+        if (!Game.GameData.Trainer.party.Any())
         {
             currentMenu = mainwindow;
             MainMenu.instance.currentmenu = MainMenu.instance.thismenu;
@@ -78,10 +80,13 @@ public class PokemonMenu : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < GameData.instance.party.Count; i++)
+        for (int i = 0; i < PokemonUnity.Game.GameData.Trainer.party.Count(); i++)
         {
-            int pixelCount = Mathf.RoundToInt((float)GameData.instance.party[i].HP * 48 /
-                                              (float)GameData.instance.party[i].TotalHP);
+            if (!PokemonUnity.Game.GameData.Trainer.party[i].IsNotNullOrNone())
+                continue;
+            
+            int pixelCount = Mathf.RoundToInt((float)PokemonUnity.Game.GameData.Trainer.party[i].HP * 48 /
+                                              (float)PokemonUnity.Game.GameData.Trainer.party[i].TotalHP);
             healthbars[i] = partyslots[i].transform.GetChild(1).GetChild(0).GetComponent<Image>();
             healthbars[i].fillAmount = (float)pixelCount / 48;
             UpdateMainMenu();
@@ -99,14 +104,17 @@ public class PokemonMenu : MonoBehaviour
     public void UpdateScreen()
     {
         int index = 0;
-        foreach (Pokemon pokemon in GameData.instance.party)
+        foreach (IPokemon pokemon in PokemonUnity.Game.GameData.Trainer.party)
         {
+            if (!pokemon.IsNotNullOrNone())
+                continue;
+            
             Transform slottransform = partyslots[index].transform;
             int pixelCount = Mathf.RoundToInt((float)pokemon.HP * 48 / (float)pokemon.TotalHP);
             slottransform.GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = (float)pixelCount / 48;
             slottransform.GetChild(2).GetComponent<CustomText>().text = pokemon.Name;
             slottransform.GetChild(3).GetComponent<CustomText>().text =
-                ((pokemon.Level < 100) ? "<LEVEL>" : "") + pokemon.Level.ToString();
+                ((pokemon.Level < 100) ? "<LEVEL>" : "") + pokemon.Level;
             slottransform.GetChild(4).GetComponent<CustomText>().text =
                 (pokemon.HP > 99 ? "" : pokemon.HP > 9 ? " " : "  ") + pokemon.HP +
                 (pokemon.TotalHP > 99 ? "/" : pokemon.TotalHP > 9 ? "/ " : "/  ") + pokemon.TotalHP;
@@ -123,14 +131,14 @@ public class PokemonMenu : MonoBehaviour
             partyslots[l].SetActive(false);
         }
 
-        for (int i = 0; i < GameData.instance.party.Count; i++)
+        for (int i = 0; i < PokemonUnity.Game.GameData.Trainer.party.Count(); i++)
         {
             if (i == 0)
             {
                 numberofPokemon = 0;
             }
-
-            if (GameData.instance.party[i].Name != "")
+            
+            if (PokemonUnity.Game.GameData.Trainer.party[i].IsNotNullOrNone())
             {
                 partyslots[i].SetActive(true);
                 numberofPokemon++;
@@ -149,35 +157,35 @@ public class PokemonMenu : MonoBehaviour
     public void UpdateStats1()
     {
         cursor.SetActive(false);
-        stats1portrait.sprite = GameData.instance.frontMonSprites[(int)GameData.instance.party[selectedMon].Species - 1];
-        int Species = (int)GameData.instance.party[selectedMon].Species;
+        stats1portrait.sprite = GameData.instance.frontMonSprites[(int)PokemonUnity.Game.GameData.Trainer.party[selectedMon].Species - 1];
+        int Species = (int)PokemonUnity.Game.GameData.Trainer.party[selectedMon].Species;
         pokedexNO.text = (Species > 99 ? "" : Species > 9 ? "0" : "00") + Species.ToString();
-        attacktext.text = GameData.instance.party[selectedMon].ATK.ToString();
-        speedtext.text = GameData.instance.party[selectedMon].SPE.ToString();
-        specialtext.text = GameData.instance.party[selectedMon].SPA.ToString();
-        defensetext.text = GameData.instance.party[selectedMon].DEF.ToString();
-        PokemonUnity.Types type1 = GameData.instance.party[selectedMon].Type1,
-            type2 = GameData.instance.party[selectedMon].Type2;
+        attacktext.text = PokemonUnity.Game.GameData.Trainer.party[selectedMon].ATK.ToString();
+        speedtext.text = PokemonUnity.Game.GameData.Trainer.party[selectedMon].SPE.ToString();
+        specialtext.text = PokemonUnity.Game.GameData.Trainer.party[selectedMon].SPA.ToString();
+        defensetext.text = PokemonUnity.Game.GameData.Trainer.party[selectedMon].DEF.ToString();
+        PokemonUnity.Types type1 = PokemonUnity.Game.GameData.Trainer.party[selectedMon].Type1,
+            type2 = PokemonUnity.Game.GameData.Trainer.party[selectedMon].Type2;
         montype1.text = type1.ToString();
         string type2String = type2.ToString();
         montype2.text = type2String != "" ? ("TYPE2/" + "\n " + type2String) : "";
-        monnametext.text = GameData.instance.party[selectedMon].Name;
+        monnametext.text = PokemonUnity.Game.GameData.Trainer.party[selectedMon].Name;
         // ToDo: Fix the OT
-        //ownerSpeciestext.text = GameData.instance.party[selectedMon].ownerSpecies.ToString();
+        //ownerSpeciestext.text = PokemonUnity.Game.GameData.Trainer.party[selectedMon].ownerSpecies.ToString();
         ownerSpeciestext.text = "";
-        //ownernametext.text = GameData.instance.party[selectedMon].OT.name;
+        //ownernametext.text = PokemonUnity.Game.GameData.Trainer.party[selectedMon].OT.name;
         ownernametext.text = "";
-        int pixelCount = Mathf.RoundToInt((float)GameData.instance.party[selectedMon].HP * 48 /
-                                          (float)GameData.instance.party[selectedMon].TotalHP);
+        int pixelCount = Mathf.RoundToInt((float)PokemonUnity.Game.GameData.Trainer.party[selectedMon].HP * 48 /
+                                          (float)PokemonUnity.Game.GameData.Trainer.party[selectedMon].TotalHP);
         stat1bar.fillAmount = (float)pixelCount / 48;
         monhptext.text =
-            (GameData.instance.party[selectedMon].HP > 99 ? "" :
-                GameData.instance.party[selectedMon].HP > 9 ? " " : "  ") +
-            GameData.instance.party[selectedMon].HP + " " + GameData.instance.party[selectedMon].TotalHP;
-        monLeveltext.text = ((GameData.instance.party[selectedMon].Level < 100) ? "<Level>" : "") +
-                            GameData.instance.party[selectedMon].Level.ToString();
+            (PokemonUnity.Game.GameData.Trainer.party[selectedMon].HP > 99 ? "" :
+                PokemonUnity.Game.GameData.Trainer.party[selectedMon].HP > 9 ? " " : "  ") +
+            PokemonUnity.Game.GameData.Trainer.party[selectedMon].HP + " " + PokemonUnity.Game.GameData.Trainer.party[selectedMon].TotalHP;
+        monLeveltext.text = ((PokemonUnity.Game.GameData.Trainer.party[selectedMon].Level < 100) ? "<Level>" : "") +
+                            PokemonUnity.Game.GameData.Trainer.party[selectedMon].Level.ToString();
 
-        switch (GameData.instance.party[selectedMon].Status)
+        switch (PokemonUnity.Game.GameData.Trainer.party[selectedMon].Status)
         {
             case PokemonUnity.Status.NONE:
                 monstatustext.text = "OK";
@@ -211,9 +219,9 @@ public class PokemonMenu : MonoBehaviour
         string movestr = "";
         for (int i = 0; i < 4; i++)
         {
-            if (GameData.instance.party[selectedMon].moves[i].IsNotNullOrNone())
+            if (PokemonUnity.Game.GameData.Trainer.party[selectedMon].moves[i].IsNotNullOrNone())
             {
-                IMove move = GameData.instance.party[selectedMon].moves[i];
+                IMove move = PokemonUnity.Game.GameData.Trainer.party[selectedMon].moves[i];
                 movestr += (i > 0 ? "\n" : "") + move.id.ToString().ToUpper() + "\n" + "         " + "PP " +
                            (move.PP < 10 ? " " : "") + move.PP + "/" + (move.TotalPP < 10 ? " " : "") + move.TotalPP;
             }
@@ -222,15 +230,15 @@ public class PokemonMenu : MonoBehaviour
         }
 
         movetext.text = movestr;
-        stats2portrait.sprite = GameData.instance.frontMonSprites[(int)GameData.instance.party[selectedMon].Species - 1];
-        monname2text.text = GameData.instance.party[selectedMon].Name;
+        stats2portrait.sprite = GameData.instance.frontMonSprites[(int)PokemonUnity.Game.GameData.Trainer.party[selectedMon].Species - 1];
+        monname2text.text = PokemonUnity.Game.GameData.Trainer.party[selectedMon].Name;
 
-        exptext.text = TruncateExpNumber(GameData.instance.party[selectedMon].Exp.ToString());
-        explefttoLeveltext.text = TruncateExpNumber(((Pokemon)GameData.instance.party[selectedMon]).Experience.NextLevel.ToString());
-        nextLeveltext.text = (GameData.instance.party[selectedMon].Level < 99
-            ? "<Level>" + (GameData.instance.party[selectedMon].Level + 1).ToString()
+        exptext.text = TruncateExpNumber(PokemonUnity.Game.GameData.Trainer.party[selectedMon].Exp.ToString());
+        explefttoLeveltext.text = TruncateExpNumber(((Pokemon)PokemonUnity.Game.GameData.Trainer.party[selectedMon]).Experience.NextLevel.ToString());
+        nextLeveltext.text = (PokemonUnity.Game.GameData.Trainer.party[selectedMon].Level < 99
+            ? "<Level>" + (PokemonUnity.Game.GameData.Trainer.party[selectedMon].Level + 1).ToString()
             : 100.ToString());
-        int Species = (int)GameData.instance.party[selectedMon].Species;
+        int Species = (int)PokemonUnity.Game.GameData.Trainer.party[selectedMon].Species;
         pokedexno2.text = (Species > 99 ? "" : Species > 9 ? "0" : "00") + Species.ToString();
         UpdateMenus();
     }
@@ -301,7 +309,7 @@ public class PokemonMenu : MonoBehaviour
 
         if (currentMenu == mainwindow)
         {
-            highlightedmon = GameData.instance.party[selectedOption];
+            highlightedmon = PokemonUnity.Game.GameData.Trainer.party[selectedOption];
             partyAnimTimer += 1;
             float hpratio = (float)highlightedmon.HP / (float)highlightedmon.TotalHP;
             float animLoopTime =
@@ -312,10 +320,14 @@ public class PokemonMenu : MonoBehaviour
                 partyAnimTimer = 0;
             }
 
-            foreach (Pokemon pokemon in GameData.instance.party)
+            foreach (IPokemon pokemon in PokemonUnity.Game.GameData.Trainer.party)
             {
-                Transform slottransform = partyslots[GameData.instance.party.IndexOf(pokemon)].transform;
-                if (GameData.instance.party.IndexOf(pokemon) != selectedOption)
+                if (!pokemon.IsNotNullOrNone())
+                    continue;
+                
+                // ToDo: Remove .ToList()
+                Transform slottransform = partyslots[PokemonUnity.Game.GameData.Trainer.party.ToList().IndexOf(pokemon)].transform;
+                if (PokemonUnity.Game.GameData.Trainer.party.ToList().IndexOf(pokemon) != selectedOption)
                 {
                     slottransform.GetChild(0).GetComponent<Image>().sprite =
                         partyanims[PokemonData.pokemonData[(int)pokemon.Species - 1].partySprite].anim[0];
@@ -382,7 +394,7 @@ public class PokemonMenu : MonoBehaviour
                     int numberOfFieldMoves = 0;
                     int selectedMenu = 0;
                     selectedMon = selectedOption;
-                    IPokemon selectedPokemon = GameData.instance.party[selectedMon];
+                    IPokemon selectedPokemon = PokemonUnity.Game.GameData.Trainer.party[selectedMon];
 
                     for (int i = 0; i < 4; i++)
                     {
@@ -458,7 +470,7 @@ public class PokemonMenu : MonoBehaviour
                 if (selectedOption == switchMenuOffset)
                 {
                     SoundManager.instance.SetMusicLow();
-                    SoundManager.instance.PlayCry((int)GameData.instance.party[selectedMon].Species - 1);
+                    SoundManager.instance.PlayCry((int)PokemonUnity.Game.GameData.Trainer.party[selectedMon].Species - 1);
                     Dialogue.instance.Deactivate();
                     currentMenu = stats1;
                     UpdateStats1();
@@ -502,7 +514,7 @@ public class PokemonMenu : MonoBehaviour
 
     IEnumerator UseFieldMove(string whatFieldMove)
     {
-        string monName = GameData.instance.party[selectedMon].Name;
+        string monName = PokemonUnity.Game.GameData.Trainer.party[selectedMon].Name;
 
         if (whatFieldMove == "Cut")
         {
@@ -532,7 +544,7 @@ public class PokemonMenu : MonoBehaviour
                 SoundManager.instance.PlaySong(Music.Ocean);
                 currentMenu = mainwindow;
                 UpdateMainMenu();
-                yield return Dialogue.instance.text(GameData.instance.playerName + " got on&l" + monName + "!");
+                yield return Dialogue.instance.text(PokemonUnity.Game.GameData.Trainer.name + " got on&l" + monName + "!");
                 Player.instance.Surf();
                 CloseMenu();
                 this.gameObject.SetActive(false);
@@ -566,13 +578,13 @@ public class PokemonMenu : MonoBehaviour
                 }
 
                 selectingPokemon = false;
-                IPokemon pokemon = GameData.instance.party[selectedOption];
+                IPokemon pokemon = PokemonUnity.Game.GameData.Trainer.party[selectedOption];
 
                 if (selectedOption != selectedMon)
                 {
                     if (pokemon.HP != pokemon.TotalHP)
                     {
-                        int amount = GameData.instance.party[selectedMon].TotalHP / 5;
+                        int amount = PokemonUnity.Game.GameData.Trainer.party[selectedMon].TotalHP / 5;
                         yield return AnimateOurHealth(-amount, selectedMon);
                         yield return AnimateOurHealth(amount, selectedOption);
                         yield return Dialogue.instance.text(pokemon.Name + "&lrecovered by " + amount + "!");
@@ -598,28 +610,28 @@ public class PokemonMenu : MonoBehaviour
     IEnumerator Switch()
     {
         //Swap selected Pokemon.
-        IPokemon pokemon = GameData.instance.party[selectedOption];
-        GameData.instance.party[selectedOption] = GameData.instance.party[selectedMon];
-        GameData.instance.party[selectedMon] = pokemon;
+        IPokemon pokemon = PokemonUnity.Game.GameData.Trainer.party[selectedOption];
+        PokemonUnity.Game.GameData.Trainer.party[selectedOption] = PokemonUnity.Game.GameData.Trainer.party[selectedMon];
+        PokemonUnity.Game.GameData.Trainer.party[selectedMon] = pokemon;
         yield return null;
     }
 
     IEnumerator AnimateOurHealth(int amount, int i)
     {
-        if (amount + GameData.instance.party[i].HP < 0) amount = GameData.instance.party[i].HP;
-        if (amount + GameData.instance.party[i].HP > GameData.instance.party[i].TotalHP)
-            amount = GameData.instance.party[i].TotalHP - GameData.instance.party[i].HP;
+        if (amount + PokemonUnity.Game.GameData.Trainer.party[i].HP < 0) amount = PokemonUnity.Game.GameData.Trainer.party[i].HP;
+        if (amount + PokemonUnity.Game.GameData.Trainer.party[i].HP > PokemonUnity.Game.GameData.Trainer.party[i].TotalHP)
+            amount = PokemonUnity.Game.GameData.Trainer.party[i].TotalHP - PokemonUnity.Game.GameData.Trainer.party[i].HP;
         int result = amount;
-        WaitForSeconds wait = new WaitForSeconds(5 / GameData.instance.party[i].TotalHP);
+        WaitForSeconds wait = new WaitForSeconds(5 / PokemonUnity.Game.GameData.Trainer.party[i].TotalHP);
 
         for (int l = 0; l < Mathf.Abs(result); l++)
         {
             yield return wait;
 
-            GameData.instance.party[i].HP += 1 * Mathf.Clamp(result, -1, 1);
+            PokemonUnity.Game.GameData.Trainer.party[i].HP += 1 * Mathf.Clamp(result, -1, 1);
 
-            int pixelCount = Mathf.RoundToInt((float)GameData.instance.party[i].HP * 48 /
-                                              (float)GameData.instance.party[i].TotalHP);
+            int pixelCount = Mathf.RoundToInt((float)PokemonUnity.Game.GameData.Trainer.party[i].HP * 48 /
+                                              (float)PokemonUnity.Game.GameData.Trainer.party[i].TotalHP);
             healthbars[i].fillAmount = (float)pixelCount / 48;
             UpdateScreen();
         }

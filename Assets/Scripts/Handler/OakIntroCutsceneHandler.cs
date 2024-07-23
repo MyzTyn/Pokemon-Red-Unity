@@ -101,13 +101,13 @@ public class OakIntroCutsceneHandler : MonoBehaviour
                             switch (selectedOption)
                             {
                                 case 1:
-                                    GameData.instance.playerName = "RED";
+                                    PokemonUnity.Game.GameData.Trainer.name = "RED";
                                     break;
                                 case 2:
-                                    GameData.instance.playerName = "ASH";
+                                    PokemonUnity.Game.GameData.Trainer.name = "ASH";
                                     break;
                                 case 3:
-                                    GameData.instance.playerName = "JACK";
+                                    PokemonUnity.Game.GameData.Trainer.name = "JACK";
                                     break;
                             }
 
@@ -116,13 +116,13 @@ public class OakIntroCutsceneHandler : MonoBehaviour
                             switch (selectedOption)
                             {
                                 case 1:
-                                    GameData.instance.playerName = "BLUE";
+                                    PokemonUnity.Game.GameData.Trainer.name = "BLUE";
                                     break;
                                 case 2:
-                                    GameData.instance.playerName = "GARY";
+                                    PokemonUnity.Game.GameData.Trainer.name = "GARY";
                                     break;
                                 case 3:
-                                    GameData.instance.playerName = "JOHN";
+                                    PokemonUnity.Game.GameData.Trainer.name = "JOHN";
                                     break;
                             }
 
@@ -227,7 +227,7 @@ public class OakIntroCutsceneHandler : MonoBehaviour
 
     public IEnumerator FourthOakDialogue()
     {
-        yield return Dialogue.instance.text("Right! So your&lname is " + GameData.instance.playerName + "!");
+        yield return Dialogue.instance.text("Right! So your&lname is " + PokemonUnity.Game.GameData.Trainer.name + "!");
         tutanim.SetTrigger("transition");
     }
 
@@ -254,7 +254,7 @@ public class OakIntroCutsceneHandler : MonoBehaviour
 
     public IEnumerator SeventhOakDialogue()
     {
-        yield return Dialogue.instance.text(GameData.instance.playerName + "!");
+        yield return Dialogue.instance.text(PokemonUnity.Game.GameData.Trainer.name + "!");
         yield return Dialogue.instance.text("Your very own&l#MON legend is&c\nabout to unfold!");
         yield return Dialogue.instance.text("A world of dreams&land adventures&c\nwith #MON&c\nawaits! Let's go!");
         SoundManager.instance.FadeSong();

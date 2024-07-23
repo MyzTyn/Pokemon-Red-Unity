@@ -42,7 +42,7 @@ public class MainMenu : Singleton<MainMenu>
         }
         else if (currentmenu == thismenu)
         {
-            playername.text = GameData.instance.playerName;
+            playername.text = PokemonUnity.Game.GameData.Trainer.name;
             cursor.SetPosition(88, 120 - 16 * selectedOption);
 
             if (InputManager.Pressed(Button.Down))

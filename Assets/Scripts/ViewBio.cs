@@ -18,13 +18,16 @@ public class ViewBio : MonoBehaviour
     public IEnumerator DisplayABio(int whatBio)
     {
         SoundManager.instance.SetMusicLow();
-        PokedexEntry entry = GameData.instance.pokedexlist[whatBio - 1];
+        Pokemons pokemon = (Pokemons)whatBio;
         pokemonName = PokemonData.IndexToMon(whatBio);
 
-        Debug.Log("Display " + pokemonName + "'s bio. This Pokemon " + (entry.seen && entry.caught
+        bool hasSeen = PokemonUnity.Game.GameData.Trainer.hasSeen(pokemon);
+        bool hasCaught = PokemonUnity.Game.GameData.Trainer.hasOwned(pokemon);
+        
+        Debug.Log("Display " + pokemonName + "'s bio. This Pokemon " + (hasSeen && hasCaught
             ?
             "has been seen and caught."
-            : entry.seen
+            : hasSeen
                 ? "has been seen."
                 : "has not been seen or caught."));
 

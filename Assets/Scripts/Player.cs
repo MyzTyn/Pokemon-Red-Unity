@@ -88,12 +88,17 @@ public class Player : Singleton<Player>
 
     void Start()
     {
-        GameData.instance.AddPokemonToParty(Pokemons.MEW, 35);
+        // ToDo: Create a helper function for "AddToParty"
+        PokemonUnity.Game.GameData.Trainer.party[0] = new Pokemon(Pokemons.MEW, level: 50);
+        // ToDo: Need to remove the null reference
+        ((Pokemon)PokemonUnity.Game.GameData.Trainer.party[0]).SetNickname(TempLocalizationXML.instance.GetStr(Pokemons.MEW.ToString(TextScripts.Name)));
+        
         // Set the moves
-        GameData.instance.party[0].moves[0] = new Move(Moves.CUT);
-        GameData.instance.party[0].moves[1] = new Move(Moves.SURF);
-        GameData.instance.party[0].moves[2] = new Move(Moves.SOFT_BOILED);
-        GameData.instance.trainerID = Random.Range(0, 65536);
+        // ToDo: Create a helper function for "AddMove"?
+        PokemonUnity.Game.GameData.Trainer.party[0].moves[0] = new Move(Moves.CUT);
+        PokemonUnity.Game.GameData.Trainer.party[0].moves[1] = new Move(Moves.SURF);
+        PokemonUnity.Game.GameData.Trainer.party[0].moves[2] = new Move(Moves.SOFT_BOILED);
+        
         direction = Direction.Down;
         targetPos = transform.position;
         CheckMapCollision();
@@ -771,12 +776,12 @@ public class Player : Singleton<Player>
                 {
                     case MovementState.Walk:
                         SoundManager.instance.PlaySong(Music.Cycling); //play the biking music
-                        yield return Dialogue.instance.text(GameData.instance.playerName + " got on the&lBICYCLE!");
+                        yield return Dialogue.instance.text(PokemonUnity.Game.GameData.Trainer.name + " got on the&lBICYCLE!");
                         walkSurfBikeState = MovementState.Bike;
                         break;
                     case MovementState.Bike:
                         PlayCurrentAreaSong();
-                        yield return Dialogue.instance.text(GameData.instance.playerName + " got off&lthe BICYCLE.");
+                        yield return Dialogue.instance.text(PokemonUnity.Game.GameData.Trainer.name + " got off&lthe BICYCLE.");
                         walkSurfBikeState = MovementState.Walk;
                         break;
                 }

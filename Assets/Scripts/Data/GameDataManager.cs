@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameDataManager : Singleton<GameDataManager>
 {
@@ -35,8 +32,8 @@ public class GameDataManager : Singleton<GameDataManager>
         //VersionManager executes before GameDataManager, so the version is set in GameData beforehand
         VersionInit();
         GameData.instance.Init();
-        GameData.instance.Save();
-        GameData.instance.money = 3000;
+        //GameData.instance.Save();
+        PokemonUnity.Game.GameData.Trainer.Money = 3000;
         GameData.instance.coins = 300;
         postRender = new RenderTexture(160, 144, 1);
         postRender.filterMode = FilterMode.Point;

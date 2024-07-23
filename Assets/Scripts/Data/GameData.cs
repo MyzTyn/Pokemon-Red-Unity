@@ -1,34 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 using System;
-using System.Linq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using PokemonEssentials.Interface.PokeBattle;
 using PokemonUnity;
-using PokemonUnity.Monster;
-
-
-public class PokedexEntry
-{
-    public PokedexEntry(bool seen, bool caught)
-    {
-        this.seen = true;
-        this.caught = true;
-    }
-
-    public bool seen;
-    public bool caught;
-}
-
-public enum Starter
-{
-    Bulbasaur,
-    Charmander,
-    Squirtle
-}
 
 public static class IntExtensions
 {
@@ -79,55 +52,25 @@ public static class IntExtensions
     }
 }
 
-
-//Class for holding save data
-[System.Serializable]
-public class SaveData
-{
-    public int dummy;
-    public Starter chosenStarter;
-    public bool[] eventsArray;
-
-    public static SaveData Create()
-    {
-        SaveData saveData = new SaveData();
-        return saveData;
-    }
-}
-
-
 //Class containing all the core data of the game.
 public class GameData : Singleton<GameData>
 {
     public List<Moves> fieldMoves = new List<Moves>(new Moves[]
-        { Moves.TELEPORT, Moves.FLY, Moves.CUT, Moves.SURF, Moves.DIG, Moves.STRENGTH, Moves.FLASH, Moves.SOFT_BOILED });
+    {
+        Moves.TELEPORT, Moves.FLY, Moves.CUT, Moves.SURF, Moves.DIG, Moves.STRENGTH, Moves.FLASH, Moves.SOFT_BOILED
+    });
 
-    public List<IPokemon> party = new List<IPokemon>();
     [HideInInspector] public Sprite[] frontMonSprites, backMonSprites;
     public bool isPaused, inGame, atTitleScreen;
-    public SaveData saveData;
-    public List<PokedexEntry> pokedexlist = new List<PokedexEntry>(151);
-    public bool[] hasBadge = new bool[8];
-    public int money;
     public int coins;
-    public int trainerID;
     public int textChoice, animationChoice, battleChoice;
-    public string playerName, rivalName;
+    public string rivalName;
     public int hours, minutes, seconds;
-    public Starter chosenStarter;
     public bool hasMetBill; //should Bill's PC use his name?
     public bool isPlayingCredits;
     public Version version;
     public FontAtlas fontAtlas;
     public bool[] eventsArray;
-
-
-    public void AddPokemonToParty(Pokemons pokemon, byte level)
-    {
-        party.Add(new Pokemon(pokemon, level, false));
-        // ToDo: Fix the null reference
-        ((Pokemon)party.Last()).SetNickname(TempLocalizationXML.instance.GetStr(pokemon.ToString(TextScripts.Name)));
-    }
 
     public void SetEvent(Events eventToSet, bool state)
     {
@@ -144,25 +87,11 @@ public class GameData : Singleton<GameData>
     {
         frontMonSprites = Resources.LoadAll<Sprite>("frontmon");
         backMonSprites = Resources.LoadAll<Sprite>("backmon");
-        pokedexlist = new List<PokedexEntry>();
         //Set the events bool array to have an entry for each event according to the enum
         eventsArray = new bool[Enum.GetNames(typeof(Events)).Length];
 
-        for (int i = 0; i < 151; i++)
-        {
-            pokedexlist.Add(new PokedexEntry(false, false));
-        }
-
         //The default name in the original if no name was given is NINTEN, and SONY for the rival
-        if (playerName == "") playerName = "RED";
         if (rivalName == "") rivalName = "GARY";
-    }
-
-    public void Save()
-    {
-        //update the game variables to the save data
-        saveData = SaveData.Create();
-        SaveGameData(Application.persistentDataPath + "/save.sav", saveData); //save
     }
 
     //encounter table indices for all maps
@@ -278,21 +207,4 @@ public class GameData : Singleton<GameData>
             Map.Unknown3,
         }
     );
-
-    public SaveData LoadGameData<SaveData>(string filename)
-    {
-        FileStream file;
-        StreamReader sr;
-        file = new FileStream(filename, FileMode.Open, FileAccess.Read);
-        sr = new StreamReader(file);
-        string data = sr.ReadToEnd();
-        file.Close();
-        return JsonConvert.DeserializeObject<SaveData>(data);
-    }
-
-    public void SaveGameData(string filename, SaveData saveData) //method for saving the game
-    {
-        string data = JValue.Parse(JsonConvert.SerializeObject(saveData)).ToString();
-        File.WriteAllText(filename, data);
-    }
 }

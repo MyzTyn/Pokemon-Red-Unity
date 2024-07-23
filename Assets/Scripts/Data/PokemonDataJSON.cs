@@ -24,18 +24,24 @@ public class PokemonDataJSON : MonoBehaviour
         Core.Logger = new CustomLogger();
         try
         {
+            // Load the Database
             Debug.Assert(File.Exists($"{Application.streamingAssetsPath}/veekun-pokedex.sqlite"),
                 "Database file not found");
             Game.DatabasePath = $"Data Source={Application.streamingAssetsPath}/veekun-pokedex.sqlite";
             Game.con = new SQLiteConnection(Game.DatabasePath);
             Game.ResetSqlConnection(Game.DatabasePath);
             
+            // Load the Localization
             string frLocalization = $"{Application.streamingAssetsPath}/frLocalization.xml";
             Debug.Assert(File.Exists(frLocalization), "Localization file not found");
             TempLocalizationXML.instance.Initialize(frLocalization, (int)Languages.English);
             //Game.LocalizationDictionary = new XmlStringRes(null);
             // ToDo: Change to English because it is French 😅
             //Game.LocalizationDictionary.Initialize(frLocalization, (int)Languages.English);
+            
+            // Initialize the GameData
+            //Core.pokemonGeneration = (sbyte)Generation.RedBlueYellow;
+            Game.GameData.Trainer ??= new PokemonUnity.Trainer("RED", TrainerTypes.PLAYER);
         }
         catch (InvalidOperationException)
         {
@@ -48,6 +54,7 @@ public class PokemonDataJSON : MonoBehaviour
         }
         
         Debug.Log($"Is Pokemon DB Greater than 0? {(Kernal.PokemonData.Count > 0)} : {Kernal.PokemonData.Count}");
+        Debug.Assert(Game.GameData != null, "GameData is null");
     }
 
     public static void InitVersion()

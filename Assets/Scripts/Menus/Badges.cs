@@ -14,20 +14,13 @@ public class Badges : MonoBehaviour
     // Use this for initialization
     public void Init()
     {
-        nameText.text = GameData.instance.playerName;
-        moneyText.text = GameData.instance.money.ToString();
+        nameText.text = PokemonUnity.Game.GameData.Trainer.name;
+        moneyText.text = PokemonUnity.Game.GameData.Trainer.Money.ToString();
         timeText.text = GameData.instance.hours.SpaceFormat(3) + " " + GameData.instance.minutes.ZeroFormat("0x");
 
         for (int i = 0; i < 8; i++)
         {
-            if (GameData.instance.hasBadge[i])
-            {
-                allbadges[i].sprite = obtainedimages[i];
-            }
-            else
-            {
-                allbadges[i].sprite = notobtainedimages[i];
-            }
+            allbadges[i].sprite = PokemonUnity.Game.GameData.Trainer.badges[i] ? obtainedimages[i] : notobtainedimages[i];
         }
     }
 

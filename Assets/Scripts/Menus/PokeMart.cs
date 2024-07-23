@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using PokemonUnity;
 using PokemonUnity.Inventory;
 using UnityEngine;
-using UnityEngine.Events;
 
 
 public class PokeMart : MonoBehaviour
@@ -343,7 +342,7 @@ public class PokeMart : MonoBehaviour
                         if (!Inventory.instance.items[currentBagPosition].isKeyItem)
                         {
                             //Give the player half of the item's price back
-                            GameData.instance.money += fullPrice;
+                            PokemonUnity.Game.GameData.Trainer.Money += fullPrice;
                             Inventory.instance.RemoveItem(amountToTask, currentBagPosition);
                             currentMenu = Menu.ItemsWindow;
                             cursor.SetActive(true);
@@ -354,9 +353,9 @@ public class PokeMart : MonoBehaviour
 
                     if (itemMode == Mode.Buy)
                     {
-                        if (GameData.instance.money >= fullPrice)
+                        if (PokemonUnity.Game.GameData.Trainer.Money >= fullPrice)
                         {
-                            GameData.instance.money -= fullPrice;
+                            PokemonUnity.Game.GameData.Trainer.Money -= fullPrice;
                             Inventory.instance.AddItem(martItemsList[currentBagPosition], amountToTask);
                             currentMenu = Menu.ItemsWindow;
                             cursor.SetActive(true);

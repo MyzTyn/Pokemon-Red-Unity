@@ -65,7 +65,7 @@ public class Dialogue : Singleton<Dialogue>
         dialoguetext.gameObject.SetActive(true);
         indicator.SetActive(false);
 
-        strComplete = strComplete.Replace("<player>", GameData.instance.playerName)
+        strComplete = strComplete.Replace("<player>", PokemonUnity.Game.GameData.Trainer.name)
             .Replace("<rival>", GameData.instance.rivalName).Replace("#MON", "POKéMON").Replace("&l", "\n\n")
             .Replace("&c", "").Replace("&p", "");
         int i = 0;
@@ -135,7 +135,7 @@ public class Dialogue : Singleton<Dialogue>
             Player.instance.isDisabled = true;
         }
 
-        buycoinstext[0].text = GameData.instance.money.ToString();
+        buycoinstext[0].text = PokemonUnity.Game.GameData.Trainer.Money.ToString();
         buycoinstext[1].text = GameData.instance.coins.ToString();
         if (!finishedThePrompt)
         {

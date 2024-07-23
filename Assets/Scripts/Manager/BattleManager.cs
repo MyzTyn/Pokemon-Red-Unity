@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 using PokemonEssentials.Interface;
 using PokemonEssentials.Interface.PokeBattle;
 using PokemonUnity;
@@ -104,7 +105,8 @@ public class BattleManager : MonoBehaviour
 
     public void Initialize()
     {
-        if (GameData.instance.party.Count == 0) throw new UnityException("The player has no Pokemon!");
+        if (!Game.GameData.Trainer.party.Any()) 
+            throw new UnityException("The player has no Pokemon!");
         battleState = BattleState.Intro;
         if (battleType == BattleType.Trainer)
         {
@@ -119,7 +121,7 @@ public class BattleManager : MonoBehaviour
         }
 
         enemymon = enemyMons[0];
-        playermon = GameData.instance.party[0];
+        playermon = PokemonUnity.Game.GameData.Trainer.party[0];
         //playermon.RecalculateStats();
         enemyHPBar.fillAmount = (Mathf.Round(enemymon.HP * 48 / enemymon.TotalHP)) / 48;
         playerHPBar.fillAmount = (Mathf.Round(playermon.HP * 48 / playermon.TotalHP)) / 48;
@@ -265,7 +267,7 @@ public class BattleManager : MonoBehaviour
         initialTimer = 0f;
         yield return new WaitForSeconds(1f);
 
-        playermon = GameData.instance.party[0];
+        playermon = PokemonUnity.Game.GameData.Trainer.party[0];
         enemymon = enemyMons[0];
         Dialogue.instance.keepTextOnScreen = true;
         Dialogue.instance.needButtonPress = false;
@@ -450,13 +452,13 @@ public class BattleManager : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
-            if (GameData.instance.party.Count >= i + 1)
+            if (PokemonUnity.Game.GameData.Trainer.party.Count() >= i + 1)
             {
-                if (GameData.instance.party[i].Status == PokemonUnity.Status.NONE)
+                if (PokemonUnity.Game.GameData.Trainer.party[i].Status == PokemonUnity.Status.NONE)
                 {
                     playerPartyBalls[i].sprite = partyBallSprites[0];
                 }
-                else if (GameData.instance.party[i].Status == PokemonUnity.Status.FAINT)
+                else if (PokemonUnity.Game.GameData.Trainer.party[i].Status == PokemonUnity.Status.FAINT)
                 {
                     playerPartyBalls[i].sprite = partyBallSprites[3];
                 }

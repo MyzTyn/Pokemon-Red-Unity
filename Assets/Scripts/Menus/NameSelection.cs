@@ -92,7 +92,7 @@ public class NameSelection : MonoBehaviour
             {
                 if (OakIntroCutsceneHandler.instance.givingRedAName)
                 {
-                    GameData.instance.playerName = futureName;
+                    PokemonUnity.Game.GameData.Trainer.name = futureName;
                     OakIntroCutsceneHandler.instance.tutanim.SetTrigger("transition");
                     Dialogue.instance.enabled = true;
                     OakIntroCutsceneHandler.instance.givingRedAName = false;
@@ -120,7 +120,7 @@ public class NameSelection : MonoBehaviour
                 {
                     if (OakIntroCutsceneHandler.instance.givingRedAName)
                     {
-                        GameData.instance.playerName = futureName;
+                        PokemonUnity.Game.GameData.Trainer.name = futureName;
                         OakIntroCutsceneHandler.instance.tutanim.SetTrigger("transition");
                         Dialogue.instance.enabled = true;
                         OakIntroCutsceneHandler.instance.givingRedAName = false;

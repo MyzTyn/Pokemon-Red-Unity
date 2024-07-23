@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using PokemonUnity;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-
 
 public class Pokedex : MonoBehaviour
 {
@@ -16,35 +15,9 @@ public class Pokedex : MonoBehaviour
     public bool selectingMon;
     public ViewBio viewBio;
 
-    int seen
-    {
-        get
-        {
-            int seennumber = 0;
-            foreach (PokedexEntry entry in GameData.instance.pokedexlist)
-            {
-                if (entry.seen) 
-                    seennumber++;
-            }
+    int seen => PokemonUnity.Game.GameData.Trainer.pokedexSeen();
 
-            return seennumber;
-        }
-    }
-
-    int caught
-    {
-        get
-        {
-            int caughtnumber = 0;
-            foreach (PokedexEntry entry in GameData.instance.pokedexlist)
-            {
-                if (entry.caught) 
-                    caughtnumber++;
-            }
-
-            return caughtnumber;
-        }
-    }
+    int caught => PokemonUnity.Game.GameData.Trainer.pokedexOwned();
 
     public static Pokedex instance;
 
@@ -74,13 +47,16 @@ public class Pokedex : MonoBehaviour
         for (int i = 0; i < 7; i++)
         {
             int slotNo = topSlotIndex + i;
+            Pokemons pokemon = (Pokemons)slotNo;
+            bool hasSeen = PokemonUnity.Game.GameData.Trainer.hasSeen(pokemon);
+            bool hasCaught = PokemonUnity.Game.GameData.Trainer.hasOwned(pokemon);
+
             entries[i].transform.GetChild(0).GetComponent<CustomText>().text = slotNo.ZeroFormat("00x") + "\n" +
-                                                                               (!GameData.instance
-                                                                                   .pokedexlist[slotNo - 1].seen
+                                                                               (!hasSeen
                                                                                    ? "   ----------"
                                                                                    : "   " + PokemonData.IndexToMon(
                                                                                        slotNo));
-            entries[i].transform.GetChild(1).gameObject.SetActive(GameData.instance.pokedexlist[slotNo - 1].caught);
+            entries[i].transform.GetChild(1).gameObject.SetActive(hasCaught);
         }
     }
 
@@ -114,12 +90,12 @@ public class Pokedex : MonoBehaviour
             {
                 SoundManager.instance.PlayABSound();
 
-                if (!selectingMon && GameData.instance.pokedexlist[topSlotIndex + selectedSlot - 1].seen)
+                if (!selectingMon && PokemonUnity.Game.GameData.Trainer.hasSeen((Pokemons)topSlotIndex + selectedSlot - 1))
                 {
                     selectingMon = true;
                     cursor.SetPosition(120, 56);
                 }
-                else if (GameData.instance.pokedexlist[topSlotIndex + selectedSlot - 1].seen)
+                else if (PokemonUnity.Game.GameData.Trainer.hasSeen((Pokemons)topSlotIndex + selectedSlot - 1))
                 {
                     StartCoroutine(viewBio.DisplayABio(topSlotIndex + selectedSlot));
                 }
@@ -134,7 +110,8 @@ public class Pokedex : MonoBehaviour
                     if (selectedSlot > 6)
                     {
                         selectedSlot = 6;
-                        if (topSlotIndex < GameData.instance.pokedexlist.Count - 6)
+                        // ToDo: use Core.PokemonIndexLimit when the DLLs are updated
+                        if (topSlotIndex < 151 - 6)
                         {
                             topSlotIndex += 1;
                         }
@@ -168,8 +145,9 @@ public class Pokedex : MonoBehaviour
                 if (!selectingMon)
                 {
                     topSlotIndex += 10;
-                    if (topSlotIndex > GameData.instance.pokedexlist.Count - 6)
-                        topSlotIndex = GameData.instance.pokedexlist.Count - 6;
+                    // ToDo: use Core.PokemonIndexLimit when the DLLs are updated
+                    if (topSlotIndex > 151 - 6)
+                        topSlotIndex = 151 - 6;
                     UpdateScreen();
                 }
             }
@@ -196,14 +174,15 @@ public class PokedexDebug : Editor
     {
         DrawDefaultInspector();
         OverwriteIndex = EditorGUILayout.IntField("Selected Index", OverwriteIndex);
+        
         if (GUILayout.Button("Set Pokedex Entry to Seen"))
         {
-            GameData.instance.pokedexlist[OverwriteIndex - 1].seen = true;
+            PokemonUnity.Game.GameData.Trainer.setSeen((Pokemons)OverwriteIndex + 1);
         }
 
         if (GUILayout.Button("Set Pokedex Entry to Owned"))
         {
-            GameData.instance.pokedexlist[OverwriteIndex - 1].caught = true;
+            PokemonUnity.Game.GameData.Trainer.setOwned((Pokemons)OverwriteIndex + 1);
         }
     }
 }
