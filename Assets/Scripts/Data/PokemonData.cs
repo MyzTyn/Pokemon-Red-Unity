@@ -5,6 +5,7 @@ using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using PokemonUnity;
+using PokemonUnity.Inventory;
 
 [System.Serializable]
 public class LevelUpMove
@@ -127,12 +128,12 @@ public class PokemonData
         else return typeNames[(int)type - 1];
     }
 
-    public static string GetItemName(ItemsEnum item)
+    public static string GetItemName(Items item)
     {
         return itemData[(int)item].name;
     }
 
-    public static int GetItemPrice(ItemsEnum item)
+    public static int GetItemPrice(Items item)
     {
         return itemData[(int)item].price;
     }

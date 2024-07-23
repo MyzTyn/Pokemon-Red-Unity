@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PokemonUnity.Inventory;
 using UnityEngine;
 
 public class Pokeball : MonoBehaviour, InteractableObject
 {
-    public ItemsEnum item;
+    public Items item;
 
     public IEnumerator Interact()
     {

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PokemonUnity.Inventory;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ public class ItemSlot : MonoBehaviour
     public bool isKeyItem;
     public CustomText slotNameText, slotQuantityText;
 
-    public ItemsEnum item;
+    public Items item;
 
     //public ItemDataEntry itemData;
     public int quantity;

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PokemonUnity.Inventory;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,7 +31,7 @@ public class PokeMart : MonoBehaviour
     public List<ItemSlot> itemSlots = new List<ItemSlot>(4);
     public int currentBagPosition;
     public int menuId;
-    public List<ItemsEnum> martItemsList;
+    public List<Items> martItemsList;
     public int selectBag;
     public int amountToTask;
     public int maximumItem;

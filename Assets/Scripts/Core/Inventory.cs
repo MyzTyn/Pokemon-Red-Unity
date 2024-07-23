@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using PokemonUnity.Inventory;
 
 public class Inventory : Singleton<Inventory>
 {
@@ -9,29 +10,30 @@ public class Inventory : Singleton<Inventory>
     //for PC
     public List<Item> pcItems = new List<Item>();
 
-    public List<ItemsEnum> keyItems = new List<ItemsEnum>(new ItemsEnum[]
+    public List<Items> keyItems = new List<Items>(new Items[]
     {
-        ItemsEnum.BikeVoucher,
-        ItemsEnum.Bicycle,
-        ItemsEnum.HelixFossil,
-        ItemsEnum.DomeFossil,
-        ItemsEnum.CardKey,
-        ItemsEnum.CoinCase,
-        ItemsEnum.ExpAll,
-        ItemsEnum.GoldTeeth,
-        ItemsEnum.GoodRod,
-        ItemsEnum.Itemfinder,
-        ItemsEnum.LiftKey,
-        ItemsEnum.OaksParcel,
-        ItemsEnum.OldAmber,
-        ItemsEnum.OldRod,
-        ItemsEnum.PokeFlute,
-        ItemsEnum.Pokedex,
-        ItemsEnum.SSTicket,
-        ItemsEnum.SecretKey,
-        ItemsEnum.SilphScope,
-        ItemsEnum.SuperRod,
-        ItemsEnum.TownMap
+        // ToDo: Two missing items
+        Items.BIKE_VOUCHER,
+        Items.BICYCLE,
+        Items.HELIX_FOSSIL,
+        Items.DOME_FOSSIL,
+        Items.CARD_KEY,
+        Items.COIN_CASE,
+        Items.EXP_ALL,
+        Items.GOLD_TEETH,
+        Items.GOOD_ROD,
+        //Items.Itemfinder,
+        Items.LIFT_KEY,
+        Items.OAKS_PARCEL,
+        Items.OLD_AMBER,
+        Items.OLD_ROD,
+        Items.POKE_FLUTE,
+        //Items.Pokedex,
+        Items.SS_TICKET,
+        Items.SECRET_KEY,
+        Items.SILPH_SCOPE,
+        Items.SUPER_ROD,
+        Items.TOWN_MAP
     });
 
     // Use this for initialization
@@ -45,7 +47,7 @@ public class Inventory : Singleton<Inventory>
     }
 
     //Checks whether the requested item exists in the bag.
-    public bool hasItem(ItemsEnum itemId)
+    public bool hasItem(Items itemId)
     {
         foreach (Item item in items)
         {
@@ -56,13 +58,13 @@ public class Inventory : Singleton<Inventory>
     }
 
     //Checks whether the given item is a key item.
-    public bool IsKeyItem(ItemsEnum item)
+    public bool IsKeyItem(Items item)
     {
         return keyItems.Contains(item);
     }
 
     //Removes the first instance of an item from the bag if it exists.
-    public void RemoveItem(ItemsEnum itemId)
+    public void RemoveItem(Items itemId)
     {
         foreach (Item item in items)
         {
@@ -75,7 +77,7 @@ public class Inventory : Singleton<Inventory>
     }
 
     //Adds an item to the bag.
-    public void AddItem(ItemsEnum itemId, int quantity)
+    public void AddItem(Items itemId, int quantity)
     {
         bool alreadyInBag = false;
 
@@ -109,7 +111,7 @@ public class Inventory : Singleton<Inventory>
     }
 
     //Adds an item to the PC.
-    public void AddItemPC(ItemsEnum itemId, int quantity)
+    public void AddItemPC(Items itemId, int quantity)
     {
         bool alreadyInPC = false;
 

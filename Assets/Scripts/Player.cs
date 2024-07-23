@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using PokemonUnity;
+using PokemonUnity.Inventory;
 using PokemonUnity.Monster;
 using UnityEngine;
 using UnityEngine.Events;
@@ -750,18 +751,18 @@ public class Player : Singleton<Player>
         MainMenu.instance.Close();
     }
 
-    public void UseItem(ItemsEnum whatItem)
+    public void UseItem(Items whatItem)
     {
         StartCoroutine(UseItemFunction(whatItem));
     }
 
-    public IEnumerator UseItemFunction(ItemsEnum whatItem)
+    public IEnumerator UseItemFunction(Items whatItem)
     {
         //function called when using an item
 
         switch (whatItem)
         {
-            case ItemsEnum.Bicycle:
+            case Items.BICYCLE:
                 CloseMenus();
 
                 switch (walkSurfBikeState)

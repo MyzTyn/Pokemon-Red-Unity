@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PokemonUnity.Inventory;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -423,7 +424,7 @@ public class PC : MonoBehaviour
         Item withdrawnItem = Inventory.instance.pcItems[currentBagPosition];
         string DisplayString = PokemonData.GetItemName(withdrawnItem.item) + ".";
         yield return Dialogue.instance.text("Withdrew&l" + DisplayString);
-        Item inBagItem = new Item(ItemsEnum.None, 0, false);
+        Item inBagItem = new Item(Items.NONE, 0, false);
 
         foreach (Item item in Inventory.instance.items)
         {
@@ -454,7 +455,7 @@ public class PC : MonoBehaviour
         Item depositedItem = Inventory.instance.items[currentBagPosition];
         yield return Dialogue.instance.text(PokemonData.GetItemName(depositedItem.item) + " was&lstored via PC.");
 
-        Item inBagItem = new Item(ItemsEnum.None, 0, false);
+        Item inBagItem = new Item(Items.NONE, 0, false);
 
         foreach (Item item in Inventory.instance.pcItems)
         {
