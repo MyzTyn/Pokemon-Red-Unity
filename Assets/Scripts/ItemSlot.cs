@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PokemonUnity;
 using PokemonUnity.Inventory;
 using UnityEngine;
 using UnityEngine.UI;
@@ -66,11 +67,11 @@ public class ItemSlot : MonoBehaviour
 
     public void UpdatePrice()
     {
-        ItemDataEntry itemDataEntry = PokemonData.itemData[(int)item];
+        ItemData itemDataEntry = Kernal.ItemData[item];
 
-        if (itemDataEntry.price != 0)
+        if (itemDataEntry.Price != 0)
         {
-            price = itemDataEntry.price;
+            price = itemDataEntry.Price;
         }
         else throw new UnityException("A price entry doesn't exist for " + "\"" + name + "\"");
     }

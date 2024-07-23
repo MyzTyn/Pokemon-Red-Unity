@@ -72,6 +72,7 @@ public class FishingGroup
 }
 
 
+// ToDo: Remove this. Still need the partySprite ID
 [System.Serializable]
 public class PokemonDataEntry
 {
@@ -115,31 +116,34 @@ public class PokemonDataEntry
 
 public class PokemonData
 {
+    // ToDo: Do we need this?
     public static PokemonUnity.Attack.Data.MoveData GetMove(int moveToGet)
     {
         //Debug.Log("Requesting move " + "\"" + moveToGet + "\"");
-        if (moveToGet < Kernal.MoveData.Count && moveToGet != (int)Moves.NONE) return Kernal.MoveData[(Moves)(moveToGet - 1)];
+        if (moveToGet < Kernal.MoveData.Count && moveToGet != (int)Moves.NONE) 
+            return Kernal.MoveData[(Moves)(moveToGet - 1)];
         
         //If the index is out of range, throw an exception.
         throw new IndexOutOfRangeException("The move index is out of range.");
     }
-
+    
+    // ToDo: Do we need this?
     public static string GetTypeName(Types type)
     {
-        if (type == Types.NONE) return "";
-        else return typeNames[(int)type - 1];
+        return type == Types.NONE ? "" : type.ToString(TextScripts.Name);
     }
 
     public static string GetItemName(Items item)
     {
-        return itemData[(int)item].name;
+        return item.ToString(TextScripts.Name);
     }
 
     public static int GetItemPrice(Items item)
     {
-        return itemData[(int)item].price;
+        return Kernal.ItemData[item].Price;
     }
-
+    
+    // ToDo: Remove this
     public static Moves TMHMToMove(int tmhmIndex)
     {
         return TMHMMoves[tmhmIndex];
@@ -147,7 +151,7 @@ public class PokemonData
     
     public static string IndexToMon(int index)
     {
-        return pokemonData[index - 1].name;
+        return ((Pokemons)index).ToString(TextScripts.Name);
     }
 
     public static List<PokemonDataEntry> pokemonData = new List<PokemonDataEntry>();
@@ -260,34 +264,11 @@ public class PokemonData
             new Tuple<string, int>("Goldeen", 15), new Tuple<string, int>("Magikarp", 15)
         }),
     });
-
-
-    public static List<ItemDataEntry> itemData = new List<ItemDataEntry>();
-
+    
     public static Dictionary<Types, Dictionary<Types, float>> TypeEffectiveness =
         new Dictionary<Types, Dictionary<Types, float>>();
 
     public static Dictionary<string, string[]> shopItemsLists = new Dictionary<string, string[]>();
-
-    public static string[] typeNames =
-    {
-        "NORMAL",
-        "FIGHTING",
-        "FLYING",
-        "POISON",
-        "FIRE",
-        "WATER",
-        "GRASS",
-        "ELECTRIC",
-        "PSYCHIC",
-        "ICE",
-        "GROUND",
-        "ROCK",
-        "BIRD",
-        "BUG",
-        "GHOST",
-        "DRAGON"
-    };
 
     public static Moves[] TMHMMoves =
     {

@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using PokemonUnity;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +12,7 @@ public class ViewBio : MonoBehaviour
     public Image pokemonSprite;
     public CustomText descriptionText, nameText, categoryText, heightText, weightText, dexNoText;
     string pokemonName = "";
-    PokemonDataEntry entryData;
+    PokemonUnity.Monster.Data.PokemonData entryData;
 
 
     public IEnumerator DisplayABio(int whatBio)
@@ -29,8 +29,8 @@ public class ViewBio : MonoBehaviour
                 : "has not been seen or caught."));
 
         pokemonID = whatBio;
-        entryData = PokemonData.pokemonData[pokemonID - 1];
-
+        entryData = Kernal.PokemonData[(Pokemons)pokemonID - 1];
+        
         InitText();
         menu.SetActive(true);
         displayingBio = true;
@@ -47,11 +47,13 @@ public class ViewBio : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
             if (InputManager.Pressed(Button.A)) break;
         }
-
+        
+        // ToDo: Split the descriptionText into multiple pages
         //If there's more than one page for the description, go to the next page
-        if (entryData.descriptionText.Length > 1)
+        if (entryData.ID.ToString(TextScripts.Description).Length > 1)
         {
-            descriptionText.text = entryData.descriptionText[1];
+            //descriptionText.text = entryData.ID.ToString(TextScripts.Description)[1];
+            descriptionText.text = entryData.ID.ToString(TextScripts.Description);
 
             while (true)
             {
@@ -68,12 +70,20 @@ public class ViewBio : MonoBehaviour
     public void InitText()
     {
         nameText.text = pokemonName;
-        categoryText.text = entryData.category;
-        heightText.text = entryData.heightFeet + " " + (entryData.heightInches < 10 ? "0" : "") +
-                          entryData.heightInches;
-        weightText.text = string.Format("{0,5:0.0}", entryData.weight);
-        dexNoText.text = (pokemonID > 99 ? "" : pokemonID > 9 ? "0" : "00") + pokemonID.ToString();
-        descriptionText.text = entryData.descriptionText[0];
+        // categoryText.text = entryData.category;
+        // heightText.text = entryData.heightFeet + " " + (entryData.heightInches < 10 ? "0" : "") +
+        //                   entryData.heightInches;
+        // weightText.text = string.Format("{0,5:0.0}", entryData.weight);
+        // dexNoText.text = (pokemonID > 99 ? "" : pokemonID > 9 ? "0" : "00") + pokemonID.ToString();
+        // descriptionText.text = entryData.descriptionText[0];
+        
+        // ToDo: Where to get the category such as SEED, etc...
+        categoryText.text = "???";
+        heightText.text = entryData.Height + " ";
+        weightText.text = $"{entryData.Weight,5:0.0}";
+        dexNoText.text = (pokemonID > 99 ? "" : pokemonID > 9 ? "0" : "00") + pokemonID;
+        descriptionText.text = entryData.ID.ToString(TextScripts.Description);
+        
         pokemonSprite.sprite = GameData.instance.frontMonSprites[pokemonID - 1];
     }
 }
