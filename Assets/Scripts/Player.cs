@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using PokemonUnity;
+using PokemonUnity.Monster;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
@@ -83,10 +85,11 @@ public class Player : Singleton<Player>
 
     void Start()
     {
-        GameData.instance.AddPokemonToParty(PokemonEnum.Mew, 35);
-        GameData.instance.party[0].SetMove(Moves.Cut, 0);
-        GameData.instance.party[0].SetMove(Moves.Surf, 1);
-        GameData.instance.party[0].SetMove(Moves.Softboiled, 2);
+        GameData.instance.AddPokemonToParty(Pokemons.MEW, 35);
+        // ToDo: Set those moves
+        // GameData.instance.party[0].SetMove(Moves.Cut, 0);
+        // GameData.instance.party[0].SetMove(Moves.Surf, 1);
+        // GameData.instance.party[0].SetMove(Moves.Softboiled, 2);
         GameData.instance.trainerID = Random.Range(0, 65536);
         direction = Direction.Down;
         targetPos = transform.position;
@@ -685,7 +688,7 @@ public class Player : Singleton<Player>
     public BattleManager battleManager;
     public GameObject battlemenu;
 
-    public IEnumerator StartWildBattle(System.Tuple<PokemonEnum, int> pokemon)
+    public IEnumerator StartWildBattle(System.Tuple<Pokemons, int> pokemon)
     {
         inBattle = true;
         isDisabled = true;
@@ -716,7 +719,7 @@ public class Player : Singleton<Player>
         }
 
         battleManager.battleType = BattleType.Wild;
-        battleManager.enemyMons = new List<Pokemon>(new Pokemon[] { new Pokemon(pokemon.Item1, pokemon.Item2, true) });
+        battleManager.enemyMons = new List<Pokemon>(new Pokemon[] { new Pokemon(pokemon.Item1, (byte)pokemon.Item2, true) });
         battlemenu.SetActive(true);
         battleManager.battleoverlay.sprite = battleManager.blank;
         battleManager.Initialize();

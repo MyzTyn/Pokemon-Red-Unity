@@ -13,6 +13,7 @@ public class PokemonDataJSON : MonoBehaviour
     
     void Awake()
     {
+        // ToDo: Remove the PokemonDataJSON
         //this should also be a class list
         PokemonData.TypeEffectiveness =
             Serializer.JSONtoObject<Dictionary<Types, Dictionary<Types, float>>>("typeEffectiveness.json");
@@ -37,7 +38,7 @@ public class PokemonDataJSON : MonoBehaviour
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Debug.LogError(e);
             throw;
         }
         

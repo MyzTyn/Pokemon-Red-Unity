@@ -1299,127 +1299,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleID: 0
-  enemyMons:
-  - id: 0
-    maxHP: 0
-    attack: 0
-    defense: 0
-    speed: 0
-    special: 0
-    currentHP: 0
-    isWildPokemon: 0
-    status: 0
-    ivs: 
-    evs: 
-    name: 
-    level: 0
-    nickname: 
-    ownerID: 0
-    owner: 
-    experience: 0
-    types: 
-    moves: []
-    numberOfMoves: 0
-  - id: 0
-    maxHP: 0
-    attack: 0
-    defense: 0
-    speed: 0
-    special: 0
-    currentHP: 0
-    isWildPokemon: 0
-    status: 0
-    ivs: 
-    evs: 
-    name: 
-    level: 0
-    nickname: 
-    ownerID: 0
-    owner: 
-    experience: 0
-    types: 
-    moves: []
-    numberOfMoves: 0
-  - id: 0
-    maxHP: 0
-    attack: 0
-    defense: 0
-    speed: 0
-    special: 0
-    currentHP: 0
-    isWildPokemon: 0
-    status: 0
-    ivs: 
-    evs: 
-    name: 
-    level: 0
-    nickname: 
-    ownerID: 0
-    owner: 
-    experience: 0
-    types: 
-    moves: []
-    numberOfMoves: 0
-  - id: 0
-    maxHP: 0
-    attack: 0
-    defense: 0
-    speed: 0
-    special: 0
-    currentHP: 0
-    isWildPokemon: 0
-    status: 0
-    ivs: 
-    evs: 
-    name: 
-    level: 0
-    nickname: 
-    ownerID: 0
-    owner: 
-    experience: 0
-    types: 
-    moves: []
-    numberOfMoves: 0
-  - id: 0
-    maxHP: 0
-    attack: 0
-    defense: 0
-    speed: 0
-    special: 0
-    currentHP: 0
-    isWildPokemon: 0
-    status: 0
-    ivs: 
-    evs: 
-    name: 
-    level: 0
-    nickname: 
-    ownerID: 0
-    owner: 
-    experience: 0
-    types: 
-    moves: []
-    numberOfMoves: 0
-  - id: 0
-    maxHP: 0
-    attack: 0
-    defense: 0
-    speed: 0
-    special: 0
-    currentHP: 0
-    isWildPokemon: 0
-    status: 0
-    ivs: 
-    evs: 
-    name: 
-    level: 0
-    nickname: 
-    ownerID: 0
-    owner: 
-    experience: 0
-    types: 
-    moves: []
-    numberOfMoves: 0
   playerstats: {fileID: 1142399518}
   enemystatsObject: {fileID: 2000153447}
   battleMainAnim: {fileID: 50480678}
@@ -1433,27 +1312,6 @@ MonoBehaviour:
   playerObject: {fileID: 345981465}
   trainerObject: {fileID: 1835076345}
   enemyMonObject: {fileID: 2098982416}
-  playermon:
-    id: 0
-    maxHP: 0
-    attack: 0
-    defense: 0
-    speed: 0
-    special: 0
-    currentHP: 0
-    isWildPokemon: 0
-    status: 0
-    ivs: 
-    evs: 
-    name: 
-    level: 0
-    nickname: 
-    ownerID: 0
-    owner: 
-    experience: 0
-    types: 
-    moves: []
-    numberOfMoves: 0
   playerHpText: {fileID: 1075580880}
   playerName: {fileID: 1806227995}
   playermonLeveltext: {fileID: 1502135527}
@@ -1465,28 +1323,6 @@ MonoBehaviour:
   - {fileID: 1013011199}
   - {fileID: 998719790}
   - {fileID: 721880207}
-  enemyParty: []
-  enemymon:
-    id: 0
-    maxHP: 0
-    attack: 0
-    defense: 0
-    speed: 0
-    special: 0
-    currentHP: 0
-    isWildPokemon: 0
-    status: 0
-    ivs: 
-    evs: 
-    name: 
-    level: 0
-    nickname: 
-    ownerID: 0
-    owner: 
-    experience: 0
-    types: 
-    moves: []
-    numberOfMoves: 0
   enemymonLeveltext: {fileID: 872392765}
   enemymonname: {fileID: 1109803797}
   enemyHPBar: {fileID: 13924}
@@ -28593,7 +28429,7 @@ PrefabInstance:
     - target: {fileID: 1684661850642815156, guid: 5b18194ddceb50445b715af24b48f052,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[40].second.m_AnimationSpeed
-      value: 2.3809
+      value: 2.3809001
       objectReference: {fileID: 0}
     - target: {fileID: 1684661850642815156, guid: 5b18194ddceb50445b715af24b48f052,
         type: 3}
@@ -37357,7 +37193,7 @@ PrefabInstance:
     - target: {fileID: 2436992634499424499, guid: 6a4a4af90262eb944890f9d034c81d79,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[4].second.m_AnimationSpeed
-      value: 2.3809
+      value: 2.3809001
       objectReference: {fileID: 0}
     - target: {fileID: 2436992634499424499, guid: 6a4a4af90262eb944890f9d034c81d79,
         type: 3}
@@ -38517,7 +38353,6 @@ MonoBehaviour:
   - Strength
   - Flash
   - Softboiled
-  party: []
   frontMonSprites: []
   backMonSprites: []
   isPaused: 0
@@ -47477,7 +47312,7 @@ PrefabInstance:
     - target: {fileID: 5599873086172882299, guid: dc0c3f652d4dcf24ba1f503ba39a026d,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[2].second.m_AnimationSpeed
-      value: 2.3809001
+      value: 2.3809
       objectReference: {fileID: 0}
     - target: {fileID: 5599873086172882299, guid: dc0c3f652d4dcf24ba1f503ba39a026d,
         type: 3}
@@ -47782,6 +47617,11 @@ PrefabInstance:
     - target: {fileID: 5599873087517818803, guid: dc0c3f652d4dcf24ba1f503ba39a026d,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[4].second.m_AnimationSpeed
+      value: 2.3809
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599873087517818803, guid: dc0c3f652d4dcf24ba1f503ba39a026d,
+        type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[5].second.m_AnimationSpeed
       value: 2.3809
       objectReference: {fileID: 0}
     - target: {fileID: 5599873087517818803, guid: dc0c3f652d4dcf24ba1f503ba39a026d,
@@ -48359,15 +48199,15 @@ MonoBehaviour:
   monnametext: {fileID: 808009866}
   montype1: {fileID: 1634390027}
   montype2: {fileID: 580660202}
-  owneridtext: {fileID: 394595915}
+  ownerSpeciestext: {fileID: 394595915}
   ownernametext: {fileID: 187537276}
-  monleveltext: {fileID: 1780497028}
+  monLeveltext: {fileID: 1780497028}
   monstatustext: {fileID: 1962707881}
   stats2portrait: {fileID: 1827446129}
   movetext: {fileID: 517328272}
   exptext: {fileID: 372500352}
-  explefttoleveltext: {fileID: 715146376}
-  nextleveltext: {fileID: 387981240}
+  explefttoLeveltext: {fileID: 715146376}
+  nextLeveltext: {fileID: 387981240}
   monname2text: {fileID: 1514819019}
   pokedexno2: {fileID: 264509681}
   partyanims:

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using PokemonUnity;
 
 [System.Serializable]
 public class LevelUpMove
@@ -29,7 +30,7 @@ public enum EvolutionMethod
 [System.Serializable]
 public class PokemonEvolution
 {
-    public PokemonEnum pokemon;
+    public Pokemons pokemon;
 
     public EvolutionMethod method;
 
@@ -54,7 +55,8 @@ public class PokemonEvolution
 public class EncounterData
 {
     public int encounterChance;
-    public Tuple<PokemonEnum, int>[] slots;
+    public Tuple<Pokemons, int>[] slots;
+    //public Tuple<PokemonEnum, int>[] slots;
 }
 
 public class FishingGroup

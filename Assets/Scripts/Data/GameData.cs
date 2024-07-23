@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using PokemonUnity;
+using PokemonUnity.Monster;
 
 
 public class PokedexEntry
@@ -118,9 +121,11 @@ public class GameData : Singleton<GameData>
     public bool[] eventsArray;
 
 
-    public void AddPokemonToParty(PokemonEnum pokemon, int level)
+    public void AddPokemonToParty(Pokemons pokemon, byte level)
     {
         party.Add(new Pokemon(pokemon, level, false));
+        // ToDo: Fix the null reference
+        party.Last().SetNickname(pokemon.ToString());
     }
 
 

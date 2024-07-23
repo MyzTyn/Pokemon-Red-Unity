@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
+using Newtonsoft.Json.Converters;
 
 
 public class Serializer
@@ -39,9 +40,14 @@ public class Serializer
 
     public static void objectToJSON(string fileName, object type)
     {
+        var settings = new JsonSerializerSettings
+        {
+            Converters = new List<JsonConverter> { new PokemonsEnumConverter(), new StringEnumConverter() }
+        };
+        
         //save a json file to the StreamingAssets folder.
         string data = JValue
-            .Parse(JsonConvert.SerializeObject(type, new Newtonsoft.Json.Converters.StringEnumConverter()))
+            .Parse(JsonConvert.SerializeObject(type, settings))
             .ToString(Newtonsoft.Json.Formatting.Indented);
         File.WriteAllText(Application.streamingAssetsPath + "/" + fileName, data);
     }
@@ -56,6 +62,10 @@ public class Serializer
         string tmlearndata = sr.ReadToEnd();
         file.Close();
         
-        return JsonConvert.DeserializeObject<T>(tmlearndata, new Newtonsoft.Json.Converters.StringEnumConverter());
+        var settings = new JsonSerializerSettings
+        {
+            Converters = new List<JsonConverter> { new PokemonsEnumConverter(), new StringEnumConverter() }
+        };
+        return JsonConvert.DeserializeObject<T>(tmlearndata, settings);
     }
 }
