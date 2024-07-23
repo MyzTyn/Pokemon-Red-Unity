@@ -16,7 +16,7 @@ public class SlotsObject : MonoBehaviour, InteractableObject
                 if (Dialogue.instance.selectedOption == 0)
                 {
                     Dialogue.instance.Deactivate();
-                   yield return StartCoroutine(Player.instance.DisplayEmotiveBubble(1));
+                    yield return StartCoroutine(Player.instance.DisplayEmotiveBubble(1));
                     Player.instance.isDisabled = true;
                     GameDataManager.instance.slots.gameObject.SetActive(true);
                     InputManager.Disable(Button.Start);

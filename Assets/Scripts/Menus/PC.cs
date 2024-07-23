@@ -13,7 +13,8 @@ public class PC : MonoBehaviour
         QuantityMenu
     }
 
-    public enum Mode{
+    public enum Mode
+    {
         Withdraw,
         Deposit,
         Toss
@@ -32,11 +33,13 @@ public class PC : MonoBehaviour
     public int amountToTask;
     public int maximumItem;
     public CustomText amountText;
+
     public RectTransform selectCursor;
+
     //the index of the top item on screen
     public int topItemIndex;
     public bool switchingItems;
-        public bool alreadyInBag;
+    public bool alreadyInBag;
     public int numberOfItems;
 
     public IEnumerator Initialize()
@@ -48,22 +51,30 @@ public class PC : MonoBehaviour
         yield return 0;
     }
 
-    void UpdateBagScreen(){
+    void UpdateBagScreen()
+    {
         numberOfItems = itemMode == Mode.Deposit ? Inventory.instance.items.Count : Inventory.instance.pcItems.Count;
-       
+
         if (currentBagPosition == 0)
         {
             topItemIndex = 0;
         }
 
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++)
+        {
             int currentItem = topItemIndex + i;
             if (currentItem < numberOfItems)
             {
                 itemSlots[i].mode = SlotMode.Item;
-                itemSlots[i].item = itemMode == Mode.Deposit ? Inventory.instance.items[currentItem].item : Inventory.instance.pcItems[currentItem].item;
-                itemSlots[i].quantity = itemMode == Mode.Deposit ? Inventory.instance.items[currentItem].quantity : Inventory.instance.pcItems[currentItem].quantity;
-                itemSlots[i].isKeyItem = itemMode == Mode.Deposit ? Inventory.instance.items[currentItem].isKeyItem : Inventory.instance.pcItems[currentItem].isKeyItem;
+                itemSlots[i].item = itemMode == Mode.Deposit
+                    ? Inventory.instance.items[currentItem].item
+                    : Inventory.instance.pcItems[currentItem].item;
+                itemSlots[i].quantity = itemMode == Mode.Deposit
+                    ? Inventory.instance.items[currentItem].quantity
+                    : Inventory.instance.pcItems[currentItem].quantity;
+                itemSlots[i].isKeyItem = itemMode == Mode.Deposit
+                    ? Inventory.instance.items[currentItem].isKeyItem
+                    : Inventory.instance.pcItems[currentItem].isKeyItem;
             }
             else if (currentItem == numberOfItems)
             {
@@ -79,11 +90,12 @@ public class PC : MonoBehaviour
         //If there are still more items off screen at the bottom, keep the cursor active
         if (topItemIndex + 3 < Inventory.instance.items.Count) indicator.SetActive(true);
         else indicator.SetActive(false);
-       
+
         if (switchingItems)
         {
             selectCursor.anchoredPosition = new Vector2(40, 104 - 16 * (selectBag - topItemIndex)) + new Vector2(4, 4);
-            if (selectCursor.anchoredPosition.y > 112 || selectCursor.anchoredPosition.y < 50) selectCursor.gameObject.SetActive(false);
+            if (selectCursor.anchoredPosition.y > 112 || selectCursor.anchoredPosition.y < 50)
+                selectCursor.gameObject.SetActive(false);
             else selectCursor.gameObject.SetActive(true);
         }
     }
@@ -103,19 +115,23 @@ public class PC : MonoBehaviour
     {
         if (currentMenu == Menu.QuantityMenu && Dialogue.instance.finishedText)
         {
-
             if (InputManager.Pressed(Button.Down))
             {
                 amountToTask--;
             }
+
             if (InputManager.Pressed(Button.Up))
             {
                 amountToTask++;
             }
-            if (amountToTask < 1){
+
+            if (amountToTask < 1)
+            {
                 amountToTask = maximumItem;
             }
-            if (amountToTask > maximumItem){
+
+            if (amountToTask > maximumItem)
+            {
                 amountToTask = 1;
             }
 
@@ -127,7 +143,7 @@ public class PC : MonoBehaviour
             if (InputManager.Pressed(Button.Down))
             {
                 currentBagPosition++;
-                 MathE.Clamp(ref currentBagPosition, 0, numberOfItems);
+                MathE.Clamp(ref currentBagPosition, 0, numberOfItems);
 
                 if (currentBagPosition == topItemIndex + 3 && numberOfItems > 3)
                 {
@@ -141,14 +157,14 @@ public class PC : MonoBehaviour
             {
                 currentBagPosition--;
 
-                 MathE.Clamp(ref currentBagPosition, 0, Inventory.instance.items.Count);
-                
+                MathE.Clamp(ref currentBagPosition, 0, Inventory.instance.items.Count);
+
 
                 if (currentBagPosition >= 0 && currentBagPosition < topItemIndex)
                 {
                     topItemIndex--;
                 }
-                
+
                 UpdateBagScreen();
             }
 
@@ -170,6 +186,7 @@ public class PC : MonoBehaviour
                 MathE.Clamp(ref selectedOption, 0, 3);
                 UpdateMainScreen();
             }
+
             if (InputManager.Pressed(Button.Up))
             {
                 selectedOption--;
@@ -178,7 +195,8 @@ public class PC : MonoBehaviour
             }
         }
 
-        if (InputManager.Pressed(Button.Select) && Dialogue.instance.finishedText && currentBagPosition != numberOfItems)
+        if (InputManager.Pressed(Button.Select) && Dialogue.instance.finishedText &&
+            currentBagPosition != numberOfItems)
         {
             if (currentMenu == Menu.ItemWindow)
             {
@@ -216,184 +234,191 @@ public class PC : MonoBehaviour
 
         if (Dialogue.instance.finishedText)
         {
-        if (InputManager.Pressed(Button.A))
-        {
-            SoundManager.instance.PlayABSound();
-            if (currentMenu == Menu.ItemWindow)
+            if (InputManager.Pressed(Button.A))
             {
-
-                if (currentBagPosition == numberOfItems)
+                SoundManager.instance.PlayABSound();
+                if (currentMenu == Menu.ItemWindow)
                 {
-                    Dialogue.instance.Deactivate();
-                    Dialogue.instance.fastText = true;
-                    switchingItems = false;
-                    selectCursor.gameObject.SetActive(false);
-                    Dialogue.instance.keepTextOnScreen = true;
-                    Dialogue.instance.needButtonPress = false;
-                    yield return Dialogue.instance.text("What do you want&lto do?");
-                    currentMenu = Menu.MainWindow;
-                    UpdateMainScreen();
-                }
-                else
-                {
-                    if (!itemSlots[currentBagPosition - topItemIndex].isKeyItem && itemMode != Mode.Toss)
+                    if (currentBagPosition == numberOfItems)
                     {
-                        amountToTask = 1;
                         Dialogue.instance.Deactivate();
                         Dialogue.instance.fastText = true;
+                        switchingItems = false;
+                        selectCursor.gameObject.SetActive(false);
                         Dialogue.instance.keepTextOnScreen = true;
                         Dialogue.instance.needButtonPress = false;
-                        yield return Dialogue.instance.text("How much?");
-                        currentMenu = Menu.QuantityMenu;
-                        amountText.text = amountToTask.ToString();
+                        yield return Dialogue.instance.text("What do you want&lto do?");
+                        currentMenu = Menu.MainWindow;
+                        UpdateMainScreen();
                     }
-                    else if (itemSlots[currentBagPosition - topItemIndex].isKeyItem)
+                    else
                     {
-                        switch (itemMode)
+                        if (!itemSlots[currentBagPosition - topItemIndex].isKeyItem && itemMode != Mode.Toss)
                         {
-                            case Mode.Withdraw:
-                                StartCoroutine(WithdrawItem());
-                                break;
-                            case Mode.Deposit:
-                                StartCoroutine(DepositItem());
-                                break;
+                            amountToTask = 1;
+                            Dialogue.instance.Deactivate();
+                            Dialogue.instance.fastText = true;
+                            Dialogue.instance.keepTextOnScreen = true;
+                            Dialogue.instance.needButtonPress = false;
+                            yield return Dialogue.instance.text("How much?");
+                            currentMenu = Menu.QuantityMenu;
+                            amountText.text = amountToTask.ToString();
+                        }
+                        else if (itemSlots[currentBagPosition - topItemIndex].isKeyItem)
+                        {
+                            switch (itemMode)
+                            {
+                                case Mode.Withdraw:
+                                    StartCoroutine(WithdrawItem());
+                                    break;
+                                case Mode.Deposit:
+                                    StartCoroutine(DepositItem());
+                                    break;
+                            }
+                        }
+                        else if (itemMode == Mode.Toss)
+                        {
+                            amountToTask = 1;
+                            Dialogue.instance.Deactivate();
+                            Dialogue.instance.fastText = true;
+                            Dialogue.instance.keepTextOnScreen = true;
+                            Dialogue.instance.needButtonPress = false;
+                            yield return Dialogue.instance.text("How much?");
+                            currentMenu = Menu.QuantityMenu;
+                            amountText.text = amountToTask.ToString();
                         }
                     }
-                    else if (itemMode == Mode.Toss)
+
+                    if (currentBagPosition != numberOfItems && itemSlots[currentBagPosition - topItemIndex].isKeyItem &&
+                        itemMode == Mode.Toss)
                     {
-                        amountToTask = 1;
-                        Dialogue.instance.Deactivate();
-                        Dialogue.instance.fastText = true;
-                        Dialogue.instance.keepTextOnScreen = true;
-                        Dialogue.instance.needButtonPress = false;
-                        yield return Dialogue.instance.text("How much?");
-                        currentMenu = Menu.QuantityMenu;
-                        amountText.text = amountToTask.ToString();
+                        StartCoroutine(TooImportantToToss());
                     }
                 }
-                if (currentBagPosition != numberOfItems && itemSlots[currentBagPosition - topItemIndex].isKeyItem && itemMode == Mode.Toss)
+                else if (currentMenu == Menu.MainWindow)
                 {
-                    StartCoroutine(TooImportantToToss());
-                }
+                    if (selectedOption == 0)
+                    {
+                        UpdateBagScreen();
+                        StartCoroutine(SetItemMode(Mode.Withdraw));
+                    }
 
+                    if (selectedOption == 1)
+                    {
+                        UpdateBagScreen();
+                        StartCoroutine(SetItemMode(Mode.Deposit));
+                    }
+
+                    if (selectedOption == 2)
+                    {
+                        UpdateBagScreen();
+                        StartCoroutine(SetItemMode(Mode.Toss));
+                    }
+
+                    if (selectedOption == 3)
+                    {
+                        Close();
+                    }
+                }
+                else if (currentMenu == Menu.QuantityMenu)
+                {
+                    if (itemMode == Mode.Toss)
+                    {
+                        if (!itemSlots[currentBagPosition - topItemIndex].isKeyItem)
+                        {
+                            StartCoroutine(TossItem());
+                        }
+                    }
+
+                    if (itemMode == Mode.Withdraw)
+                    {
+                        StartCoroutine(WithdrawItem());
+                    }
+
+                    if (itemMode == Mode.Deposit)
+                    {
+                        StartCoroutine(DepositItem());
+                    }
+                }
             }
-            else if (currentMenu == Menu.MainWindow)
+
+            if (InputManager.Pressed(Button.B))
             {
-                if (selectedOption == 0)
-                {
-                    UpdateBagScreen();
-                    StartCoroutine(SetItemMode(Mode.Withdraw));
-                }
-                if (selectedOption == 1)
-                {
-                    UpdateBagScreen();
-                    StartCoroutine(SetItemMode(Mode.Deposit));
-                }
-                if (selectedOption == 2)
-                {
-                    UpdateBagScreen();
-                    StartCoroutine(SetItemMode(Mode.Toss));
-                }
-                if (selectedOption == 3)
+                SoundManager.instance.PlayABSound();
+                if (currentMenu == Menu.MainWindow)
                 {
                     Close();
                 }
-            }
-            else if (currentMenu == Menu.QuantityMenu)
-            {
-                if (itemMode == Mode.Toss)
+                else if (currentMenu == Menu.ItemWindow)
                 {
-                    if (!itemSlots[currentBagPosition - topItemIndex].isKeyItem)
+                    switchingItems = false;
+                    selectCursor.gameObject.SetActive(false);
+                    StartCoroutine(WhatDoText());
+
+                    currentMenu = Menu.MainWindow;
+                    UpdateMainScreen();
+                }
+                else if (currentMenu == Menu.QuantityMenu)
+                {
+                    if (itemMode == Mode.Withdraw)
                     {
-                        StartCoroutine(TossItem());
+                        currentBagPosition = 0;
+                        selectBag = -1;
+                        StartCoroutine(WhatWithdrawText());
+                        currentMenu = Menu.ItemWindow;
+                    }
+
+                    if (itemMode == Mode.Deposit)
+                    {
+                        currentBagPosition = 0;
+                        selectBag = -1;
+                        StartCoroutine(WhatDepositText());
+                        currentMenu = Menu.ItemWindow;
+                    }
+
+                    if (itemMode == Mode.Toss)
+                    {
+                        currentBagPosition = 0;
+                        selectBag = -1;
+                        StartCoroutine(WhatTossText());
+                        currentMenu = Menu.ItemWindow;
                     }
                 }
-                if (itemMode == Mode.Withdraw)
-                {
-                    StartCoroutine(WithdrawItem());
-                }
-
-                if (itemMode == Mode.Deposit)
-                {
-                    StartCoroutine(DepositItem());
-                }
             }
-        }
-
-        if (InputManager.Pressed(Button.B))
-        {
-            SoundManager.instance.PlayABSound();
-            if (currentMenu == Menu.MainWindow)
-            {
-                Close();
-            }
-            else if (currentMenu == Menu.ItemWindow)
-            {
-
-
-                switchingItems = false;
-                selectCursor.gameObject.SetActive(false);
-                StartCoroutine(WhatDoText());
-
-                currentMenu = Menu.MainWindow;
-                UpdateMainScreen();
-
-            }
-            else if (currentMenu == Menu.QuantityMenu)
-            {
-                if (itemMode == Mode.Withdraw)
-                {
-                    currentBagPosition = 0;
-                    selectBag = -1;
-                    StartCoroutine(WhatWithdrawText());
-                    currentMenu = Menu.ItemWindow;
-
-                }
-                if (itemMode == Mode.Deposit)
-                {
-                    currentBagPosition = 0;
-                    selectBag = -1;
-                    StartCoroutine(WhatDepositText());
-                    currentMenu = Menu.ItemWindow;
-
-                }
-                if (itemMode == Mode.Toss)
-                {
-                    currentBagPosition = 0;
-                    selectBag = -1;
-                    StartCoroutine(WhatTossText());
-                    currentMenu = Menu.ItemWindow;
-
-                }
-            }
-
-        }
         }
 
         foreach (GameObject menu in allMenus)
         {
-            if (menu != allMenus[(int)currentMenu]){
+            if (menu != allMenus[(int)currentMenu])
+            {
                 menu.SetActive(false);
             }
-            else{
+            else
+            {
                 menu.SetActive(true);
             }
 
-            if (menu == mainwindow && (currentMenu == Menu.ItemWindow || currentMenu == Menu.QuantityMenu)){
-                menu.SetActive(true);
-            }
-            if (menu == quantitymenu && (currentMenu == Menu.ItemWindow || currentMenu == Menu.MainWindow)){
-                menu.SetActive(false);
-            }
-            if (menu == itemwindow && currentMenu == Menu.QuantityMenu){
+            if (menu == mainwindow && (currentMenu == Menu.ItemWindow || currentMenu == Menu.QuantityMenu))
+            {
                 menu.SetActive(true);
             }
 
+            if (menu == quantitymenu && (currentMenu == Menu.ItemWindow || currentMenu == Menu.MainWindow))
+            {
+                menu.SetActive(false);
+            }
+
+            if (menu == itemwindow && currentMenu == Menu.QuantityMenu)
+            {
+                menu.SetActive(true);
+            }
         }
+
         yield return 0;
     }
 
-    IEnumerator WithdrawItem(){
+    IEnumerator WithdrawItem()
+    {
         alreadyInBag = false;
         Item withdrawnItem = Inventory.instance.pcItems[currentBagPosition];
         string DisplayString = PokemonData.GetItemName(withdrawnItem.item) + ".";
@@ -410,8 +435,10 @@ public class PC : MonoBehaviour
             }
         }
 
-        if (alreadyInBag) Inventory.instance.items[Inventory.instance.items.IndexOf(inBagItem)].quantity += amountToTask;
-        else if (Inventory.instance.items.Count < 20) Inventory.instance.items.Add(new Item(withdrawnItem.item, amountToTask, withdrawnItem.isKeyItem));
+        if (alreadyInBag)
+            Inventory.instance.items[Inventory.instance.items.IndexOf(inBagItem)].quantity += amountToTask;
+        else if (Inventory.instance.items.Count < 20)
+            Inventory.instance.items.Add(new Item(withdrawnItem.item, amountToTask, withdrawnItem.isKeyItem));
         yield return StartCoroutine(RemoveItem(amountToTask));
 
 
@@ -439,8 +466,10 @@ public class PC : MonoBehaviour
             }
         }
 
-        if (alreadyInBag) Inventory.instance.pcItems[Inventory.instance.pcItems.IndexOf(inBagItem)].quantity += amountToTask;
-        else if (Inventory.instance.pcItems.Count < 50) Inventory.instance.pcItems.Add(new Item(depositedItem.item, amountToTask, depositedItem.isKeyItem));
+        if (alreadyInBag)
+            Inventory.instance.pcItems[Inventory.instance.pcItems.IndexOf(inBagItem)].quantity += amountToTask;
+        else if (Inventory.instance.pcItems.Count < 50)
+            Inventory.instance.pcItems.Add(new Item(depositedItem.item, amountToTask, depositedItem.isKeyItem));
         yield return StartCoroutine(RemoveItem(amountToTask));
 
         StartCoroutine(WhatDoText());
@@ -467,20 +496,23 @@ public class PC : MonoBehaviour
         {
             Inventory.instance.RemoveItemPC(amount, currentBagPosition);
         }
+
         if (itemMode == Mode.Deposit)
         {
             Inventory.instance.RemoveItem(amount, currentBagPosition);
-
         }
+
         yield return null;
     }
+
     IEnumerator SetItemMode(Mode mode)
     {
         currentBagPosition = 0;
         itemMode = mode;
         selectBag = -1;
 
-        switch(itemMode){
+        switch (itemMode)
+        {
             case Mode.Withdraw:
                 StartCoroutine(WhatWithdrawText());
                 break;
@@ -499,14 +531,13 @@ public class PC : MonoBehaviour
 
     IEnumerator TooImportantToToss()
     {
-
         Dialogue.instance.Deactivate();
         yield return Dialogue.instance.text("That's too impor-&ltant to toss!");
         selectCursor.gameObject.SetActive(false);
         UpdateBagScreen();
         currentMenu = Menu.ItemWindow;
-
     }
+
     IEnumerator WhatDoText()
     {
         Dialogue.instance.Deactivate();
@@ -514,8 +545,8 @@ public class PC : MonoBehaviour
         Dialogue.instance.keepTextOnScreen = true;
         Dialogue.instance.needButtonPress = false;
         yield return Dialogue.instance.text("What do you want&lto do?");
-
     }
+
     IEnumerator WhatWithdrawText()
     {
         Dialogue.instance.Deactivate();
@@ -523,8 +554,8 @@ public class PC : MonoBehaviour
         Dialogue.instance.keepTextOnScreen = true;
         Dialogue.instance.needButtonPress = false;
         yield return Dialogue.instance.text("What do you want&lto withdraw?");
-
     }
+
     IEnumerator WhatDepositText()
     {
         Dialogue.instance.Deactivate();
@@ -532,8 +563,8 @@ public class PC : MonoBehaviour
         Dialogue.instance.keepTextOnScreen = true;
         Dialogue.instance.needButtonPress = false;
         yield return Dialogue.instance.text("What do you want&lto deposit?");
-
     }
+
     IEnumerator WhatTossText()
     {
         Dialogue.instance.Deactivate();
@@ -541,8 +572,8 @@ public class PC : MonoBehaviour
         Dialogue.instance.keepTextOnScreen = true;
         Dialogue.instance.needButtonPress = false;
         yield return Dialogue.instance.text("What do you want&lto toss?");
-
     }
+
     void Close()
     {
         cursor.SetActive(false);

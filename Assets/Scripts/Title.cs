@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Title : MonoBehaviour {
-	public bool HasData;
-	public GameObject startmenu;
-	public GameObject nodatamenu, datamenu, continuemenu, options;
+
+public class Title : MonoBehaviour
+{
+    public bool HasData;
+    public GameObject startmenu;
+    public GameObject nodatamenu, datamenu, continuemenu, options;
     public GameCursor cursor;
-	public GameObject[] startmenus;
-	public GameObject currentMenu;
-	public GameObject[] menuSlots;
-	public Animator titleanim, redAnim, pokemonAnim;
-	public int selectedOption;
-	public GameObject tutorialmanager;
-	public Options opt;
+    public GameObject[] startmenus;
+    public GameObject currentMenu;
+    public GameObject[] menuSlots;
+    public Animator titleanim, redAnim, pokemonAnim;
+    public int selectedOption;
+    public GameObject tutorialmanager;
+    public Options opt;
     public int ChosenPokemon;
     public Sprite[] blueMons, redMons;
     public Image pokemonImage, titleVersionImage;
@@ -26,10 +28,10 @@ public class Title : MonoBehaviour {
     public TitlePokemon titlePokemon;
 
 
-
     // Use this for initialization
-    void Start () {
-		startmenu.SetActive (false);
+    void Start()
+    {
+        startmenu.SetActive(false);
         Init();
     }
 
@@ -52,6 +54,7 @@ public class Title : MonoBehaviour {
                 titleVersionImage.sprite = blueVersionText;
                 break;
         }
+
         ChangePokemon();
     }
 
@@ -81,9 +84,8 @@ public class Title : MonoBehaviour {
     {
         int lastPokemon = ChosenPokemon;
         ChosenPokemon = Random.Range(0, 16);
-        while(ChosenPokemon == lastPokemon) ChosenPokemon = Random.Range(0, 16);
+        while (ChosenPokemon == lastPokemon) ChosenPokemon = Random.Range(0, 16);
         ChangePokemon();
-
     }
 
 
@@ -91,7 +93,6 @@ public class Title : MonoBehaviour {
     {
         pokemonAnim.SetTrigger("switchPokemon");
         Invoke("TryTossPokeball", 0.6f);
-        
     }
 
 
@@ -102,59 +103,78 @@ public class Title : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (!animationsFinished) return;
-		if (currentMenu == nodatamenu || currentMenu == datamenu) {
-
+        if (currentMenu == nodatamenu || currentMenu == datamenu)
+        {
             int limit = (currentMenu == nodatamenu ? 1 : 2);
-		
-            if (InputManager.Pressed(Button.Down)) {
-				selectedOption++;        
-			}
-            if (InputManager.Pressed(Button.Up)) {
-				selectedOption--;        
+
+            if (InputManager.Pressed(Button.Down))
+            {
+                selectedOption++;
             }
-			if (selectedOption < 0) {
-				selectedOption = 0;
-			}
-		    if (selectedOption > limit) {
-				selectedOption = limit;
-			}
+
+            if (InputManager.Pressed(Button.Up))
+            {
+                selectedOption--;
+            }
+
+            if (selectedOption < 0)
+            {
+                selectedOption = 0;
+            }
+
+            if (selectedOption > limit)
+            {
+                selectedOption = limit;
+            }
+
             cursor.SetPosition(8, 120 - selectedOption * 16);
         }
-		if(InputManager.Pressed(Button.A) || InputManager.Pressed(Button.Start)){
-            if (currentMenu == null && !titlePokemon.isMoving) {       
-				StartCoroutine("GotoStart");
-			}
+
+        if (InputManager.Pressed(Button.A) || InputManager.Pressed(Button.Start))
+        {
+            if (currentMenu == null && !titlePokemon.isMoving)
+            {
+                StartCoroutine("GotoStart");
+            }
         }
-		
-        if (InputManager.Pressed(Button.A)) {
-			if (currentMenu == nodatamenu) {
-                if(selectedOption == 0){
-			        tutorialmanager.SetActive (true);
+
+        if (InputManager.Pressed(Button.A))
+        {
+            if (currentMenu == nodatamenu)
+            {
+                if (selectedOption == 0)
+                {
+                    tutorialmanager.SetActive(true);
                     OakIntroCutsceneHandler.instance.Init();
                     SoundManager.instance.PlaySong(Music.NuggetBridge);
-			        startmenu.SetActive (false);
-			        this.gameObject.SetActive (false);
+                    startmenu.SetActive(false);
+                    this.gameObject.SetActive(false);
                 }
-                else if(selectedOption == 1){
+                else if (selectedOption == 1)
+                {
                     Options.instance.Init();
-			        options.SetActive (true);
-			        currentMenu = options;
+                    options.SetActive(true);
+                    currentMenu = options;
                 }
-			}
+            }
 
-			if (currentMenu == datamenu && selectedOption == 2) {
+            if (currentMenu == datamenu && selectedOption == 2)
+            {
                 Options.instance.Init();
-                options.SetActive (true);
-				currentMenu = options;
-			}
-		}
+                options.SetActive(true);
+                currentMenu = options;
+            }
+        }
 
-		if (InputManager.Pressed(Button.B) && startmenu.activeInHierarchy) {
-			if ((currentMenu == nodatamenu || currentMenu == datamenu)) {
-				startmenu.SetActive (false);
-				currentMenu = null;
+        if (InputManager.Pressed(Button.B) && startmenu.activeInHierarchy)
+        {
+            if ((currentMenu == nodatamenu || currentMenu == datamenu))
+            {
+                startmenu.SetActive(false);
+                currentMenu = null;
                 inStartMenu = false;
                 ChosenPokemon = 0;
                 ChangePokemon();
@@ -163,60 +183,64 @@ public class Title : MonoBehaviour {
                 titleAnimTimer = 0;
                 pokemonAnim.enabled = true;
                 pokemonAnim.Play("titlePokemonIdle");
-                titleanim.Play("titleAnim",0,0);
-
+                titleanim.Play("titleAnim", 0, 0);
             }
-			if (currentMenu == options) {
-				currentMenu = nodatamenu;
-				selectedOption = 0;
-			}
-		}
-			foreach (GameObject menu in startmenus) {
-				if (menu != currentMenu) {
-					menu.SetActive (false);
-				} else {
 
-					menu.SetActive (true);
-				}
-			}
-
-            if (!switchingPokemon && !inStartMenu) titleAnimTimer += Time.deltaTime;
-            if (titleAnimTimer >= 3.33f)
+            if (currentMenu == options)
             {
-                TitleAnim();
-                titleAnimTimer = 0;
+                currentMenu = nodatamenu;
+                selectedOption = 0;
             }
+        }
+
+        foreach (GameObject menu in startmenus)
+        {
+            if (menu != currentMenu)
+            {
+                menu.SetActive(false);
+            }
+            else
+            {
+                menu.SetActive(true);
+            }
+        }
+
+        if (!switchingPokemon && !inStartMenu) titleAnimTimer += Time.deltaTime;
+        if (titleAnimTimer >= 3.33f)
+        {
+            TitleAnim();
+            titleAnimTimer = 0;
+        }
     }
 
 
-	public IEnumerator GotoStart(){
+    public IEnumerator GotoStart()
+    {
         inStartMenu = true;
         pokemonAnim.enabled = false;
         int pokemonIndex = int.Parse(pokemonImage.sprite.name);
         yield return StartCoroutine(SoundManager.instance.PlayCryCoroutine(pokemonIndex - 1));
-		startmenu.SetActive(true);
+        startmenu.SetActive(true);
         cursor.SetActive(true);
-		if (!HasData) {
-			currentMenu = nodatamenu;
-		} else {
-			currentMenu = datamenu;
-		}
-	}
+        if (!HasData)
+        {
+            currentMenu = nodatamenu;
+        }
+        else
+        {
+            currentMenu = datamenu;
+        }
+    }
 
 
     public void PlayWhooshSound()
     {
         SoundManager.instance.sfx.PlayOneShot(whooshSound);
-
     }
 
 
     public void PlayCrashSound()
     {
         SoundManager.instance.sfx.PlayOneShot(crashSound);
-
     }
-
-
-
 }

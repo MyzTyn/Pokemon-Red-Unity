@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class DialogueMessage {
+public class DialogueMessage
+{
     public enum Type
     {
         Text,
@@ -15,8 +16,6 @@ public class DialogueMessage {
 
     public bool endDialogue;
     public bool keepTextOnScreen;
-    
-    [TextArea(5,10)]
-    public string message;
-    
+
+    [TextArea(5, 10)] public string message;
 }

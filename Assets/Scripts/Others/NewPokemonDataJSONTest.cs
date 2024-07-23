@@ -5,7 +5,6 @@ using System;
 
 public class NewPokemonDataJSONTest : MonoBehaviour
 {
-
     public List<PokemonDataEntry> pokemonData;
     public List<ItemDataEntry> itemData;
 
@@ -19,6 +18,5 @@ public class NewPokemonDataJSONTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

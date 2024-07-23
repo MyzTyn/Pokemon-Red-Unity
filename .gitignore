@@ -37,3 +37,7 @@ sysinfo.txt
 *.unitypackage
 
 .DS_Store
+
+
+# Rider ignored files
+.idea/**

@@ -2,7 +2,7 @@
   {
     "name": "BULBASAUR",
     "id": 1,
-	"category": "SEED",
+    "category": "SEED",
     "heightFeet": 2,
     "heightInches": 4,
     "weight": 15,
@@ -23,9 +23,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Ivysaur",
-      "method": "Level",
-      "param": 16
+        "pokemon": "Ivysaur",
+        "method": "Level",
+        "param": 16
       }
     ],
     "types": [
@@ -91,7 +91,7 @@
   {
     "name": "IVYSAUR",
     "id": 2,
-	"category": "SEED",
+    "category": "SEED",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 29,
@@ -112,9 +112,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Venusaur",
-      "method": "Level",
-      "param": 32
+        "pokemon": "Venusaur",
+        "method": "Level",
+        "param": 32
       }
     ],
     "types": [
@@ -184,7 +184,7 @@
   {
     "name": "VENUSAUR",
     "id": 3,
-	"category": "SEED",
+    "category": "SEED",
     "heightFeet": 6,
     "heightInches": 7,
     "weight": 221,
@@ -276,7 +276,7 @@
   {
     "name": "CHARMANDER",
     "id": 4,
-	"category": "LIZARD",
+    "category": "LIZARD",
     "heightFeet": 2,
     "heightInches": 0,
     "weight": 19,
@@ -297,9 +297,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Charmeleon",
-      "method": "Level",
-      "param": 16
+        "pokemon": "Charmeleon",
+        "method": "Level",
+        "param": 16
       }
     ],
     "types": [
@@ -370,7 +370,7 @@
   {
     "name": "CHARMELEON",
     "id": 5,
-	"category": "FLAME",
+    "category": "FLAME",
     "heightFeet": 3,
     "heightInches": 7,
     "weight": 42,
@@ -391,9 +391,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Charizard",
-      "method": "Level",
-      "param": 36
+        "pokemon": "Charizard",
+        "method": "Level",
+        "param": 36
       }
     ],
     "types": [
@@ -468,7 +468,7 @@
   {
     "name": "CHARIZARD",
     "id": 6,
-	"category": "FLAME",
+    "category": "FLAME",
     "heightFeet": 5,
     "heightInches": 7,
     "weight": 200,
@@ -568,7 +568,7 @@
   },
   {
     "name": "SQUIRTLE",
-	"category": "TINYTURTLE",
+    "category": "TINYTURTLE",
     "heightFeet": 1,
     "heightInches": 8,
     "weight": 20,
@@ -590,9 +590,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Wartortle",
-      "method": "Level",
-      "param": 16
+        "pokemon": "Wartortle",
+        "method": "Level",
+        "param": 16
       }
     ],
     "types": [
@@ -663,7 +663,7 @@
   {
     "name": "WARTORTLE",
     "id": 8,
-	"category": "TURTLE",
+    "category": "TURTLE",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 50,
@@ -684,9 +684,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Blastoise",
-      "method": "Level",
-      "param": 36
+        "pokemon": "Blastoise",
+        "method": "Level",
+        "param": 36
       }
     ],
     "types": [
@@ -761,7 +761,7 @@
   {
     "name": "BLASTOISE",
     "id": 9,
-	"category": "SHELLFISH",
+    "category": "SHELLFISH",
     "heightFeet": 5,
     "heightInches": 3,
     "weight": 189,
@@ -860,7 +860,7 @@
   {
     "name": "CATERPIE",
     "id": 10,
-	"category": "WORM",
+    "category": "WORM",
     "heightFeet": 1,
     "heightInches": 0,
     "weight": 6,
@@ -881,9 +881,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Metapod",
-      "method": "Level",
-      "param": 7
+        "pokemon": "Metapod",
+        "method": "Level",
+        "param": 7
       }
     ],
     "types": [
@@ -905,7 +905,7 @@
   {
     "name": "METAPOD",
     "id": 11,
-	"category": "COCOON",
+    "category": "COCOON",
     "heightFeet": 2,
     "heightInches": 4,
     "weight": 22,
@@ -926,9 +926,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Butterfree",
-      "method": "Level",
-      "param": 10
+        "pokemon": "Butterfree",
+        "method": "Level",
+        "param": 10
       }
     ],
     "types": [
@@ -954,7 +954,7 @@
       70,
       80
     ],
-	"category": "BUTTERFLY",
+    "category": "BUTTERFLY",
     "heightFeet": 3,
     "heightInches": 7,
     "weight": 71,
@@ -1030,7 +1030,7 @@
   {
     "name": "WEEDLE",
     "id": 13,
-	"category": "HAIRY BUG",
+    "category": "HAIRY BUG",
     "heightFeet": 1,
     "heightInches": 0,
     "weight": 7,
@@ -1051,9 +1051,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Kakuna",
-      "method": "Level",
-      "param": 7
+        "pokemon": "Kakuna",
+        "method": "Level",
+        "param": 7
       }
     ],
     "types": [
@@ -1075,7 +1075,7 @@
   {
     "name": "KAKUNA",
     "id": 14,
-	"category": "COCOON",
+    "category": "COCOON",
     "heightFeet": 2,
     "heightInches": 0,
     "weight": 22,
@@ -1096,9 +1096,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Beedrill",
-      "method": "Level",
-      "param": 10
+        "pokemon": "Beedrill",
+        "method": "Level",
+        "param": 10
       }
     ],
     "types": [
@@ -1116,7 +1116,7 @@
   {
     "name": "BEEDRILL",
     "id": 15,
-	"category": "POISON BEE",
+    "category": "POISON BEE",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 65,
@@ -1193,7 +1193,7 @@
   {
     "name": "PIDGEY",
     "id": 16,
-	"category": "TINY BIRD",
+    "category": "TINY BIRD",
     "heightFeet": 1,
     "heightInches": 0,
     "weight": 4,
@@ -1214,9 +1214,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Pidgeotto",
-      "method": "Level",
-      "param": 18
+        "pokemon": "Pidgeotto",
+        "method": "Level",
+        "param": 18
       }
     ],
     "types": [
@@ -1274,7 +1274,7 @@
   {
     "name": "PIDGEOTTO",
     "id": 17,
-	"category": "BIRD",
+    "category": "BIRD",
     "heightFeet": 3,
     "heightInches": 7,
     "weight": 66,
@@ -1295,9 +1295,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Pidgeot",
-      "method": "Level",
-      "param": 36
+        "pokemon": "Pidgeot",
+        "method": "Level",
+        "param": 36
       }
     ],
     "types": [
@@ -1359,7 +1359,7 @@
   {
     "name": "PIDGEOT",
     "id": 18,
-	"category": "BIRD",
+    "category": "BIRD",
     "heightFeet": 4,
     "heightInches": 11,
     "weight": 87,
@@ -1443,7 +1443,7 @@
   {
     "name": "RATTATA",
     "id": 19,
-	"category": "RAT",
+    "category": "RAT",
     "heightFeet": 1,
     "heightInches": 0,
     "weight": 8,
@@ -1464,9 +1464,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Raticate",
-      "method": "Level",
-      "param": 20
+        "pokemon": "Raticate",
+        "method": "Level",
+        "param": 20
       }
     ],
     "types": [
@@ -1523,7 +1523,7 @@
   {
     "name": "RATICATE",
     "id": 20,
-	"category": "RAT",
+    "category": "RAT",
     "heightFeet": 2,
     "heightInches": 4,
     "weight": 41,
@@ -1602,7 +1602,7 @@
   },
   {
     "name": "SPEAROW",
-	"category": "TINY BIRD",
+    "category": "TINY BIRD",
     "heightFeet": 1,
     "heightInches": 0,
     "weight": 4,
@@ -1624,9 +1624,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Fearow",
-      "method": "Level",
-      "param": 20
+        "pokemon": "Fearow",
+        "method": "Level",
+        "param": 20
       }
     ],
     "types": [
@@ -1683,7 +1683,7 @@
   {
     "name": "FEAROW",
     "id": 22,
-	"category": "BEAK",
+    "category": "BEAK",
     "heightFeet": 3,
     "heightInches": 11,
     "weight": 84,
@@ -1762,7 +1762,7 @@
   {
     "name": "EKANS",
     "id": 23,
-	"category": "SNAKE",
+    "category": "SNAKE",
     "heightFeet": 6,
     "heightInches": 7,
     "weight": 15,
@@ -1783,9 +1783,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Arbok",
-      "method": "Level",
-      "param": 22
+        "pokemon": "Arbok",
+        "method": "Level",
+        "param": 22
       }
     ],
     "types": [
@@ -1845,7 +1845,7 @@
   {
     "name": "ARBOK",
     "id": 24,
-	"category": "COBRA",
+    "category": "COBRA",
     "heightFeet": 11,
     "heightInches": 6,
     "weight": 143,
@@ -1927,7 +1927,7 @@
   {
     "name": "PIKACHU",
     "id": 25,
-	"category": "MOUSE",
+    "category": "MOUSE",
     "heightFeet": 1,
     "heightInches": 4,
     "weight": 13,
@@ -1947,12 +1947,12 @@
     "baseExp": 82,
     "expGroup": 2,
     "evolutions": [
-		{
-			"pokemon": "Machamp",
-			"method": "Trade",
-			"param": 0
-		  }
-	],
+      {
+        "pokemon": "Machamp",
+        "method": "Trade",
+        "param": 0
+      }
+    ],
     "types": [
       "Electric",
       "None"
@@ -2015,7 +2015,7 @@
   {
     "name": "RAICHU",
     "id": 26,
-	"category": "MOUSE",
+    "category": "MOUSE",
     "heightFeet": 2,
     "heightInches": 7,
     "weight": 66,
@@ -2082,7 +2082,7 @@
   {
     "name": "SANDSHREW",
     "id": 27,
-	"category": "MOUSE",
+    "category": "MOUSE",
     "heightFeet": 2,
     "heightInches": 0,
     "weight": 26,
@@ -2103,9 +2103,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Sandslash",
-      "method": "Level",
-      "param": 22
+        "pokemon": "Sandslash",
+        "method": "Level",
+        "param": 22
       }
     ],
     "types": [
@@ -2165,7 +2165,7 @@
   {
     "name": "SANDSLASH",
     "id": 28,
-	"category": "MOUSE",
+    "category": "MOUSE",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 65,
@@ -2247,7 +2247,7 @@
   {
     "name": "NIDORAN♀",
     "id": 29,
-	"category": "POISON PIN",
+    "category": "POISON PIN",
     "heightFeet": 1,
     "heightInches": 4,
     "weight": 15,
@@ -2268,9 +2268,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Nidorina",
-      "method": "Level",
-      "param": 16
+        "pokemon": "Nidorina",
+        "method": "Level",
+        "param": 16
       }
     ],
     "types": [
@@ -2332,7 +2332,7 @@
   {
     "name": "NIDORINA",
     "id": 30,
-	"category": "POISON PIN",
+    "category": "POISON PIN",
     "heightFeet": 2,
     "heightInches": 7,
     "weight": 44,
@@ -2425,7 +2425,7 @@
   {
     "name": "NIDOQUEEN",
     "id": 31,
-	"category": "DRILL",
+    "category": "DRILL",
     "heightFeet": 4,
     "heightInches": 3,
     "weight": 132,
@@ -2517,7 +2517,7 @@
   {
     "name": "NIDORAN♂",
     "id": 32,
-	"category": "POISON PIN",
+    "category": "POISON PIN",
     "heightFeet": 1,
     "heightInches": 8,
     "weight": 20,
@@ -2538,9 +2538,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Nidorino",
-      "method": "Level",
-      "param": 16
+        "pokemon": "Nidorino",
+        "method": "Level",
+        "param": 16
       }
     ],
     "types": [
@@ -2602,7 +2602,7 @@
   {
     "name": "NIDORINO",
     "id": 33,
-	"category": "POISON PIN",
+    "category": "POISON PIN",
     "heightFeet": 2,
     "heightInches": 11,
     "weight": 43,
@@ -2695,7 +2695,7 @@
   {
     "name": "NIDOKING",
     "id": 34,
-	"category": "DRILL",
+    "category": "DRILL",
     "heightFeet": 4,
     "heightInches": 7,
     "weight": 137,
@@ -2787,7 +2787,7 @@
   {
     "name": "CLEFAIRY",
     "id": 35,
-	"category": "FAIRY",
+    "category": "FAIRY",
     "heightFeet": 2,
     "heightInches": 0,
     "weight": 17,
@@ -2807,12 +2807,12 @@
     "baseExp": 68,
     "expGroup": 3,
     "evolutions": [
-	  {
-		"pokemon": "Clefable",
-		"method": "Item",
-		"param": 4
-	  }
-	],
+      {
+        "pokemon": "Clefable",
+        "method": "Item",
+        "param": 4
+      }
+    ],
     "types": [
       "Normal",
       "None"
@@ -2891,7 +2891,7 @@
   {
     "name": "CLEFABLE",
     "id": 36,
-	"category": "FAIRY",
+    "category": "FAIRY",
     "heightFeet": 4,
     "heightInches": 3,
     "weight": 88,
@@ -2973,7 +2973,7 @@
   {
     "name": "VULPIX",
     "id": 37,
-	"category": "FOX",
+    "category": "FOX",
     "heightFeet": 2,
     "heightInches": 0,
     "weight": 22,
@@ -3054,7 +3054,7 @@
   {
     "name": "NINETALES",
     "id": 38,
-	"category": "FOX",
+    "category": "FOX",
     "heightFeet": 3,
     "heightInches": 7,
     "weight": 44,
@@ -3118,7 +3118,7 @@
   {
     "name": "JIGGLYPUFF",
     "id": 39,
-	"category": "BALLOON",
+    "category": "BALLOON",
     "heightFeet": 1,
     "heightInches": 8,
     "weight": 12,
@@ -3220,7 +3220,7 @@
   {
     "name": "WIGGLYTUFF",
     "id": 40,
-	"category": "BALLOON",
+    "category": "BALLOON",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 26,
@@ -3301,7 +3301,7 @@
   {
     "name": "ZUBAT",
     "id": 41,
-	"category": "BAT",
+    "category": "BAT",
     "heightFeet": 2,
     "heightInches": 7,
     "weight": 17,
@@ -3322,9 +3322,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Golbat",
-      "method": "Level",
-      "param": 22
+        "pokemon": "Golbat",
+        "method": "Level",
+        "param": 22
       }
     ],
     "types": [
@@ -3376,7 +3376,7 @@
   {
     "name": "GOLBAT",
     "id": 42,
-	"category": "BAT",
+    "category": "BAT",
     "heightFeet": 5,
     "heightInches": 3,
     "weight": 121,
@@ -3454,7 +3454,7 @@
   {
     "name": "ODDISH",
     "id": 43,
-	"category": "WEED",
+    "category": "WEED",
     "heightFeet": 1,
     "heightInches": 8,
     "weight": 12,
@@ -3475,9 +3475,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Gloom",
-      "method": "Level",
-      "param": 21
+        "pokemon": "Gloom",
+        "method": "Level",
+        "param": 21
       }
     ],
     "types": [
@@ -3534,7 +3534,7 @@
   {
     "name": "GLOOM",
     "id": 44,
-	"category": "WEED",
+    "category": "WEED",
     "heightFeet": 2,
     "heightInches": 7,
     "weight": 19,
@@ -3622,7 +3622,7 @@
   {
     "name": "VILEPLUME",
     "id": 45,
-	"category": "FLOWER",
+    "category": "FLOWER",
     "heightFeet": 3,
     "heightInches": 11,
     "weight": 41,
@@ -3698,7 +3698,7 @@
   {
     "name": "PARAS",
     "id": 46,
-	"category": "MUSHROOM",
+    "category": "MUSHROOM",
     "heightFeet": 1,
     "heightInches": 0,
     "weight": 12,
@@ -3719,9 +3719,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Parasect",
-      "method": "Level",
-      "param": 24
+        "pokemon": "Parasect",
+        "method": "Level",
+        "param": 24
       }
     ],
     "types": [
@@ -3777,7 +3777,7 @@
   {
     "name": "PARASECT",
     "id": 47,
-	"category": "MUSHROOM",
+    "category": "MUSHROOM",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 65,
@@ -3859,7 +3859,7 @@
   {
     "name": "VENONAT",
     "id": 48,
-	"category": "INSECT",
+    "category": "INSECT",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 66,
@@ -3880,9 +3880,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Venomoth",
-      "method": "Level",
-      "param": 31
+        "pokemon": "Venomoth",
+        "method": "Level",
+        "param": 31
       }
     ],
     "types": [
@@ -3943,7 +3943,7 @@
   {
     "name": "VENOMOTH",
     "id": 49,
-	"category": "POISONMOTH",
+    "category": "POISONMOTH",
     "heightFeet": 4,
     "heightInches": 11,
     "weight": 28,
@@ -4034,7 +4034,7 @@
   {
     "name": "DIGLETT",
     "id": 50,
-	"category": "MOLE",
+    "category": "MOLE",
     "heightFeet": 0,
     "heightInches": 8,
     "weight": 2,
@@ -4055,9 +4055,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Dugtrio",
-      "method": "Level",
-      "param": 26
+        "pokemon": "Dugtrio",
+        "method": "Level",
+        "param": 26
       }
     ],
     "types": [
@@ -4112,7 +4112,7 @@
   {
     "name": "DUGTRIO",
     "id": 51,
-	"category": "MOLE",
+    "category": "MOLE",
     "heightFeet": 2,
     "heightInches": 4,
     "weight": 73,
@@ -4191,7 +4191,7 @@
   {
     "name": "MEOWTH",
     "id": 52,
-	"category": "SCRATCHCAT",
+    "category": "SCRATCHCAT",
     "heightFeet": 1,
     "heightInches": 4,
     "weight": 9,
@@ -4212,9 +4212,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Persian",
-      "method": "Level",
-      "param": 28
+        "pokemon": "Persian",
+        "method": "Level",
+        "param": 28
       }
     ],
     "types": [
@@ -4274,7 +4274,7 @@
   {
     "name": "PERSIAN",
     "id": 53,
-	"category": "CLASSY CAT",
+    "category": "CLASSY CAT",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 71,
@@ -4360,7 +4360,7 @@
   {
     "name": "PSYDUCK",
     "id": 54,
-	"category": "DUCK",
+    "category": "DUCK",
     "heightFeet": 2,
     "heightInches": 7,
     "weight": 43,
@@ -4381,9 +4381,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Golduck",
-      "method": "Level",
-      "param": 33
+        "pokemon": "Golduck",
+        "method": "Level",
+        "param": 33
       }
     ],
     "types": [
@@ -4447,7 +4447,7 @@
   {
     "name": "GOLDUCK",
     "id": 55,
-	"category": "DUCK",
+    "category": "DUCK",
     "heightFeet": 5,
     "heightInches": 7,
     "weight": 169,
@@ -4537,7 +4537,7 @@
   {
     "name": "MANKEY",
     "id": 56,
-	"category": "PIG MONKEY",
+    "category": "PIG MONKEY",
     "heightFeet": 1,
     "heightInches": 8,
     "weight": 62,
@@ -4558,9 +4558,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Primeape",
-      "method": "Level",
-      "param": 28
+        "pokemon": "Primeape",
+        "method": "Level",
+        "param": 28
       }
     ],
     "types": [
@@ -4627,7 +4627,7 @@
   {
     "name": "PRIMEAPE",
     "id": 57,
-	"category": "PIG MONKEY",
+    "category": "PIG MONKEY",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 71,
@@ -4720,7 +4720,7 @@
   {
     "name": "GROWLITHE",
     "id": 58,
-	"category": "PUPPY",
+    "category": "PUPPY",
     "heightFeet": 2,
     "heightInches": 4,
     "weight": 42,
@@ -4802,7 +4802,7 @@
   {
     "name": "ARCANINE",
     "id": 59,
-	"category": "LEGENDARY",
+    "category": "LEGENDARY",
     "heightFeet": 6,
     "heightInches": 3,
     "weight": 342,
@@ -4869,7 +4869,7 @@
   {
     "name": "POLIWAG",
     "id": 60,
-	"category": "TADPOLE",
+    "category": "TADPOLE",
     "heightFeet": 2,
     "heightInches": 0,
     "weight": 27,
@@ -4890,9 +4890,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Poliwhirl",
-      "method": "Level",
-      "param": 25
+        "pokemon": "Poliwhirl",
+        "method": "Level",
+        "param": 25
       }
     ],
     "types": [
@@ -4953,7 +4953,7 @@
   {
     "name": "POLIWHIRL",
     "id": 61,
-	"category": "TADPOLE",
+    "category": "TADPOLE",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 44,
@@ -5054,7 +5054,7 @@
   {
     "name": "POLIWRATH",
     "id": 62,
-	"category": "TADPOLE",
+    "category": "TADPOLE",
     "heightFeet": 4,
     "heightInches": 3,
     "weight": 119,
@@ -5138,7 +5138,7 @@
   {
     "name": "ABRA",
     "id": 63,
-	"category": "PSI",
+    "category": "PSI",
     "heightFeet": 2,
     "heightInches": 11,
     "weight": 43,
@@ -5159,9 +5159,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Kadabra",
-      "method": "Level",
-      "param": 16
+        "pokemon": "Kadabra",
+        "method": "Level",
+        "param": 16
       }
     ],
     "types": [
@@ -5204,7 +5204,7 @@
   {
     "name": "KADABRA",
     "id": 64,
-	"category": "PSI",
+    "category": "PSI",
     "heightFeet": 4,
     "heightInches": 3,
     "weight": 125,
@@ -5224,12 +5224,12 @@
     "baseExp": 145,
     "expGroup": 1,
     "evolutions": [
-	  {
-		"pokemon": "Alakazam",
-		"method": "Trade",
-		"param": 0
-	  }
-	],
+      {
+        "pokemon": "Alakazam",
+        "method": "Trade",
+        "param": 0
+      }
+    ],
     "types": [
       "Psychic",
       "None"
@@ -5302,7 +5302,7 @@
   {
     "name": "ALAKAZAM",
     "id": 65,
-	"category": "PSI",
+    "category": "PSI",
     "heightFeet": 4,
     "heightInches": 11,
     "weight": 106,
@@ -5396,7 +5396,7 @@
   {
     "name": "MACHOP",
     "id": 66,
-	"category": "SUPERPOWER",
+    "category": "SUPERPOWER",
     "heightFeet": 2,
     "heightInches": 7,
     "weight": 43,
@@ -5417,9 +5417,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Machoke",
-      "method": "Level",
-      "param": 28
+        "pokemon": "Machoke",
+        "method": "Level",
+        "param": 28
       }
     ],
     "types": [
@@ -5481,7 +5481,7 @@
   {
     "name": "MACHOKE",
     "id": 67,
-	"category": "SUPERPOWER",
+    "category": "SUPERPOWER",
     "heightFeet": 4,
     "heightInches": 11,
     "weight": 155,
@@ -5501,12 +5501,12 @@
     "baseExp": 146,
     "expGroup": 1,
     "evolutions": [
-	  {
-		"pokemon": "Machamp",
-		"method": "Trade",
-		"param": 0
-	  }
-	],
+      {
+        "pokemon": "Machamp",
+        "method": "Trade",
+        "param": 0
+      }
+    ],
     "types": [
       "Fighting",
       "None"
@@ -5575,7 +5575,7 @@
   {
     "name": "MACHAMP",
     "id": 68,
-	"category": "SUPERPOWER",
+    "category": "SUPERPOWER",
     "heightFeet": 5,
     "heightInches": 3,
     "weight": 287,
@@ -5663,7 +5663,7 @@
   {
     "name": "BELLSPROUT",
     "id": 69,
-	"category": "FLOWER",
+    "category": "FLOWER",
     "heightFeet": 2,
     "heightInches": 4,
     "weight": 9,
@@ -5684,9 +5684,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Weepinbell",
-      "method": "Level",
-      "param": 21
+        "pokemon": "Weepinbell",
+        "method": "Level",
+        "param": 21
       }
     ],
     "types": [
@@ -5752,7 +5752,7 @@
   {
     "name": "WEEPINBELL",
     "id": 70,
-	"category": "FLYCATCHER",
+    "category": "FLYCATCHER",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 14,
@@ -5844,7 +5844,7 @@
   {
     "name": "VICTREEBEL",
     "id": 71,
-	"category": "FLYCATCHER",
+    "category": "FLYCATCHER",
     "heightFeet": 5,
     "heightInches": 7,
     "weight": 34,
@@ -5920,7 +5920,7 @@
   {
     "name": "TENTACOOL",
     "id": 72,
-	"category": "JELLYFISH",
+    "category": "JELLYFISH",
     "heightFeet": 2,
     "heightInches": 11,
     "weight": 100,
@@ -5941,9 +5941,9 @@
     "expGroup": 0,
     "evolutions": [
       {
-      "pokemon": "Tentacruel",
-      "method": "Level",
-      "param": 30
+        "pokemon": "Tentacruel",
+        "method": "Level",
+        "param": 30
       }
     ],
     "types": [
@@ -6013,7 +6013,7 @@
   {
     "name": "TENTACRUEL",
     "id": 73,
-	"category": "JELLYFISH",
+    "category": "JELLYFISH",
     "heightFeet": 5,
     "heightInches": 3,
     "weight": 121,
@@ -6109,7 +6109,7 @@
   {
     "name": "GEODUDE",
     "id": 74,
-	"category": "ROCK",
+    "category": "ROCK",
     "heightFeet": 1,
     "heightInches": 4,
     "weight": 44,
@@ -6130,9 +6130,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Graveler",
-      "method": "Level",
-      "param": 25
+        "pokemon": "Graveler",
+        "method": "Level",
+        "param": 25
       }
     ],
     "types": [
@@ -6198,7 +6198,7 @@
   {
     "name": "GRAVELER",
     "id": 75,
-	"category": "ROCK",
+    "category": "ROCK",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 232,
@@ -6218,12 +6218,12 @@
     "baseExp": 134,
     "expGroup": 1,
     "evolutions": [
-	  {
-		"pokemon": "Golem",
-		"method": "Trade",
-		"param": 0
-	  }
-	],
+      {
+        "pokemon": "Golem",
+        "method": "Trade",
+        "param": 0
+      }
+    ],
     "types": [
       "Rock",
       "Ground"
@@ -6291,7 +6291,7 @@
   {
     "name": "GOLEM",
     "id": 76,
-	"category": "MEGATON",
+    "category": "MEGATON",
     "heightFeet": 4,
     "heightInches": 7,
     "weight": 662,
@@ -6380,7 +6380,7 @@
   {
     "name": "PONYTA",
     "id": 77,
-	"category": "FIRE HORSE",
+    "category": "FIRE HORSE",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 66,
@@ -6401,9 +6401,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Rapidash",
-      "method": "Level",
-      "param": 40
+        "pokemon": "Rapidash",
+        "method": "Level",
+        "param": 40
       }
     ],
     "types": [
@@ -6461,7 +6461,7 @@
   {
     "name": "RAPIDASH",
     "id": 78,
-	"category": "FIRE HORSE",
+    "category": "FIRE HORSE",
     "heightFeet": 5,
     "heightInches": 7,
     "weight": 209,
@@ -6549,7 +6549,7 @@
   {
     "name": "SLOWPOKE",
     "id": 79,
-	"category": "DOPEY",
+    "category": "DOPEY",
     "heightFeet": 3,
     "heightInches": 11,
     "weight": 79,
@@ -6570,9 +6570,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Slowbro",
-      "method": "Level",
-      "param": 37
+        "pokemon": "Slowbro",
+        "method": "Level",
+        "param": 37
       }
     ],
     "types": [
@@ -6645,7 +6645,7 @@
   {
     "name": "SLOWBRO",
     "id": 80,
-	"category": "HERMITCRAB",
+    "category": "HERMITCRAB",
     "heightFeet": 5,
     "heightInches": 3,
     "weight": 173,
@@ -6753,7 +6753,7 @@
   {
     "name": "MAGNEMITE",
     "id": 81,
-	"category": "MAGNET",
+    "category": "MAGNET",
     "heightFeet": 1,
     "heightInches": 0,
     "weight": 13,
@@ -6774,9 +6774,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Magneton",
-      "method": "Level",
-      "param": 30
+        "pokemon": "Magneton",
+        "method": "Level",
+        "param": 30
       }
     ],
     "types": [
@@ -6835,7 +6835,7 @@
   {
     "name": "MAGNETON",
     "id": 82,
-	"category": "MAGNET",
+    "category": "MAGNET",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 132,
@@ -6920,7 +6920,7 @@
   {
     "name": "FARFETCH'D",
     "id": 83,
-	"category": "WILD DUCK",
+    "category": "WILD DUCK",
     "heightFeet": 2,
     "heightInches": 7,
     "weight": 33,
@@ -6998,7 +6998,7 @@
   {
     "name": "DODUO",
     "id": 84,
-	"category": "TWIN BIRD",
+    "category": "TWIN BIRD",
     "heightFeet": 4,
     "heightInches": 7,
     "weight": 86,
@@ -7019,9 +7019,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Dodrio",
-      "method": "Level",
-      "param": 31
+        "pokemon": "Dodrio",
+        "method": "Level",
+        "param": 31
       }
     ],
     "types": [
@@ -7080,7 +7080,7 @@
   {
     "name": "DODRIO",
     "id": 85,
-	"category": "TRIPLEBIRD",
+    "category": "TRIPLEBIRD",
     "heightFeet": 5,
     "heightInches": 11,
     "weight": 188,
@@ -7165,7 +7165,7 @@
   {
     "name": "SEEL",
     "id": 86,
-	"category": "SEA LION",
+    "category": "SEA LION",
     "heightFeet": 3,
     "heightInches": 7,
     "weight": 198,
@@ -7186,9 +7186,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Dewgong",
-      "method": "Level",
-      "param": 34
+        "pokemon": "Dewgong",
+        "method": "Level",
+        "param": 34
       }
     ],
     "types": [
@@ -7246,7 +7246,7 @@
   {
     "name": "DEWGONG",
     "id": 87,
-	"category": "SEA LION",
+    "category": "SEA LION",
     "heightFeet": 5,
     "heightInches": 7,
     "weight": 265,
@@ -7330,7 +7330,7 @@
   {
     "name": "GRIMER",
     "id": 88,
-	"category": "SLUDGE",
+    "category": "SLUDGE",
     "heightFeet": 2,
     "heightInches": 11,
     "weight": 66,
@@ -7351,9 +7351,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Muk",
-      "method": "Level",
-      "param": 38
+        "pokemon": "Muk",
+        "method": "Level",
+        "param": 38
       }
     ],
     "types": [
@@ -7414,7 +7414,7 @@
   {
     "name": "MUK",
     "id": 89,
-	"category": "SLUDGE",
+    "category": "SLUDGE",
     "heightFeet": 3,
     "heightInches": 11,
     "weight": 66,
@@ -7497,7 +7497,7 @@
   {
     "name": "SHELLDER",
     "id": 90,
-	"category": "BIVALVE",
+    "category": "BIVALVE",
     "heightFeet": 1,
     "heightInches": 0,
     "weight": 9,
@@ -7517,12 +7517,12 @@
     "baseExp": 97,
     "expGroup": 0,
     "evolutions": [
-	  {
-		  "pokemon": "Cloyster",
-		  "method": "Item",
-      "param": 2
-	  }
-	],
+      {
+        "pokemon": "Cloyster",
+        "method": "Item",
+        "param": 2
+      }
+    ],
     "types": [
       "Water",
       "None"
@@ -7583,7 +7583,7 @@
   {
     "name": "CLOYSTER",
     "id": 91,
-	"category": "BIVALVE",
+    "category": "BIVALVE",
     "heightFeet": 4,
     "heightInches": 11,
     "weight": 292,
@@ -7657,7 +7657,7 @@
   {
     "name": "GASTLY",
     "id": 92,
-	"category": "GAS",
+    "category": "GAS",
     "heightFeet": 4,
     "heightInches": 3,
     "weight": 0.2,
@@ -7678,9 +7678,9 @@
     "expGroup": 1,
     "evolutions": [
       {
-      "pokemon": "Haunter",
-      "method": "Level",
-      "param": 25
+        "pokemon": "Haunter",
+        "method": "Level",
+        "param": 25
       }
     ],
     "types": [
@@ -7730,7 +7730,7 @@
   {
     "name": "HAUNTER",
     "id": 93,
-	"category": "GAS",
+    "category": "GAS",
     "heightFeet": 5,
     "heightInches": 3,
     "weight": 0.2,
@@ -7750,12 +7750,12 @@
     "baseExp": 126,
     "expGroup": 1,
     "evolutions": [
-	  {
-		"pokemon": "Gengar",
-		"method": "Trade",
-		"param": 0
-	  }
-	],
+      {
+        "pokemon": "Gengar",
+        "method": "Trade",
+        "param": 0
+      }
+    ],
     "types": [
       "Ghost",
       "Poison"
@@ -7803,7 +7803,7 @@
   {
     "name": "GENGAR",
     "id": 94,
-	"category": "SHADOW",
+    "category": "SHADOW",
     "heightFeet": 4,
     "heightInches": 11,
     "weight": 89,
@@ -7884,7 +7884,7 @@
   {
     "name": "ONIX",
     "id": 95,
-	"category": "ROCK SNAKE",
+    "category": "ROCK SNAKE",
     "heightFeet": 28,
     "heightInches": 10,
     "weight": 463,
@@ -7961,7 +7961,7 @@
   {
     "name": "DROWZEE",
     "id": 96,
-	"category": "HYPNOSIS",
+    "category": "HYPNOSIS",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 71,
@@ -7982,9 +7982,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Hypno",
-      "method": "Level",
-      "param": 26
+        "pokemon": "Hypno",
+        "method": "Level",
+        "param": 26
       }
     ],
     "types": [
@@ -8056,7 +8056,7 @@
   {
     "name": "HYPNO",
     "id": 97,
-	"category": "HYPNOSIS",
+    "category": "HYPNOSIS",
     "heightFeet": 5,
     "heightInches": 3,
     "weight": 167,
@@ -8154,7 +8154,7 @@
   {
     "name": "KRABBY",
     "id": 98,
-	"category": "RIVER CRAB",
+    "category": "RIVER CRAB",
     "heightFeet": 1,
     "heightInches": 4,
     "weight": 14,
@@ -8175,9 +8175,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Kingler",
-      "method": "Level",
-      "param": 28
+        "pokemon": "Kingler",
+        "method": "Level",
+        "param": 28
       }
     ],
     "types": [
@@ -8239,7 +8239,7 @@
   {
     "name": "KINGLER",
     "id": 99,
-	"category": "PINCER",
+    "category": "PINCER",
     "heightFeet": 4,
     "heightInches": 3,
     "weight": 132,
@@ -8323,7 +8323,7 @@
   {
     "name": "VOLTORB",
     "id": 100,
-	"category": "BALL",
+    "category": "BALL",
     "heightFeet": 1,
     "heightInches": 8,
     "weight": 23,
@@ -8344,9 +8344,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Electrode",
-      "method": "Level",
-      "param": 30
+        "pokemon": "Electrode",
+        "method": "Level",
+        "param": 30
       }
     ],
     "types": [
@@ -8405,7 +8405,7 @@
   {
     "name": "ELECTRODE",
     "id": 101,
-	"category": "BALL",
+    "category": "BALL",
     "heightFeet": 3,
     "heightInches": 11,
     "weight": 147,
@@ -8497,7 +8497,7 @@
   {
     "name": "EXEGGCUTE",
     "id": 102,
-	"category": "EGG",
+    "category": "EGG",
     "heightFeet": 1,
     "heightInches": 4,
     "weight": 6,
@@ -8517,12 +8517,12 @@
     "baseExp": 98,
     "expGroup": 0,
     "evolutions": [
-	  {
-		"pokemon": "Exeggutor",
-		"method": "Item",
-		"param": 3
-	  }
-	],
+      {
+        "pokemon": "Exeggutor",
+        "method": "Item",
+        "param": 3
+      }
+    ],
     "types": [
       "Grass",
       "Psychic"
@@ -8583,7 +8583,7 @@
   {
     "name": "EXEGGUTOR",
     "id": 103,
-	"category": "COCONUT",
+    "category": "COCONUT",
     "heightFeet": 6,
     "heightInches": 7,
     "weight": 265,
@@ -8647,7 +8647,7 @@
   {
     "name": "CUBONE",
     "id": 104,
-	"category": "LONELY",
+    "category": "LONELY",
     "heightFeet": 1,
     "heightInches": 4,
     "weight": 14,
@@ -8668,9 +8668,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Marowak",
-      "method": "Level",
-      "param": 28
+        "pokemon": "Marowak",
+        "method": "Level",
+        "param": 28
       }
     ],
     "types": [
@@ -8738,7 +8738,7 @@
   {
     "name": "MAROWAK",
     "id": 105,
-	"category": "BONEKEEPER",
+    "category": "BONEKEEPER",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 99,
@@ -8824,7 +8824,7 @@
   {
     "name": "HITMONLEE",
     "id": 106,
-	"category": "KICKING",
+    "category": "KICKING",
     "heightFeet": 4,
     "heightInches": 11,
     "weight": 110,
@@ -8903,7 +8903,7 @@
   {
     "name": "HITMONCHAN",
     "id": 107,
-	"category": "PUNCHING",
+    "category": "PUNCHING",
     "heightFeet": 4,
     "heightInches": 7,
     "weight": 111,
@@ -8982,7 +8982,7 @@
   {
     "name": "LICKITUNG",
     "id": 108,
-	"category": "LICKING",
+    "category": "LICKING",
     "heightFeet": 3,
     "heightInches": 11,
     "weight": 144,
@@ -9072,7 +9072,7 @@
   {
     "name": "KOFFING",
     "id": 109,
-	"category": "POISON GAS",
+    "category": "POISON GAS",
     "heightFeet": 2,
     "heightInches": 0,
     "weight": 2,
@@ -9093,9 +9093,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Weezing",
-      "method": "Level",
-      "param": 35
+        "pokemon": "Weezing",
+        "method": "Level",
+        "param": 35
       }
     ],
     "types": [
@@ -9150,7 +9150,7 @@
   {
     "name": "WEEZING",
     "id": 110,
-	"category": "POISON GAS",
+    "category": "POISON GAS",
     "heightFeet": 3,
     "heightInches": 11,
     "weight": 21,
@@ -9227,7 +9227,7 @@
   {
     "name": "RHYHORN",
     "id": 111,
-	"category": "SPIKES",
+    "category": "SPIKES",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 254,
@@ -9248,9 +9248,9 @@
     "expGroup": 0,
     "evolutions": [
       {
-      "pokemon": "Rhydon",
-      "method": "Level",
-      "param": 42
+        "pokemon": "Rhydon",
+        "method": "Level",
+        "param": 42
       }
     ],
     "types": [
@@ -9313,7 +9313,7 @@
   {
     "name": "RHYDON",
     "id": 112,
-	"category": "DRILL",
+    "category": "DRILL",
     "heightFeet": 6,
     "heightInches": 3,
     "weight": 265,
@@ -9417,7 +9417,7 @@
   {
     "name": "CHANSEY",
     "id": 113,
-	"category": "EGG",
+    "category": "EGG",
     "heightFeet": 3,
     "heightInches": 7,
     "weight": 76,
@@ -9517,7 +9517,7 @@
   {
     "name": "TANGELA",
     "id": 114,
-	"category": "VINE",
+    "category": "VINE",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 77,
@@ -9597,7 +9597,7 @@
   {
     "name": "KANGASKHAN",
     "id": 115,
-	"category": "PARENT",
+    "category": "PARENT",
     "heightFeet": 7,
     "heightInches": 3,
     "weight": 176,
@@ -9686,7 +9686,7 @@
   {
     "name": "HORSEA",
     "id": 116,
-	"category": "DRAGON",
+    "category": "DRAGON",
     "heightFeet": 1,
     "heightInches": 4,
     "weight": 18,
@@ -9707,9 +9707,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Seadra",
-      "method": "Level",
-      "param": 32
+        "pokemon": "Seadra",
+        "method": "Level",
+        "param": 32
       }
     ],
     "types": [
@@ -9764,7 +9764,7 @@
   {
     "name": "SEADRA",
     "id": 117,
-	"category": "DRAGON",
+    "category": "DRAGON",
     "heightFeet": 3,
     "heightInches": 11,
     "weight": 55,
@@ -9841,7 +9841,7 @@
   {
     "name": "GOLDEEN",
     "id": 118,
-	"category": "GOLDFISH",
+    "category": "GOLDFISH",
     "heightFeet": 2,
     "heightInches": 0,
     "weight": 33,
@@ -9862,9 +9862,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Seaking",
-      "method": "Level",
-      "param": 33
+        "pokemon": "Seaking",
+        "method": "Level",
+        "param": 33
       }
     ],
     "types": [
@@ -9928,7 +9928,7 @@
   {
     "name": "SEAKING",
     "id": 119,
-	"category": "GOLDFISH",
+    "category": "GOLDFISH",
     "heightFeet": 4,
     "heightInches": 3,
     "weight": 86,
@@ -10014,7 +10014,7 @@
   {
     "name": "STARYU",
     "id": 120,
-	  "category": "STARSHAPE",
+    "category": "STARSHAPE",
     "heightFeet": 2,
     "heightInches": 7,
     "weight": 76,
@@ -10109,7 +10109,7 @@
   {
     "name": "STARMIE",
     "id": 121,
-	"category": "MYSTERIOUS",
+    "category": "MYSTERIOUS",
     "heightFeet": 3,
     "heightInches": 7,
     "weight": 176,
@@ -10179,7 +10179,7 @@
   {
     "name": "MR. MIME",
     "id": 122,
-	"category": "BARRIER",
+    "category": "BARRIER",
     "heightFeet": 4,
     "heightInches": 3,
     "weight": 120,
@@ -10266,7 +10266,7 @@
   {
     "name": "SCYTHER",
     "id": 123,
-	"category": "MANTIS",
+    "category": "MANTIS",
     "heightFeet": 4,
     "heightInches": 11,
     "weight": 123,
@@ -10340,7 +10340,7 @@
   {
     "name": "JYNX",
     "id": 124,
-	"category": "HUMANSHAPE",
+    "category": "HUMANSHAPE",
     "heightFeet": 4,
     "heightInches": 7,
     "weight": 90,
@@ -10430,7 +10430,7 @@
   {
     "name": "ELECTABUZZ",
     "id": 125,
-	"category": "ELECTRIC",
+    "category": "ELECTRIC",
     "heightFeet": 3,
     "heightInches": 7,
     "weight": 66,
@@ -10507,7 +10507,7 @@
   {
     "name": "MAGMAR",
     "id": 126,
-	"category": "SPITFIRE",
+    "category": "SPITFIRE",
     "heightFeet": 4,
     "heightInches": 3,
     "weight": 98,
@@ -10590,7 +10590,7 @@
   {
     "name": "PINSIR",
     "id": 127,
-	"category": "STAGBEETLE",
+    "category": "STAGBEETLE",
     "heightFeet": 4,
     "heightInches": 11,
     "weight": 121,
@@ -10666,7 +10666,7 @@
   {
     "name": "TAUROS",
     "id": 128,
-	"category": "WILD BULL",
+    "category": "WILD BULL",
     "heightFeet": 4,
     "heightInches": 7,
     "weight": 195,
@@ -10743,7 +10743,7 @@
   {
     "name": "MAGIKARP",
     "id": 129,
-	"category": "FISH",
+    "category": "FISH",
     "heightFeet": 2,
     "heightInches": 11,
     "weight": 22,
@@ -10764,9 +10764,9 @@
     "expGroup": 0,
     "evolutions": [
       {
-      "pokemon": "Gyarados",
-      "method": "Level",
-      "param": 20
+        "pokemon": "Gyarados",
+        "method": "Level",
+        "param": 20
       }
     ],
     "types": [
@@ -10788,7 +10788,7 @@
   {
     "name": "GYARADOS",
     "id": 130,
-	"category": "ATROCIOUS",
+    "category": "ATROCIOUS",
     "heightFeet": 21,
     "heightInches": 4,
     "weight": 518,
@@ -10879,7 +10879,7 @@
   {
     "name": "LAPRAS",
     "id": 131,
-	"category": "TRANSPORT",
+    "category": "TRANSPORT",
     "heightFeet": 8,
     "heightInches": 2,
     "weight": 485,
@@ -10969,7 +10969,7 @@
   {
     "name": "DITTO",
     "id": 132,
-	"category": "TRANSFORM",
+    "category": "TRANSFORM",
     "heightFeet": 1,
     "heightInches": 0,
     "weight": 9,
@@ -11004,7 +11004,7 @@
   {
     "name": "EEVEE",
     "id": 133,
-	"category": "EVOLUTION",
+    "category": "EVOLUTION",
     "heightFeet": 1,
     "heightInches": 0,
     "weight": 14,
@@ -11039,7 +11039,7 @@
         "method": "Item",
         "param": 2
       }
-	  ],
+    ],
     "types": [
       "Normal",
       "None"
@@ -11089,7 +11089,7 @@
   {
     "name": "VAPOREON",
     "id": 134,
-	"category": "BUBBLE JET",
+    "category": "BUBBLE JET",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 64,
@@ -11188,7 +11188,7 @@
   {
     "name": "JOLTEON",
     "id": 135,
-	"category": "LIGHTNING",
+    "category": "LIGHTNING",
     "heightFeet": 2,
     "heightInches": 7,
     "weight": 54,
@@ -11286,7 +11286,7 @@
   {
     "name": "FLAREON",
     "id": 136,
-	"category": "FLAME",
+    "category": "FLAME",
     "heightFeet": 2,
     "heightInches": 11,
     "weight": 55,
@@ -11381,7 +11381,7 @@
   {
     "name": "PORYGON",
     "id": 137,
-	"category": "VIRTUAL",
+    "category": "VIRTUAL",
     "heightFeet": 2,
     "heightInches": 7,
     "weight": 80,
@@ -11464,7 +11464,7 @@
   {
     "name": "OMANYTE",
     "id": 138,
-	"category": "SPIRAL",
+    "category": "SPIRAL",
     "heightFeet": 1,
     "heightInches": 4,
     "weight": 17,
@@ -11485,9 +11485,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Omastar",
-      "method": "Level",
-      "param": 40
+        "pokemon": "Omastar",
+        "method": "Level",
+        "param": 40
       }
     ],
     "types": [
@@ -11542,7 +11542,7 @@
   {
     "name": "OMASTAR",
     "id": 139,
-	"category": "SPIRAL",
+    "category": "SPIRAL",
     "heightFeet": 3,
     "heightInches": 3,
     "weight": 77,
@@ -11622,7 +11622,7 @@
   {
     "name": "KABUTO",
     "id": 140,
-	"category": "SHELLFISH",
+    "category": "SHELLFISH",
     "heightFeet": 1,
     "heightInches": 8,
     "weight": 25,
@@ -11643,9 +11643,9 @@
     "expGroup": 2,
     "evolutions": [
       {
-      "pokemon": "Kabutops",
-      "method": "Level",
-      "param": 40
+        "pokemon": "Kabutops",
+        "method": "Level",
+        "param": 40
       }
     ],
     "types": [
@@ -11700,7 +11700,7 @@
   {
     "name": "KABUTOPS",
     "id": 141,
-	"category": "SHELLFISH",
+    "category": "SHELLFISH",
     "heightFeet": 4,
     "heightInches": 3,
     "weight": 89,
@@ -11784,7 +11784,7 @@
   {
     "name": "AERODACTYL",
     "id": 142,
-	"category": "FOSSIL",
+    "category": "FOSSIL",
     "heightFeet": 5,
     "heightInches": 11,
     "weight": 130,
@@ -11858,7 +11858,7 @@
   {
     "name": "SNORLAX",
     "id": 143,
-	"category": "SLEEPING",
+    "category": "SLEEPING",
     "heightFeet": 6,
     "heightInches": 11,
     "weight": 1014,
@@ -11954,7 +11954,7 @@
   {
     "name": "ARTICUNO",
     "id": 144,
-	"category": "FREEZE",
+    "category": "FREEZE",
     "heightFeet": 5,
     "heightInches": 7,
     "weight": 122,
@@ -12027,7 +12027,7 @@
   {
     "name": "ZAPDOS",
     "id": 145,
-	"category": "ELECTRIC",
+    "category": "ELECTRIC",
     "heightFeet": 5,
     "heightInches": 3,
     "weight": 116,
@@ -12099,7 +12099,7 @@
   {
     "name": "MOLTRES",
     "id": 146,
-	"category": "FLAME",
+    "category": "FLAME",
     "heightFeet": 6,
     "heightInches": 7,
     "weight": 132,
@@ -12168,7 +12168,7 @@
   {
     "name": "DRATINI",
     "id": 147,
-	"category": "DRAGON",
+    "category": "DRAGON",
     "heightFeet": 5,
     "heightInches": 11,
     "weight": 7,
@@ -12189,9 +12189,9 @@
     "expGroup": 0,
     "evolutions": [
       {
-      "pokemon": "Dragonair",
-      "method": "Level",
-      "param": 30
+        "pokemon": "Dragonair",
+        "method": "Level",
+        "param": 30
       }
     ],
     "types": [
@@ -12258,7 +12258,7 @@
   {
     "name": "DRAGONAIR",
     "id": 148,
-	"category": "DRAGON",
+    "category": "DRAGON",
     "heightFeet": 13,
     "heightInches": 1,
     "weight": 36,
@@ -12279,9 +12279,9 @@
     "expGroup": 0,
     "evolutions": [
       {
-      "pokemon": "Dragonite",
-      "method": "Level",
-      "param": 55
+        "pokemon": "Dragonite",
+        "method": "Level",
+        "param": 55
       }
     ],
     "types": [
@@ -12352,7 +12352,7 @@
   {
     "name": "DRAGONITE",
     "id": 149,
-	"category": "DRAGON",
+    "category": "DRAGON",
     "heightFeet": 7,
     "heightInches": 3,
     "weight": 463,
@@ -12447,7 +12447,7 @@
   {
     "name": "MEWTWO",
     "id": 150,
-	"category": "GENETIC",
+    "category": "GENETIC",
     "heightFeet": 6,
     "heightInches": 7,
     "weight": 269,
@@ -12551,7 +12551,7 @@
   {
     "name": "MEW",
     "id": 151,
-	"category": "NEW SPECIE",
+    "category": "NEW SPECIE",
     "heightFeet": 1,
     "heightInches": 4,
     "weight": 9,

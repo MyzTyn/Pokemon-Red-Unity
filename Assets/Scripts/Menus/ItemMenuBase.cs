@@ -2,10 +2,13 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class ItemMenuBase : MonoBehaviour {
+public abstract class ItemMenuBase : MonoBehaviour
+{
     public GameCursor cursor;
     public int selectedOption;
+
     public int ItemMode;
+
     //1 is withdraw;
     //2 is deposit;
     //3 is toss;

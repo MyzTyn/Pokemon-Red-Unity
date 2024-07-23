@@ -5,9 +5,10 @@ using UnityEngine.Events;
 
 public class Bag : MonoBehaviour
 {
-	public enum Menu {
+    public enum Menu
+    {
         ItemWindow,
-		UseTossMenu,
+        UseTossMenu,
         QuantityMenu
     }
 
@@ -23,11 +24,12 @@ public class Bag : MonoBehaviour
     public int amountToTask;
     public int maximumItem;
     public CustomText amountText;
+
     public RectTransform selectCursor;
+
     //the index of the top item on screen
     public int topItemIndex;
     public bool switchingItems;
-
 
 
     public void Initialize()
@@ -36,7 +38,8 @@ public class Bag : MonoBehaviour
         currentMenu = Menu.ItemWindow;
     }
 
-    void UpdateBagScreen(){
+    void UpdateBagScreen()
+    {
         if (currentBagPosition == 0)
         {
             topItemIndex = 0;
@@ -71,14 +74,16 @@ public class Bag : MonoBehaviour
         if (switchingItems)
         {
             selectCursor.anchoredPosition = new Vector2(40, 104 - 16 * (selectBag - topItemIndex)) + new Vector2(4, 4);
-            if (selectCursor.anchoredPosition.y > 112 || selectCursor.anchoredPosition.y < 50) selectCursor.gameObject.SetActive(false);
+            if (selectCursor.anchoredPosition.y > 112 || selectCursor.anchoredPosition.y < 50)
+                selectCursor.gameObject.SetActive(false);
             else selectCursor.gameObject.SetActive(true);
         }
     }
 
     void UpdateUseTossScreen()
     {
-        selectCursor.anchoredPosition = new Vector2(40, 104 - 16 * (currentBagPosition - topItemIndex)) + new Vector2(4, 4);
+        selectCursor.anchoredPosition =
+            new Vector2(40, 104 - 16 * (currentBagPosition - topItemIndex)) + new Vector2(4, 4);
         cursor.SetPosition(112, 72 - 16 * selectedOption);
     }
 
@@ -92,19 +97,21 @@ public class Bag : MonoBehaviour
     {
         if (currentMenu == Menu.QuantityMenu && Dialogue.instance.finishedText)
         {
-
             if (InputManager.Pressed(Button.Down))
             {
                 amountToTask--;
             }
+
             if (InputManager.Pressed(Button.Up))
             {
                 amountToTask++;
             }
+
             if (amountToTask < 1)
             {
                 amountToTask = maximumItem;
             }
+
             if (amountToTask > maximumItem)
             {
                 amountToTask = 1;
@@ -112,9 +119,9 @@ public class Bag : MonoBehaviour
 
             amountText.text = amountToTask.ToString();
         }
+
         if (currentMenu == Menu.ItemWindow && Dialogue.instance.finishedText)
         {
-
             if (InputManager.Pressed(Button.Down))
             {
                 currentBagPosition++;
@@ -131,8 +138,8 @@ public class Bag : MonoBehaviour
             if (InputManager.Pressed(Button.Up))
             {
                 currentBagPosition--;
-                 MathE.Clamp(ref currentBagPosition, 0, Inventory.instance.items.Count);
-                
+                MathE.Clamp(ref currentBagPosition, 0, Inventory.instance.items.Count);
+
 
                 if (currentBagPosition >= 0 && currentBagPosition < topItemIndex)
                 {
@@ -160,6 +167,7 @@ public class Bag : MonoBehaviour
                 MathE.Clamp(ref selectedOption, 0, 1);
                 UpdateUseTossScreen();
             }
+
             if (InputManager.Pressed(Button.Up))
             {
                 selectedOption--;
@@ -168,7 +176,8 @@ public class Bag : MonoBehaviour
             }
         }
 
-        if (InputManager.Pressed(Button.Select) && Dialogue.instance.finishedText && currentBagPosition != Inventory.instance.items.Count)
+        if (InputManager.Pressed(Button.Select) && Dialogue.instance.finishedText &&
+            currentBagPosition != Inventory.instance.items.Count)
         {
             if (!switchingItems)
             {
@@ -193,7 +202,6 @@ public class Bag : MonoBehaviour
         {
             if (InputManager.Pressed(Button.A))
             {
-
                 SoundManager.instance.PlayABSound();
 
                 if (currentMenu == Menu.ItemWindow)
@@ -224,6 +232,7 @@ public class Bag : MonoBehaviour
                             Player.instance.UseItem(Inventory.instance.items[currentBagPosition].item);
                         }
                     }
+
                     if (selectedOption == 1)
                     {
                         if (Inventory.instance.items.Count > 0)
@@ -238,11 +247,15 @@ public class Bag : MonoBehaviour
                 {
                     if (!Inventory.instance.items[currentBagPosition].isKeyItem)
                     {
-                        yield return Dialogue.instance.text("Is it OK to toss&l" + PokemonData.GetItemName(Inventory.instance.items[currentBagPosition].item) + "?");
+                        yield return Dialogue.instance.text("Is it OK to toss&l" +
+                                                            PokemonData.GetItemName(Inventory.instance
+                                                                .items[currentBagPosition].item) + "?");
                         yield return StartCoroutine(Dialogue.instance.prompt());
                         if (Dialogue.instance.selectedOption == 0)
                         {
-                            yield return Dialogue.instance.text("Threw away&l" + PokemonData.GetItemName(Inventory.instance.items[currentBagPosition].item) + ".");
+                            yield return Dialogue.instance.text("Threw away&l" +
+                                                                PokemonData.GetItemName(Inventory.instance
+                                                                    .items[currentBagPosition].item) + ".");
                             StartCoroutine(TossItem());
                         }
                         else
@@ -259,12 +272,12 @@ public class Bag : MonoBehaviour
                     }
                 }
             }
+
             if (InputManager.Pressed(Button.B))
             {
                 SoundManager.instance.PlayABSound();
                 if (currentMenu == Menu.ItemWindow)
                 {
-
                     switchingItems = false;
                     selectCursor.gameObject.SetActive(false);
                     MainMenu.instance.currentmenu = MainMenu.instance.thismenu;
@@ -300,10 +313,12 @@ public class Bag : MonoBehaviour
                 {
                     menu.SetActive(true);
                 }
+
                 if (menu == quantitymenu && (currentMenu == Menu.ItemWindow))
                 {
                     menu.SetActive(false);
                 }
+
                 if (menu == itemwindow && (currentMenu == Menu.QuantityMenu || currentMenu == Menu.UseTossMenu))
                 {
                     menu.SetActive(true);
@@ -338,5 +353,4 @@ public class Bag : MonoBehaviour
         indicator.SetActive(false);
         this.gameObject.SetActive(false);
     }
-
 }

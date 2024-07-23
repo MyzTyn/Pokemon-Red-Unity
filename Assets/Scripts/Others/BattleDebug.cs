@@ -5,8 +5,12 @@ using TMPro;
 
 public class BattleDebug : MonoBehaviour
 {
-     public class BattleStatus{
-        public BattleStatus(){}
+    public class BattleStatus
+    {
+        public BattleStatus()
+        {
+        }
+
         public int attackLevel, defenseLevel, speedLevel, specialLevel;
         public bool[] isDisabled = new bool[4];
     }
@@ -20,12 +24,10 @@ public class BattleDebug : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

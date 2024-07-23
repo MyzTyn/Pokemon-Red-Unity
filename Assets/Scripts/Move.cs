@@ -1,5 +1,6 @@
 [System.Serializable]
-public class Move {
+public class Move
+{
     public int moveIndex;
     public string name;
     public int pp;
@@ -17,6 +18,7 @@ public class Move {
         pp = maxpp;
         type = moveData.type;
     }
+
     public Move()
     {
         this.moveIndex = (int)Moves.None;
@@ -27,7 +29,8 @@ public class Move {
     }
 }
 
-public enum Status {
+public enum Status
+{
     Ok,
     Sleep,
     Burn,

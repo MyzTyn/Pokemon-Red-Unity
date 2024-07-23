@@ -35,7 +35,8 @@ namespace UnityEngine.Tilemaps
             }
         }
 
-        public override bool GetTileAnimationData(Vector3Int location, ITilemap tileMap, ref TileAnimationData tileAnimationData)
+        public override bool GetTileAnimationData(Vector3Int location, ITilemap tileMap,
+            ref TileAnimationData tileAnimationData)
         {
             if (m_AnimatedSprites.Length > 0)
             {
@@ -46,10 +47,13 @@ namespace UnityEngine.Tilemaps
                 {
                     var tilemapComponent = tileMap.GetComponent<Tilemap>();
                     if (tilemapComponent != null && tilemapComponent.animationFrameRate > 0)
-                        tileAnimationData.animationStartTime = (m_AnimationStartFrame - 1) / tilemapComponent.animationFrameRate;
+                        tileAnimationData.animationStartTime =
+                            (m_AnimationStartFrame - 1) / tilemapComponent.animationFrameRate;
                 }
+
                 return true;
             }
+
             return false;
         }
     }
@@ -58,15 +62,19 @@ namespace UnityEngine.Tilemaps
     [CustomEditor(typeof(CustomAnimatedTile))]
     public class CustomAnimatedTileEditor : Editor
     {
-        private CustomAnimatedTile tile { get { return (target as CustomAnimatedTile); } }
+        private CustomAnimatedTile tile
+        {
+            get { return (target as CustomAnimatedTile); }
+        }
 
         public override void OnInspectorGUI()
         {
             EditorGUI.BeginChangeCheck();
-            int count = EditorGUILayout.DelayedIntField("Number of Animated Sprites", tile.m_AnimatedSprites != null ? tile.m_AnimatedSprites.Length : 0);
+            int count = EditorGUILayout.DelayedIntField("Number of Animated Sprites",
+                tile.m_AnimatedSprites != null ? tile.m_AnimatedSprites.Length : 0);
             if (count < 0)
                 count = 0;
-                
+
             if (tile.m_AnimatedSprites == null || tile.m_AnimatedSprites.Length != count)
             {
                 Array.Resize<Sprite>(ref tile.m_AnimatedSprites, count);
@@ -80,35 +88,37 @@ namespace UnityEngine.Tilemaps
 
             for (int i = 0; i < count; i++)
             {
-                tile.m_AnimatedSprites[i] = (Sprite) EditorGUILayout.ObjectField("Sprite " + (i+1), tile.m_AnimatedSprites[i], typeof(Sprite), false, null);
+                tile.m_AnimatedSprites[i] = (Sprite)EditorGUILayout.ObjectField("Sprite " + (i + 1),
+                    tile.m_AnimatedSprites[i], typeof(Sprite), false, null);
             }
-            
+
             float minSpeed = EditorGUILayout.FloatField("Minimum Speed", tile.m_MinSpeed);
             float maxSpeed = EditorGUILayout.FloatField("Maximum Speed", tile.m_MaxSpeed);
             if (minSpeed < 0.0f)
                 minSpeed = 0.0f;
-                
+
             if (maxSpeed < 0.0f)
                 maxSpeed = 0.0f;
-                
+
             if (maxSpeed < minSpeed)
                 maxSpeed = minSpeed;
-            
+
             tile.m_MinSpeed = minSpeed;
             tile.m_MaxSpeed = maxSpeed;
 
-            using (new EditorGUI.DisabledScope(0 < tile.m_AnimationStartFrame && tile.m_AnimationStartFrame <= tile.m_AnimatedSprites.Length))
+            using (new EditorGUI.DisabledScope(0 < tile.m_AnimationStartFrame &&
+                                               tile.m_AnimationStartFrame <= tile.m_AnimatedSprites.Length))
             {
-                tile.m_AnimationStartTime = EditorGUILayout.FloatField("Start Time", tile.m_AnimationStartTime);    
+                tile.m_AnimationStartTime = EditorGUILayout.FloatField("Start Time", tile.m_AnimationStartTime);
             }
 
             tile.m_AnimationStartFrame = EditorGUILayout.IntField("Start Frame", tile.m_AnimationStartFrame);
 
             //tile.m_TileColliderType=(Tile.ColliderType) EditorGUILayout.EnumPopup("Collider Type", tile.m_TileColliderType);
 
-            tile.isWall = EditorGUILayout.Toggle("Is Wall",tile.isWall);
-            tile.isLedge = EditorGUILayout.Toggle("Is Ledge",tile.isLedge);
-            tile.isWater = EditorGUILayout.Toggle("Is Water",tile.isWater);
+            tile.isWall = EditorGUILayout.Toggle("Is Wall", tile.isWall);
+            tile.isLedge = EditorGUILayout.Toggle("Is Ledge", tile.isLedge);
+            tile.isWater = EditorGUILayout.Toggle("Is Water", tile.isWater);
             if (EditorGUI.EndChangeCheck())
                 EditorUtility.SetDirty(tile);
         }
