@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using PokemonUnity;
 using PokemonUnity.Inventory;
+using Types = PokemonUnity.Types;
 
 [System.Serializable]
 public class LevelUpMove
@@ -124,7 +125,7 @@ public class PokemonData
 
     public static string GetTypeName(Types type)
     {
-        if (type == Types.None) return "";
+        if (type == Types.NONE) return "";
         else return typeNames[(int)type - 1];
     }
 

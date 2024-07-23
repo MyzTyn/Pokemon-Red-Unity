@@ -1,4 +1,6 @@
-﻿[System.Serializable]
+﻿using PokemonUnity;
+
+[System.Serializable]
 public class MoveData
 {
     public MoveData(string name, int power, Types type, int accuracy, int maxpp, MoveEffect effect)

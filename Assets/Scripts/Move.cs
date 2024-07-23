@@ -1,3 +1,5 @@
+using PokemonUnity;
+
 [System.Serializable]
 public class Move
 {
@@ -25,7 +27,7 @@ public class Move
 
         maxpp = 0;
         pp = 0;
-        type = Types.None; //Look at ths later
+        type = Types.NONE; //Look at ths later
     }
 }
 

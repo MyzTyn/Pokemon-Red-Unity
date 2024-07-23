@@ -5,6 +5,7 @@ using PokemonUnity;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Windows;
+using Types = PokemonUnity.Types;
 
 
 public class PokemonDataJSON : MonoBehaviour
